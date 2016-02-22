@@ -9,6 +9,6 @@ package numbergame;
  *
  * @author laurenritter
  */
-public class Circle extends GameController{
+public class Apple extends GameController{
     
 }
