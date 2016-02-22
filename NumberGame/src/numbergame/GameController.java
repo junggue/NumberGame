@@ -24,8 +24,7 @@ public class GameController {
     public void deletePanel(){
     }
     
-    
-    
+
     //draw apples at 9 spots with different numbers
     public void drawApples(){
         
