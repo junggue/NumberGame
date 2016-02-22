@@ -58,34 +58,12 @@ public class MainTable implements ActionListener {
                 mainFrame.setBounds(280, 100, 500, 450);
                 mainFrame.setVisible(true);
         }
-        public void randomBuild() {
-                int randoms, cols, rows;
-                for (int twins = 1; twins <= 15; twins++) {
-                        randoms = (int) (Math.random() * 25 + 1);
-                        for (int alike = 1; alike <= 2; alike++) {
-                                cols = (int) (Math.random() * 3 + 1);
-                                rows = (int) (Math.random() * 3 + 1);
-                                while (grid[cols][rows] != 0) {
-                                        cols = (int) (Math.random() * 3 + 1);
-                                        rows = (int) (Math.random() * 3 + 1);
-                                }
-                                this.grid[cols][rows] = randoms;
-                        }
-                }
-        }
+        
         public void fraction() {
                 fractionLable.setText(String.valueOf(Integer.parseInt(fractionLable
                                 .getText()) + 100));
         }
-        public void remove() {
-                firstButton.setVisible(false);
-                secondButton.setVisible(false);
-                fraction();
-                pressInformation = false;
-                k = 0;
-                grid[x0][y0] = 0;
-                grid[x][y] = 0;
-        }
+        
         public void actionPerformed(ActionEvent e) {
                 
         }
