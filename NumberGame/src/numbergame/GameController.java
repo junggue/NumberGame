@@ -5,10 +5,45 @@
  */
 package numbergame;
 
+import java.util.Random;
+
 /**
  *
  * @author laurenritter
  */
 public class GameController {
+    
+    //by creating the controller, it will create an panel
+    public GameController(){
+    
+    }
+    
+    public void drawPanel(){    
+    }
+    
+    public void deletePanel(){
+    }
+    
+
+    //draw apples at 9 spots with different numbers
+    public void drawApples(){
+        
+    }
+    
+    //with range 1 ~ 5
+    public int getRandomNum(int start, int end, Random random){
+        return showRandomInteger(start, end, random);
+    }
+    
+    private static int showRandomInteger(int start, int end, Random random){
+        if (start > end){
+            throw new IllegalArgumentException("no exceed");
+        }
+        long range = (long)end - (long)start;
+        long fraction = (long)(range * random.nextDouble());
+        int randomNumber = (int)(fraction + start);
+        return randomNumber;
+    }
+    
     
 }
