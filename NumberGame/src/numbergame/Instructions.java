@@ -32,9 +32,9 @@ public class Instructions extends JPanel{
         
         instruct.add(instructions, BorderLayout.NORTH);
         instruct.add(whatToDo, BorderLayout.CENTER);
-        instruct.add(exitButton);
-        instruct.add(backButton);
-        instruct.add(startButton);
+        instruct.add(exitButton, BorderLayout.SOUTH);
+        instruct.add(backButton, BorderLayout.SOUTH);
+        instruct.add(startButton, BorderLayout.SOUTH);
         
         instruct.setVisible(true);
     }
