@@ -14,16 +14,41 @@ import java.util.Random;
 public class GameController {
     
     private Random random;
+    private int[][] gameMatrix;
+    private int[] options;
+    private boolean[] optionsChosen;
+    
+    private int userSum;        
+    private int goalNumber;
     
     //by creating the controller, it will create an panel
     public GameController(){
-    
+        gameMatrix = new int[3][3];
+        options = new int[9];
+        optionsChosen = new boolean[9];
+        goalNumber = getRandomNum(9,36);
+        
+        //the options are not selected yet
+        for(int i = 0;i<optionsChosen.length;i++){
+            optionsChosen[i] = false;
+        }
+        
+        for(int i = 0;i<gameMatrix.length;i++){
+            for(int j = 0;j<gameMatrix[i].length;j++){
+                gameMatrix[i][j] = getRandomNum(1,4);
+            }
+        }
+        
+        
     }
     
-    public void drawPanel(){    
+    public void chooseOption(){    
+        System.out.println("choose from 1 to 9");
+        
+        
     }
     
-    public void deletePanel(){
+    public void sumOptionsSelected(){
     }
     
 
@@ -50,3 +75,4 @@ public class GameController {
     
     
 }
+
