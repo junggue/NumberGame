@@ -22,7 +22,7 @@ public class Apple {
     private Color appleColor;
 
     Apple(int diameter) {
-//        apple = new Circle();
+//      apple = new Circle();
         this.appleColor = Color.RED;
         this.diameter = diameter;
     }

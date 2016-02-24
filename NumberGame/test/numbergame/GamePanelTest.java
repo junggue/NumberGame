@@ -5,6 +5,7 @@
  */
 package numbergame;
 
+import java.awt.Graphics;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author laurenritter
  */
-public class AppleTest {
+public class GamePanelTest {
     
-    public AppleTest() {
+    public GamePanelTest() {
     }
     
     @BeforeClass
@@ -37,8 +38,27 @@ public class AppleTest {
     public void tearDown() {
     }
 
+    /**
+     * Test of initComponents method, of class GamePanel.
+     */
     @Test
-    public void testSomeMethod() {
+    public void testInitComponents() {
+        System.out.println("initComponents");
+        GamePanel instance = new GamePanel();
+        instance.initComponents();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of paint method, of class GamePanel.
+     */
+    @Test
+    public void testPaint() {
+        System.out.println("paint");
+        Graphics g = null;
+        GamePanel instance = new GamePanel();
+        instance.paint(g);
         // TODO review the generated test code and remove the default call to fail.
     }
     
