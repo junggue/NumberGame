@@ -5,10 +5,21 @@
  */
 package numbergame;
 
+import java.awt.*;
+import javax.swing.*;
+
 /**
  *
  * @author junggue
  */
-public class GameFrame {
-    
+public class GameFrame extends JFrame {
+    public GameFrame ()
+	{
+		super ("AppleGame");		
+  	 	GamePanel theGamePanel = new GamePanel();
+                add(theGamePanel,"Center");      
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setSize (700, 700);
+		setVisible(true);
+	}
 }

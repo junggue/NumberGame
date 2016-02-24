@@ -9,6 +9,35 @@ package numbergame;
  *
  * @author junggue
  */
-public class GamePanel {
-    
+import java.awt.*;
+import javax.swing.*;
+
+public class GamePanel extends JPanel {
+
+    private Apple apple;
+    private GameController theGameController;
+    private JButton testButton;
+    private int randomNum;
+
+    public GamePanel() {
+
+        super();
+        theGameController = new GameController();
+        apple = new Apple(30);
+
+        testButton = new JButton("4" + theGameController.getRandomNum(1, 6));
+        this.add(testButton, "CENTER");
+
+    }
+
+    public void initComponents() {
+
+    }
+
+    public void paint(Graphics g) {
+        super.paintComponent(g);
+        apple.paintComponent(g, 40, 40);
+
+    }
+
 }
