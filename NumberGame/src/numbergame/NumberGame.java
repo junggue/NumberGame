@@ -16,9 +16,17 @@ public class NumberGame {
      */
     public static void main(String[] args) {
         // TODO code application logic here 
-        MainTable mt = new MainTable();
-        mt.init();
-    }
-    }
-    
+        //MainTable mt = new MainTable();
+        //mt.init();
 
+        GameFrame theGameFrame = new GameFrame();
+        GameController g = new GameController();
+
+        //test the random number generator
+        System.out.println(g.getRandomNum(1, 5));
+        System.out.println(g.getRandomNum(1, 5));
+        System.out.println(g.getRandomNum(1, 5));
+        System.out.println(g.getRandomNum(1, 5));
+        System.out.println(g.getRandomNum(1, 5));
+    }
+}
