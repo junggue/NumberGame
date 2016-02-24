@@ -21,7 +21,10 @@ public class Instructions extends JPanel{
     public Instructions(){
         exitButton = new JButton("Exit");
         backButton = new JButton("Back to Main Screen");
-        startButton = new JButton("Start game");
+        startButton = new JButton("Start Game!");
         System.out.println("On the top of the screen you will see a number along with 'apples' containing numbers. Click the apples with the correct numbers to reach the goal number.");
+        this.add(exitButton);
+        this.add(backButton);
+        this.add(startButton);
     }
 }
