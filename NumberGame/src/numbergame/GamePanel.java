@@ -15,6 +15,7 @@ import javax.swing.*;
 public class GamePanel extends JPanel {
 
     private Apple apple;
+    private Box box;
     private GameController theGameController;
     private JButton testButton;
     private int randomNum;
@@ -24,6 +25,7 @@ public class GamePanel extends JPanel {
         super();
         theGameController = new GameController();
         apple = new Apple(30);
+        box = new Box(30);
 
         testButton = new JButton("4" + theGameController.getRandomNum(1, 6));
         this.add(testButton, "CENTER");
@@ -37,6 +39,7 @@ public class GamePanel extends JPanel {
     public void paint(Graphics g) {
         super.paintComponent(g);
         apple.paintComponent(g, 40, 40);
+        box.paintComponent(g, 40, 40);
 
     }
 
