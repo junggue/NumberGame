@@ -27,6 +27,10 @@ public class Apple{
         appleColor = Color.red;
         diameter = 10;
     }
+
+    Apple(int i, int i0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     public void paintComponent(Graphics g){
         g.setColor(appleColor);
