@@ -6,6 +6,7 @@
 package numbergame;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -17,14 +18,18 @@ public class Instructions extends JPanel{
     private JButton backButton;
     private JButton startButton;
     GameController theGameController;
+    private JLabel instructions;
     
     public Instructions(){
+        JPanel instruct = new JPanel();
+        
+        instructions = new JLabel("Instructions");
         exitButton = new JButton("Exit");
         backButton = new JButton("Back to Main Screen");
         startButton = new JButton("Start Game!");
-        System.out.println("On the top of the screen you will see a number along with 'apples' containing numbers. Click the apples with the correct numbers to reach the goal number.");
-        this.add(exitButton);
-        this.add(backButton);
-        this.add(startButton);
+        
+        instruct.add(exitButton);
+        instruct.add(backButton);
+        instruct.add(startButton);
     }
 }
