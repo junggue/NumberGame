@@ -25,7 +25,7 @@ public class Apple {
     private int radius;
     private Color appleColor;
 
-    Apple() {
+    Apple(int radius) {
 //        apple = new Circle();
         //this.appleColor = Color.RED;
         //this.radius = radius;
