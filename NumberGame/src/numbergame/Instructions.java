@@ -6,6 +6,8 @@
 package numbergame;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -14,7 +16,7 @@ import javax.swing.JPanel;
  *
  * @author laurenritter
  */
-public class Instructions extends JPanel{
+public class Instructions extends JPanel implements ActionListener{
     private JButton exitButton;
     private JButton backButton;
     private JButton startButton;
@@ -37,5 +39,10 @@ public class Instructions extends JPanel{
         instruct.add(startButton, BorderLayout.SOUTH);
         
         instruct.setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        
     }
 }
