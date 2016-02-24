@@ -28,9 +28,9 @@ public class Apple{
         diameter = 10;
     }
 
-    Apple(int i, int i0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    Apple(int i, int i0) {
+//        
+//    }
     
     public void paintComponent(Graphics g){
         g.setColor(appleColor);
