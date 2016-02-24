@@ -17,25 +17,35 @@ import static javax.swing.SwingUtilities.paintComponent;
  *
  * @author laurenritter
  */
-public class Apple{
+public class Apple {
 //    private Circle apple = null;
-    private final double diameter;
-    private final Color appleColor;
-    
-    Apple(){
+    //private final double diameter;
+    //private final Color appleColor;
+
+    private int radius;
+    private Color appleColor;
+
+    Apple() {
 //        apple = new Circle();
-        appleColor = Color.red;
-        diameter = 10;
+        //this.appleColor = Color.RED;
+        //this.radius = radius;
+        this.appleColor = Color.RED;
+        this.radius = radius;
     }
 
-    Apple(int i, int i0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    public void paintComponent(Graphics g){
+    public void paintComponent(Graphics g) {
+        /*
+         g.setColor(appleColor);
+         Graphics2D g2d = (Graphics2D)g;
+         Ellipse2D.Double apple = new Ellipse2D.Double(10, 10, diameter, diameter);
+         g2d.fill(apple);
+         */
+
+        //updated - Junggue
         g.setColor(appleColor);
-        Graphics2D g2d = (Graphics2D)g;
-        Ellipse2D.Double apple = new Ellipse2D.Double(10, 10, diameter, diameter);
+        Graphics2D g2d = (Graphics2D) g;
+        Ellipse2D.Double apple = new Ellipse2D.Double(x, y, radius, radius);
         g2d.fill(apple);
+
     }
 }

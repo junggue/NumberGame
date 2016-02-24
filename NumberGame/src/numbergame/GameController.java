@@ -6,33 +6,35 @@
 package numbergame;
 
 import java.util.Random;
-import java.awt.*;
-import javax.swing.*;
 
-
+/**
+ *
+ * @author laurenritter
+ */
 public class GameController {
     
-    private Apple apple;
-    private GamePanel theGamePanel;
+    private Random random;
     
+    //by creating the controller, it will create an panel
     public GameController(){
-        theGamePanel = new GamePanel();
+    
     }
     
     public void drawPanel(){    
     }
     
     public void deletePanel(){
-        
     }
     
 
     //draw apples at 9 spots with different numbers
     public void drawApples(){
+        
     }
     
     //with range 1 ~ 5
-    public int getRandomNum(int start, int end, Random random){
+    public int getRandomNum(int start, int end){
+        random = new Random();
         return showRandomInteger(start, end, random);
     }
     
