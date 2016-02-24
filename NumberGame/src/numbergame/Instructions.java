@@ -18,7 +18,6 @@ public class Instructions extends JPanel{
     private JButton exitButton;
     private JButton backButton;
     private JButton startButton;
-    GameController theGameController;
     private JLabel instructions;
     private JLabel whatToDo;
     
