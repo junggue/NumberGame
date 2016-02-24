@@ -33,7 +33,7 @@ public class Apple {
         this.radius = radius;
     }
 
-    public void paintComponent(Graphics g) {
+    public void paintComponent(Graphics g, int x, int y) {
         /*
          g.setColor(appleColor);
          Graphics2D g2d = (Graphics2D)g;
