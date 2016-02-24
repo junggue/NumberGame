@@ -7,26 +7,31 @@ package numbergame;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Point;
-import javafx.scene.shape.Circle;
+import java.awt.geom.Ellipse2D;
+import static javax.swing.SwingUtilities.paintComponent;
+import static javax.swing.SwingUtilities.paintComponent;
 
 /**
  *
  * @author laurenritter
  */
-public class Apple extends Circle{
-    private Circle apple = null;
-    private final double radius;
+public class Apple{
+//    private Circle apple = null;
+    private final double diameter;
     private final Color appleColor;
     
     Apple(){
-        apple = new Circle();
-        radius = 50.0;
+//        apple = new Circle();
         appleColor = Color.red;
+        diameter = 10;
     }
     
-    public void draw(Graphics graph){
-        graph.setColor(appleColor);
-        //graph.(0, 0, this.apple, this.apple);
+    public void paintComponent(Graphics g){
+        g.setColor(appleColor);
+        Graphics2D g2d = (Graphics2D)g;
+        Ellipse2D.Double apple = new Ellipse2D.Double(10, 10, diameter, diameter);
+        g2d.fill(apple);
     }
 }
