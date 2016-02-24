@@ -5,6 +5,7 @@
  */
 package numbergame;
 
+import java.awt.BorderLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -19,17 +20,23 @@ public class Instructions extends JPanel{
     private JButton startButton;
     GameController theGameController;
     private JLabel instructions;
+    private JLabel whatToDo;
     
     public Instructions(){
         JPanel instruct = new JPanel();
         
         instructions = new JLabel("Instructions");
+        whatToDo = new JLabel("On the top of the screen you will see a number along with 'apples' containing numbers. Click the apples with the correct numbers to reach the goal number.");
         exitButton = new JButton("Exit");
         backButton = new JButton("Back to Main Screen");
         startButton = new JButton("Start Game!");
         
+        instruct.add(instructions, BorderLayout.NORTH);
+        instruct.add(whatToDo, BorderLayout.CENTER);
         instruct.add(exitButton);
         instruct.add(backButton);
         instruct.add(startButton);
+        
+        instruct.setVisible(true);
     }
 }
