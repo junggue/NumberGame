@@ -33,10 +33,6 @@ public class Apple {
         this.radius = radius;
     }
 
-//    Apple(int i, int i0) {
-//        
-//    }
-
     public void paintComponent(Graphics g, int x, int y) {
         /*
          g.setColor(appleColor);
