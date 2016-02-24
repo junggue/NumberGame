@@ -18,10 +18,6 @@ import static javax.swing.SwingUtilities.paintComponent;
  * @author laurenritter
  */
 public class Apple {
-//    private Circle apple = null;
-    //private final double diameter;
-    //private final Color appleColor;
-
     private int diameter;
     private Color appleColor;
 
