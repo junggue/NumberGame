@@ -50,15 +50,43 @@ public class GameController {
         int numChosen;
 
         while (!doneClicked) {
+            System.out.println("Goal Number: " + goalNumber);
             System.out.println("choose from 1 to 9");
             numChosen = scnr.nextInt();
             if (optionsChosen[numChosen] == false) {
                 optionsChosen[numChosen] = true;
                 sumOptionsSelected(numChosen);
-
             } else {
                 System.out.println("You already chose the number");
             }
+            System.out.println("sum: " + getSum());
+            getDoneClicked();
+        }
+
+        System.out.println("Result Message: " + checkResult());
+    }
+
+    public int getSum() {
+        return this.userSum;
+    }
+
+    public boolean getDoneClicked() {
+        return doneClicked;
+    }
+
+    public void setDoneClicked(boolean newValue) {
+        this.doneClicked = newValue;
+    }
+
+    public void dontButtonClicked() {
+        this.doneClicked = true;
+    }
+
+    public String checkResult() {
+        if (this.goalNumber == this.userSum) {
+            return "You Won";
+        } else {
+            return "You Lost";
         }
     }
 
@@ -67,7 +95,7 @@ public class GameController {
         int num = 0;
         for (int i = 0; i < gameMatrix.length; i++) {
             for (int j = 0; j < gameMatrix[i].length; j++) {
-                System.out.print("["+ (num++) +"]");
+                System.out.print("[" + (num++) + "]");
                 System.out.print(gameMatrix[i][j]);
             }
             System.out.println();
@@ -108,11 +136,6 @@ public class GameController {
                 break;
 
         }
-    }
-
-    //draw apples at 9 spots with different numbers
-    public void drawApples() {
-
     }
 
     //with range 1 ~ 5
