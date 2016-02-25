@@ -34,6 +34,7 @@ public class Instructions extends JFrame implements ActionListener{
         panel = new JPanel();
         
         instructContainer = instructionsFrame.getContentPane();
+        instructContainer.setLayout(new BorderLayout());
         instructContainer.add(panel);
         
         this.setLocationRelativeTo(null);
