@@ -22,13 +22,19 @@ public class GameModel {
     private int userSum;
     private int goalNumber;
 
+    private final int COLUMN = 3;
+    private final int RAW = 3;
+    private final int MIN_RANDOM_NUM = 1;
+    private final int MAX_RANDOM_NUM = 5;
+
     //by creating the controller, it will create an panel
     public GameModel() {
-        gameMatrix = new int[3][3];
-        options = new int[9];
-        optionsChosen = new boolean[9];
+
+        gameMatrix = new int[RAW][COLUMN];
+        options = new int[RAW * COLUMN];
+        optionsChosen = new boolean[RAW * COLUMN];
         doneClicked = false;
-        goalNumber = getRandomNum(9, 36);
+        goalNumber = getRandomNum(RAW * COLUMN * MIN_RANDOM_NUM, RAW * COLUMN * MAX_RANDOM_NUM);
 
         //the options are not selected yet
         for (int i = 0; i < optionsChosen.length; i++) {
@@ -38,7 +44,7 @@ public class GameModel {
         //assign random numbers in the matrix
         for (int i = 0; i < gameMatrix.length; i++) {
             for (int j = 0; j < gameMatrix[i].length; j++) {
-                gameMatrix[i][j] = getRandomNum(1, 5);
+                gameMatrix[i][j] = getRandomNum(MIN_RANDOM_NUM, MAX_RANDOM_NUM);
             }
         }
 
