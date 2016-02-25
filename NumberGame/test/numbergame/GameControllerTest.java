@@ -38,42 +38,6 @@ public class GameControllerTest {
     }
 
     /**
-     * Test of drawPanel method, of class GameController.
-     */
-    @Test
-    public void testDrawPanel() {
-        System.out.println("drawPanel");
-        GameController instance = new GameController();
-        instance.drawPanel();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of deletePanel method, of class GameController.
-     */
-    @Test
-    public void testDeletePanel() {
-        System.out.println("deletePanel");
-        GameController instance = new GameController();
-        instance.deletePanel();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of drawApples method, of class GameController.
-     */
-    @Test
-    public void testDrawApples() {
-        System.out.println("drawApples");
-        GameController instance = new GameController();
-        instance.drawApples();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of getRandomNum method, of class GameController.
      */
     @Test
