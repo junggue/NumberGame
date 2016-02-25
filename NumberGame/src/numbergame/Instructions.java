@@ -6,6 +6,7 @@
 package numbergame;
 
 import java.awt.BorderLayout;
+import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -19,6 +20,8 @@ import javax.swing.WindowConstants;
  * @author laurenritter
  */
 public class Instructions extends JFrame implements ActionListener{
+    private Container instructContainer;
+    private JFrame instructionsFrame;
     private JButton exitButton;
     private JButton backButton;
     private JButton startButton;
@@ -27,7 +30,11 @@ public class Instructions extends JFrame implements ActionListener{
     private JPanel panel;
     
     public Instructions(){
+        instructionsFrame = new JFrame("Instructions");
         panel = new JPanel();
+        
+        instructContainer = instructionsFrame.getContentPane();
+        instructContainer.add(panel);
         
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
