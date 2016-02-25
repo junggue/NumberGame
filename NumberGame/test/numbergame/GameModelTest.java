@@ -16,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author laurenritter
  */
-public class GameControllerTest {
+public class GameModelTest {
     
-    public GameControllerTest() {
+    public GameModelTest() {
     }
     
     @BeforeClass
@@ -38,50 +38,14 @@ public class GameControllerTest {
     }
 
     /**
-     * Test of drawPanel method, of class GameController.
-     */
-    @Test
-    public void testDrawPanel() {
-        System.out.println("drawPanel");
-        GameController instance = new GameController();
-        instance.drawPanel();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of deletePanel method, of class GameController.
-     */
-    @Test
-    public void testDeletePanel() {
-        System.out.println("deletePanel");
-        GameController instance = new GameController();
-        instance.deletePanel();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of drawApples method, of class GameController.
-     */
-    @Test
-    public void testDrawApples() {
-        System.out.println("drawApples");
-        GameController instance = new GameController();
-        instance.drawApples();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getRandomNum method, of class GameController.
+     * Test of getRandomNum method, of class GameModel.
      */
     @Test
     public void testGetRandomNum() {
         System.out.println("getRandomNum");
         int start = 0;
         int end = 0;
-        GameController instance = new GameController();
+        GameModel instance = new GameModel();
         int expResult = 0;
         int result = instance.getRandomNum(start, end);
         assertEquals(expResult, result);
@@ -89,37 +53,37 @@ public class GameControllerTest {
     }
 
     /**
-     * Test of chooseOption method, of class GameController.
+     * Test of chooseOption method, of class GameModel.
      */
     @Test
     public void testChooseOption() {
         System.out.println("chooseOption");
-        GameController instance = new GameController();
+        GameModel instance = new GameModel();
         instance.chooseOption();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of printMatrix method, of class GameController.
+     * Test of printMatrix method, of class GameModel.
      */
     @Test
     public void testPrintMatrix() {
         System.out.println("printMatrix");
-        GameController instance = new GameController();
+        GameModel instance = new GameModel();
         instance.printMatrix();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of sumOptionsSelected method, of class GameController.
+     * Test of sumOptionsSelected method, of class GameModel.
      */
     @Test
     public void testSumOptionsSelected() {
         System.out.println("sumOptionsSelected");
         int numChosen = 0;
-        GameController instance = new GameController();
+        GameModel instance = new GameModel();
         instance.sumOptionsSelected(numChosen);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

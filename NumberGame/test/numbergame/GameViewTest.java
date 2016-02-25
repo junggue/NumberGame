@@ -16,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author laurenritter
  */
-public class GameFrameTest {
+public class GameViewTest {
     
-    public GameFrameTest() {
+    public GameViewTest() {
     }
     
     @BeforeClass

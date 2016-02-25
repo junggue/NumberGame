@@ -19,15 +19,11 @@ public class NumberGame {
         //MainTable mt = new MainTable();
         //mt.init();
 
-        //GameFrame theGameFrame = new GameFrame();
-        GameController g = new GameController();
+        GameCntl theGameCntl = new GameCntl();
 
         //test the random number generator
-        g.printMatrix();
-        
-        g.chooseOption();
-        
-        
-        System.out.println();
+        //GameModel g = new GameModel();
+        //g.printMatrix();
+        //g.chooseOption();
     }
 }
