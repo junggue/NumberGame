@@ -87,5 +87,42 @@ public class GameControllerTest {
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
     }
+
+    /**
+     * Test of chooseOption method, of class GameController.
+     */
+    @Test
+    public void testChooseOption() {
+        System.out.println("chooseOption");
+        GameController instance = new GameController();
+        instance.chooseOption();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of printMatrix method, of class GameController.
+     */
+    @Test
+    public void testPrintMatrix() {
+        System.out.println("printMatrix");
+        GameController instance = new GameController();
+        instance.printMatrix();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of sumOptionsSelected method, of class GameController.
+     */
+    @Test
+    public void testSumOptionsSelected() {
+        System.out.println("sumOptionsSelected");
+        int numChosen = 0;
+        GameController instance = new GameController();
+        instance.sumOptionsSelected(numChosen);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
     
 }
