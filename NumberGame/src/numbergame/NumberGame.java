@@ -20,7 +20,7 @@ public class NumberGame {
         //mt.init();
 
         //GameFrame theGameFrame = new GameFrame();
-        GameController g = new GameController();
+        GameModel g = new GameModel();
 
         //test the random number generator
         g.printMatrix();

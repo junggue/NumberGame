@@ -16,7 +16,7 @@ public class GameFrame extends JFrame {
     public GameFrame ()
 	{
 		super ("AppleGame");		
-  	 	GamePanel theGamePanel = new GamePanel();
+  	 	GameUI theGamePanel = new GameUI();
                 add(theGamePanel,"Center");      
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize (700, 700);

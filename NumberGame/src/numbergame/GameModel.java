@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author laurenritter
  */
-public class GameController {
+public class GameModel {
 
     private Random random;
     private int[][] gameMatrix;
@@ -23,7 +23,7 @@ public class GameController {
     private int goalNumber;
 
     //by creating the controller, it will create an panel
-    public GameController() {
+    public GameModel() {
         gameMatrix = new int[3][3];
         options = new int[9];
         optionsChosen = new boolean[9];

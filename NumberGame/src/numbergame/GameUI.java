@@ -12,18 +12,18 @@ package numbergame;
 import java.awt.*;
 import javax.swing.*;
 
-public class GamePanel extends JPanel {
+public class GameUI extends JPanel {
 
     private Apple apple;
     private Box box;
-    private GameController theGameController;
+    private GameModel theGameController;
     private JButton testButton;
     private int randomNum;
 
-    public GamePanel() {
+    public GameUI() {
 
         super();
-        theGameController = new GameController();
+        theGameController = new GameModel();
         apple = new Apple(30);
         box = new Box(30);
 
