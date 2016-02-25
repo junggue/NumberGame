@@ -41,12 +41,14 @@ public class Instructions extends JFrame implements ActionListener{
         panel.add(startButton, BorderLayout.SOUTH);
         
         exitButton.addActionListener(this);
+        backButton.addActionListener(this);
+        startButton.addActionListener(this);
         
         panel.setVisible(true);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+
     }
 }
