@@ -17,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author laurenritter
  */
-public class GameUITest {
+public class GamePanelTest {
     
-    public GameUITest() {
+    public GamePanelTest() {
     }
     
     @BeforeClass

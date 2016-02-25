@@ -58,6 +58,7 @@ public class GameModel {
         while (!doneClicked) {
             System.out.println("Goal Number: " + goalNumber);
             System.out.println("choose from 1 to 9");
+            //user selects the option
             numChosen = scnr.nextInt();
             if (optionsChosen[numChosen] == false) {
                 optionsChosen[numChosen] = true;
