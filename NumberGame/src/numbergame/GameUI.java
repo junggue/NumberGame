@@ -16,31 +16,39 @@ public class GameUI extends JPanel {
 
     private Apple apple;
     private Box box;
-    private GameModel theGameController;
+    private GameCntl theGameCntl;
     private JButton testButton;
     private int randomNum;
 
-    public GameUI() {
+    public GameUI(){
+    }
+    
+    public GameUI(GameCntl parentGameCntl) {
 
         super();
-        theGameController = new GameModel();
-        apple = new Apple(30);
-        box = new Box(30);
-
-        testButton = new JButton("4" + theGameController.getRandomNum(1, 6));
-        this.add(testButton, "CENTER");
+        theGameCntl = parentGameCntl;
+        initComponents();
 
     }
 
     public void initComponents() {
-
+        this.setSize(700, 700);
+        testButton = new JButton("");
+        
     }
 
     public void paint(Graphics g) {
         super.paintComponent(g);
-        apple.paintComponent(g, 40, 40);
-        box.paintComponent(g, 40, 40);
+        requestFocusInWindow();
 
     }
+
+    protected void paintComponent(Graphics g) { 
+    int h = getHeight();
+    int w = getWidth();
+    super.paintComponent(g); 
+    g.setColor(Color.RED);
+    g.fillOval(w/2, h/2, w, h); 
+} 
 
 }

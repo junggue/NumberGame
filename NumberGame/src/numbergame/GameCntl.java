@@ -12,4 +12,15 @@ package numbergame;
  */
 public class GameCntl {
     
+    private GameModel theGameModel;
+    private GameView theGameView;
+    
+    public GameCntl(){
+    
+        theGameView = new GameView(this);
+        theGameModel = new GameModel();
+        theGameView.setVisible(true);
+        
+    }
+    
 }
