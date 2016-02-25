@@ -9,6 +9,7 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -16,15 +17,16 @@ import javax.swing.JPanel;
  *
  * @author laurenritter
  */
-public class Instructions extends JPanel implements ActionListener{
+public class Instructions extends JFrame implements ActionListener{
     private JButton exitButton;
     private JButton backButton;
     private JButton startButton;
     private JLabel instructions;
     private JLabel whatToDo;
+    private JPanel panel;
     
     public Instructions(){
-        JPanel instruct = new JPanel();
+        panel = new JPanel();
         
         instructions = new JLabel("Instructions");
         whatToDo = new JLabel("On the top of the screen you will see a number along with 'apples' containing numbers. Click the apples with the correct numbers to reach the goal number.");
@@ -32,17 +34,21 @@ public class Instructions extends JPanel implements ActionListener{
         backButton = new JButton("Back to Main Screen");
         startButton = new JButton("Start Game!");
         
-        instruct.add(instructions, BorderLayout.NORTH);
-        instruct.add(whatToDo, BorderLayout.CENTER);
-        instruct.add(exitButton, BorderLayout.SOUTH);
-        instruct.add(backButton, BorderLayout.SOUTH);
-        instruct.add(startButton, BorderLayout.SOUTH);
+        panel.add(instructions, BorderLayout.NORTH);
+        panel.add(whatToDo, BorderLayout.CENTER);
+        panel.add(exitButton, BorderLayout.SOUTH);
+        panel.add(backButton, BorderLayout.SOUTH);
+        panel.add(startButton, BorderLayout.SOUTH);
         
-        instruct.setVisible(true);
+        exitButton.addActionListener(this);
+        backButton.addActionListener(this);
+        startButton.addActionListener(this);
+        
+        panel.setVisible(true);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+
     }
 }
