@@ -60,6 +60,7 @@ public class GameModel {
             System.out.println("choose from 1 to 9");
             //user selects the option
             numChosen = scnr.nextInt();
+            printMatrix();
             if (optionsChosen[numChosen] == false) {
                 optionsChosen[numChosen] = true;
                 sumOptionsSelected(numChosen);
