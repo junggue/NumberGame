@@ -12,8 +12,13 @@ public class MainTable implements ActionListener {
         JButton diamondsButton[][] = new JButton[3][3];
         JButton exitButton, resetButton, newlyButton; 
         JLabel fractionLable;
-        int grid[][] = new int[8][7];
+
+        int[][] gameMatrix;
         
+        
+        int grid[][] = new int[3][3];
+        int x0 = 0, y0 = 0, x = 0, y = 0, fristMsg = 0, secondMsg = 0, validateLV;
+
         
         private GameCntl theGameCntl;
         
@@ -36,12 +41,14 @@ public class MainTable implements ActionListener {
                 thisContainer.add(southPanel, "South");
                 thisContainer.add(northPanel, "North");
                 centerPanel.setLayout(new GridLayout(3, 3));
-                for (int cols = 0; cols < 3; cols++) {
-                        for (int rows = 0; rows < 3; rows++) {
-                                diamondsButton[cols][rows] = new JButton(
-                                                String.valueOf(grid[cols + 1][rows + 1]));
-                                diamondsButton[cols][rows].addActionListener(this);
-                                centerPanel.add(diamondsButton[cols][rows]);
+
+                gameMatrix = theGameCntl.theGameModel.getGameMatrix();
+                
+                for (int rows = 0; rows < gameMatrix.length; rows++) {
+                        for (int cols = 0; cols < gameMatrix[rows].length; cols++) {
+                                diamondsButton[rows][cols] = new JButton(""+gameMatrix[rows][cols]);
+                                diamondsButton[rows][cols].addActionListener(this);
+                                centerPanel.add(diamondsButton[rows][cols]);
                         }
                 }
           

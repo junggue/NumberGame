@@ -111,10 +111,10 @@ public class GameModel {
     //for test
     public void printMatrix() {
         int num = 0;
-        for (int i = 0; i < gameMatrix.length; i++) {
-            for (int j = 0; j < gameMatrix[i].length; j++) {
+        for (int i = 0; i < getGameMatrix().length; i++) {
+            for (int j = 0; j < getGameMatrix()[i].length; j++) {
                 System.out.print("[" + (num++) + "]");
-                System.out.print(gameMatrix[i][j]);
+                System.out.print(getGameMatrix()[i][j]);
             }
             System.out.println();
         }
@@ -123,31 +123,31 @@ public class GameModel {
     public void sumOptionsSelected(int numChosen) {
         switch (numChosen) {
             case 0:
-                this.sum += gameMatrix[0][0];
+                this.sum += getGameMatrix()[0][0];
                 break;
             case 1:
-                this.sum += gameMatrix[0][1];
+                this.sum += getGameMatrix()[0][1];
                 break;
             case 2:
-                this.sum += gameMatrix[0][2];
+                this.sum += getGameMatrix()[0][2];
                 break;
             case 3:
-                this.sum += gameMatrix[1][0];
+                this.sum += getGameMatrix()[1][0];
                 break;
             case 4:
-                this.sum += gameMatrix[1][1];
+                this.sum += getGameMatrix()[1][1];
                 break;
             case 5:
-                this.sum += gameMatrix[1][2];
+                this.sum += getGameMatrix()[1][2];
                 break;
             case 6:
-                this.sum += gameMatrix[2][0];
+                this.sum += getGameMatrix()[2][0];
                 break;
             case 7:
-                this.sum += gameMatrix[2][1];
+                this.sum += getGameMatrix()[2][1];
                 break;
             case 8:
-                this.sum += gameMatrix[2][2];
+                this.sum += getGameMatrix()[2][2];
                 break;
             default:
                 System.out.println("wrong number");
@@ -178,6 +178,13 @@ public class GameModel {
         long fraction = (long) (range * random.nextDouble());
         int randomNumber = (int) (fraction + start);
         return randomNumber;
+    }
+
+    /**
+     * @return the gameMatrix
+     */
+    public int[][] getGameMatrix() {
+        return gameMatrix;
     }
 
 }
