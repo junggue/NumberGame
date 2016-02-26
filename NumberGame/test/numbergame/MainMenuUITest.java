@@ -17,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author laurenritter
  */
-public class MainTableTest {
+public class MainMenuUITest {
     
-    public MainTableTest() {
+    public MainMenuUITest() {
     }
     
     @BeforeClass
@@ -39,38 +39,26 @@ public class MainTableTest {
     }
 
     /**
-     * Test of init method, of class MainTable.
+     * Test of initCustomComponents method, of class MainMenuUI.
      */
     @Test
-    public void testInit() {
-        System.out.println("init");
-//        MainTable instance = new MainTable();
-//        instance.init();
+    public void testInitCustomComponents() {
+        System.out.println("initCustomComponents");
+        MainMenuUI instance = new MainMenuUI();
+        instance.initCustomComponents();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of fraction method, of class MainTable.
+     * Test of startButtonActionPerformed method, of class MainMenuUI.
      */
     @Test
-    public void testFraction() {
-        System.out.println("fraction");
-//        MainTable instance = new MainTable();
-//        instance.fraction();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of actionPerformed method, of class MainTable.
-     */
-    @Test
-    public void testActionPerformed() {
-        System.out.println("actionPerformed");
+    public void testStartButtonActionPerformed() {
+        System.out.println("startButtonActionPerformed");
         ActionEvent e = null;
-        //MainTable instance = new MainTable();
-        //instance.actionPerformed(e);
+        MainMenuUI instance = new MainMenuUI();
+        instance.startButtonActionPerformed(e);
         // TODO review the generated test code and remove the default call to fail.
     }
     
