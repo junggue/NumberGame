@@ -33,8 +33,8 @@ public class GameModel {
         options = new int[ROW * COLUMN];
         optionsChosen = new boolean[ROW * COLUMN];
         finishButtonClicked = false;
-        
-        setGoalNum(ROW * COLUMN * MIN_RANDOM_NUM, ROW * COLUMN * MAX_RANDOM_NUM/2);
+
+        setGoalNum(ROW * COLUMN * MIN_RANDOM_NUM, ROW * COLUMN * MAX_RANDOM_NUM / 2);
 
         //the options are not selected yet
         for (int i = 0; i < optionsChosen.length; i++) {
@@ -47,8 +47,6 @@ public class GameModel {
                 gameMatrix[i][j] = getRandomNum(MIN_RANDOM_NUM, MAX_RANDOM_NUM);
             }
         }
-        
-
 
     }
 
@@ -63,7 +61,7 @@ public class GameModel {
             //user selects the option
             numChosen = scnr.nextInt();
             printMatrix();
-            
+
             if (optionsChosen[numChosen] == false) {
                 //button is pushed and cannot pushed again: turning to true
                 numButtonPushed(numChosen);
@@ -78,17 +76,17 @@ public class GameModel {
 
         System.out.println("Result Message: " + checkResult());
     }
-    
+
     public int[][] getGameMatrix() {
         return gameMatrix;
     }
-    
-    public int getGoalNum(){
+
+    public int getGoalNum() {
         return this.goalNum;
     }
-    
+
     //used to set a new goalNum
-    public void setGoalNum(int start, int end){
+    public void setGoalNum(int start, int end) {
         goalNum = getRandomNum(start, end);
     }
 
@@ -116,8 +114,6 @@ public class GameModel {
             return "You Lost";
         }
     }
-    
-    
 
     //for test
     public void printMatrix() {
@@ -166,12 +162,12 @@ public class GameModel {
 
         }
     }
-    
+
     public void numButtonPushed(int optionNum) {
         this.optionsChosen[optionNum] = true;
     }
-    
-    public String errorMessage(){
+
+    public String errorMessage() {
         return "You already chose the number";
     }
 
@@ -194,6 +190,4 @@ public class GameModel {
     /**
      * @return the gameMatrix
      */
-    
-
 }
