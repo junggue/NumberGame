@@ -44,8 +44,8 @@ public class MainTableTest {
     @Test
     public void testInit() {
         System.out.println("init");
-        MainTable instance = new MainTable();
-        instance.init();
+//        MainTable instance = new MainTable();
+//        instance.init();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -56,8 +56,8 @@ public class MainTableTest {
     @Test
     public void testFraction() {
         System.out.println("fraction");
-        MainTable instance = new MainTable();
-        instance.fraction();
+//        MainTable instance = new MainTable();
+//        instance.fraction();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -69,8 +69,8 @@ public class MainTableTest {
     public void testActionPerformed() {
         System.out.println("actionPerformed");
         ActionEvent e = null;
-        MainTable instance = new MainTable();
-        instance.actionPerformed(e);
+        //MainTable instance = new MainTable();
+        //instance.actionPerformed(e);
         // TODO review the generated test code and remove the default call to fail.
     }
     
