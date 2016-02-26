@@ -76,6 +76,10 @@ public class GameModel {
 
         System.out.println("Result Message: " + checkResult());
     }
+    
+    public int getGoalNum(){
+        return this.goalNum;
+    }
 
     public int getSum() {
         return this.sum;
