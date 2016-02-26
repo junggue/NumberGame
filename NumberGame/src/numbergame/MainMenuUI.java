@@ -21,6 +21,7 @@ public class MainMenuUI extends JFrame{
     private JPanel mainPanel;
     private JButton startButton;
     private MainTable theMainTable;
+    private NavigationCntl theNavigationCntl;
     
     MainMenuUI(){
         mainFrame = new JFrame();
@@ -49,6 +50,6 @@ public class MainMenuUI extends JFrame{
     }
     
     public void startButtonActionPerformed(ActionEvent e){
-        
+        theNavigationCntl.toMainTable();
     }
 }
