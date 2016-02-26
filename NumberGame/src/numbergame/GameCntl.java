@@ -5,28 +5,29 @@ package numbergame;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author junggue
  */
 public class GameCntl {
-    
+
     public GameModel theGameModel;
     private GameView theGameView;
     private MainTable theMainTable;
-    
-    public GameCntl(){
-    
+
+    public GameCntl() {
+
         //theGameView = new GameView(this);
         theGameModel = new GameModel();
         theMainTable = new MainTable(this);
-        
+
         //theGameView.setVisible(true);
         //theGameModel.printMatrix();
         //theGameModel.play();
-        
-        
     }
-    
+
+    public GameModel getGameModel() {
+        return theGameModel;
+    }
+
 }

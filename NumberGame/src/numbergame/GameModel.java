@@ -14,7 +14,6 @@ import java.util.Scanner;
  */
 public class GameModel {
 
-    private Random random;
     private int[][] gameMatrix;
     private int[] options;
     private boolean[] optionsChosen;
@@ -27,14 +26,15 @@ public class GameModel {
     private final int MIN_RANDOM_NUM = 1;
     private final int MAX_RANDOM_NUM = 5;
 
-    //by creating the controller, it will create an panel
+    //by creating the controller, it will create a new game
     public GameModel() {
 
         gameMatrix = new int[ROW][COLUMN];
         options = new int[ROW * COLUMN];
         optionsChosen = new boolean[ROW * COLUMN];
         finishButtonClicked = false;
-        goalNum = getRandomNum(ROW * COLUMN * MIN_RANDOM_NUM, ROW * COLUMN * MAX_RANDOM_NUM/2);
+        
+        setGoalNum(ROW * COLUMN * MIN_RANDOM_NUM, ROW * COLUMN * MAX_RANDOM_NUM/2);
 
         //the options are not selected yet
         for (int i = 0; i < optionsChosen.length; i++) {
@@ -79,8 +79,17 @@ public class GameModel {
         System.out.println("Result Message: " + checkResult());
     }
     
+    public int[][] getGameMatrix() {
+        return gameMatrix;
+    }
+    
     public int getGoalNum(){
         return this.goalNum;
+    }
+    
+    //used to set a new goalNum
+    public void setGoalNum(int start, int end){
+        goalNum = getRandomNum(start, end);
     }
 
     public int getSum() {
@@ -168,7 +177,7 @@ public class GameModel {
 
     //with range 1 ~ 5
     public int getRandomNum(int start, int end) {
-        random = new Random();
+        Random random = new Random();
         return showRandomInteger(start, end + 1, random);
     }
 
@@ -185,8 +194,6 @@ public class GameModel {
     /**
      * @return the gameMatrix
      */
-    public int[][] getGameMatrix() {
-        return gameMatrix;
-    }
+    
 
 }
