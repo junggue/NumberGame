@@ -98,7 +98,7 @@ public class MainTable{
         }
 
         public void diamondsButtonActionPerformed(ActionEvent e){
-            
+            System.out.print(e.getActionCommand());
         }
         
         public void finishButtonActionPerformed(ActionEvent e){
