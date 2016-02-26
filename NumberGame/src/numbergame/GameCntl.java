@@ -12,7 +12,7 @@ package numbergame;
  */
 public class GameCntl {
     
-    private GameModel theGameModel;
+    public GameModel theGameModel;
     private GameView theGameView;
     
     public GameCntl(){

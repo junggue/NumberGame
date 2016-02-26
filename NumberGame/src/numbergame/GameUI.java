@@ -20,9 +20,9 @@ public class GameUI extends JPanel {
     private JButton testButton;
     private int randomNum;
 
-    public GameUI(){
+    public GameUI() {
     }
-    
+
     public GameUI(GameCntl parentGameCntl) {
 
         super();
@@ -34,7 +34,7 @@ public class GameUI extends JPanel {
     public void initComponents() {
         this.setSize(700, 700);
         testButton = new JButton("");
-        
+
     }
 
     public void paint(Graphics g) {
@@ -43,12 +43,12 @@ public class GameUI extends JPanel {
 
     }
 
-    protected void paintComponent(Graphics g) { 
-    int h = getHeight();
-    int w = getWidth();
-    super.paintComponent(g); 
-    g.setColor(Color.RED);
-    g.fillOval(w/2, h/2, w, h); 
-} 
+    protected void paintComponent(Graphics g) {
+        int h = getHeight();
+        int w = getWidth();
+        super.paintComponent(g);
+        g.setColor(Color.RED);
+        g.fillOval(w / 2, h / 2, w, h);
+    }
 
 }
