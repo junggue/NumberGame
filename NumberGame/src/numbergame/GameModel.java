@@ -47,6 +47,8 @@ public class GameModel {
                 gameMatrix[i][j] = getRandomNum(MIN_RANDOM_NUM, MAX_RANDOM_NUM);
             }
         }
+        
+
 
     }
 

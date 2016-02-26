@@ -5,20 +5,20 @@ import java.awt.event.*;
 
 
 
-public class MainTable implements ActionListener {
+public class MainTable{
         JFrame mainFrame; 
         Container thisContainer;
         JPanel centerPanel, southPanel, northPanel; 
         JButton diamondsButton[][] = new JButton[3][3];
-        JButton exitButton, resetButton, newlyButton; 
+        JButton exitButton, resetButton, newlyButton, finishButton; 
         JLabel fractionLable;
+        JLabel answerLabel;
 
         int[][] gameMatrix;
         
         
         int grid[][] = new int[3][3];
         int x0 = 0, y0 = 0, x = 0, y = 0, fristMsg = 0, secondMsg = 0, validateLV;
-
         
         private GameCntl theGameCntl;
         
@@ -41,24 +41,47 @@ public class MainTable implements ActionListener {
                 thisContainer.add(southPanel, "South");
                 thisContainer.add(northPanel, "North");
                 centerPanel.setLayout(new GridLayout(3, 3));
-
+                
                 gameMatrix = theGameCntl.theGameModel.getGameMatrix();
                 
                 for (int rows = 0; rows < gameMatrix.length; rows++) {
                         for (int cols = 0; cols < gameMatrix[rows].length; cols++) {
                                 diamondsButton[rows][cols] = new JButton(""+gameMatrix[rows][cols]);
-                                diamondsButton[rows][cols].addActionListener(this);
+                                diamondsButton[rows][cols].addActionListener(new java.awt.event.ActionListener(){
+                                    public void actionPerformed(ActionEvent e){
+                                        diamondsButtonActionPerformed(e);
+                                    }
+                                });
                                 centerPanel.add(diamondsButton[rows][cols]);
                         }
                 }
           
                 fractionLable = new JLabel(""+theGameCntl.theGameModel.getGoalNum());
+                answerLabel = new JLabel(""+theGameCntl.theGameModel.checkResult());
                 exitButton = new JButton("Exit");
-                exitButton.addActionListener(this);
-                newlyButton = new JButton("Play again");
-                newlyButton.addActionListener(this);
+                exitButton.addActionListener(new java.awt.event.ActionListener(){
+                      public void actionPerformed(ActionEvent e ){
+                          exitButtonActionPerformed(e);
+                      }
+                });
+                
+                finishButton = new JButton("Get Result");
+                finishButton.addActionListener(new java.awt.event.ActionListener(){
+                    public void actionPerformed(ActionEvent e) {
+                        finishButtonActionPerformed(e);
+                    }
+                });
+                
+//                newlyButton = new JButton("Play again");
+//                newlyButton.addActionListener(new java.awt.event.ActionListener() {
+//                    public void actionPerformed(ActionEvent e) {
+//                        newlyButtonActionPerformed(e);
+//                    }
+//                });
                 southPanel.add(exitButton);
-                southPanel.add(newlyButton);
+                southPanel.add(finishButton);
+                southPanel.add(answerLabel);
+//                southPanel.add(newlyButton);
                 northPanel.add(fractionLable);
                 mainFrame.setBounds(280, 100, 500, 450);
                 mainFrame.setVisible(true);
@@ -70,8 +93,16 @@ public class MainTable implements ActionListener {
               
         }
         
-        public void actionPerformed(ActionEvent e) {
-              
+        public void exitButtonActionPerformed(ActionEvent e) {
+              System.exit(0);
+        }
+
+        public void diamondsButtonActionPerformed(ActionEvent e){
+            
+        }
+        
+        public void finishButtonActionPerformed(ActionEvent e){
+            this.theGameCntl.theGameModel.setFinishButtonClicked(true);
         }
        
 }
