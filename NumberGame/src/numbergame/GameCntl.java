@@ -20,7 +20,9 @@ public class GameCntl {
         theGameView = new GameView(this);
         theGameModel = new GameModel();
         theGameView.setVisible(true);
+        theGameModel.printMatrix();
         theGameModel.play();
+        
         
     }
     
