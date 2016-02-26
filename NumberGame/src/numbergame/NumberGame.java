@@ -20,6 +20,7 @@ public class NumberGame {
         //mt.init();
 
         GameCntl theGameCntl = new GameCntl();
+        
 
         //test the random number generator
         //GameModel g = new GameModel();

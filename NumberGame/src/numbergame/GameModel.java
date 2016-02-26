@@ -18,9 +18,9 @@ public class GameModel {
     private int[][] gameMatrix;
     private int[] options;
     private boolean[] optionsChosen;
-    private boolean doneClicked;
-    private int userSum;
-    private int goalNumber;
+    private boolean finishButtonClicked;
+    private int sum;
+    private int goalNum;
 
     private final int COLUMN = 3;
     private final int RAW = 3;
@@ -33,8 +33,8 @@ public class GameModel {
         gameMatrix = new int[RAW][COLUMN];
         options = new int[RAW * COLUMN];
         optionsChosen = new boolean[RAW * COLUMN];
-        doneClicked = false;
-        goalNumber = getRandomNum(RAW * COLUMN * MIN_RANDOM_NUM, RAW * COLUMN * MAX_RANDOM_NUM);
+        finishButtonClicked = false;
+        goalNum = getRandomNum(RAW * COLUMN * MIN_RANDOM_NUM, RAW * COLUMN * MAX_RANDOM_NUM);
 
         //the options are not selected yet
         for (int i = 0; i < optionsChosen.length; i++) {
@@ -50,13 +50,13 @@ public class GameModel {
 
     }
 
-    public void chooseOption() {
+    public void play() {
 
         Scanner scnr = new Scanner(System.in);
         int numChosen;
 
-        while (!doneClicked) {
-            System.out.println("Goal Number: " + goalNumber);
+        while (!finishButtonClicked) {
+            System.out.println("Goal Number: " + goalNum);
             System.out.println("choose from 1 to 9");
             //user selects the option
             numChosen = scnr.nextInt();
@@ -67,30 +67,30 @@ public class GameModel {
                 System.out.println("You already chose the number");
             }
             System.out.println("sum: " + getSum());
-            getDoneClicked();
+            getFinishButtonClicked();
         }
 
         System.out.println("Result Message: " + checkResult());
     }
 
     public int getSum() {
-        return this.userSum;
+        return this.sum;
     }
 
-    public boolean getDoneClicked() {
-        return doneClicked;
+    public boolean getFinishButtonClicked() {
+        return finishButtonClicked;
     }
 
-    public void setDoneClicked(boolean newValue) {
-        this.doneClicked = newValue;
+    public void setFinishButtonClicked(boolean newValue) {
+        this.finishButtonClicked = newValue;
     }
 
-    public void dontButtonClicked() {
-        this.doneClicked = true;
+    public void finishButtonClicked() {
+        this.finishButtonClicked = true;
     }
 
     public String checkResult() {
-        if (this.goalNumber == this.userSum) {
+        if (this.goalNum == this.sum) {
             return "You Won";
         } else {
             return "You Lost";
@@ -112,31 +112,31 @@ public class GameModel {
     public void sumOptionsSelected(int numChosen) {
         switch (numChosen) {
             case 0:
-                this.userSum += gameMatrix[0][0];
+                this.sum += gameMatrix[0][0];
                 break;
             case 1:
-                this.userSum += gameMatrix[0][1];
+                this.sum += gameMatrix[0][1];
                 break;
             case 2:
-                this.userSum += gameMatrix[0][2];
+                this.sum += gameMatrix[0][2];
                 break;
             case 3:
-                this.userSum += gameMatrix[1][0];
+                this.sum += gameMatrix[1][0];
                 break;
             case 4:
-                this.userSum += gameMatrix[1][1];
+                this.sum += gameMatrix[1][1];
                 break;
             case 5:
-                this.userSum += gameMatrix[1][2];
+                this.sum += gameMatrix[1][2];
                 break;
             case 6:
-                this.userSum += gameMatrix[2][0];
+                this.sum += gameMatrix[2][0];
                 break;
             case 7:
-                this.userSum += gameMatrix[2][1];
+                this.sum += gameMatrix[2][1];
                 break;
             case 8:
-                this.userSum += gameMatrix[2][2];
+                this.sum += gameMatrix[2][2];
                 break;
             default:
                 System.out.println("wrong number");
