@@ -22,6 +22,7 @@ public class GameView extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         initCustomComponetns();
         
+        
 
     }
     
@@ -31,6 +32,10 @@ public class GameView extends JFrame {
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         GameUI theGamePanel = new GameUI(theGameCntl);
         getContentPane().add(theGamePanel, "Center");
+        
+        setLayout(new BorderLayout());
+        setContentPane(new JLabel(new ImageIcon("images/home screen.png")));
+        setLayout(new FlowLayout());
         
     }
 }
