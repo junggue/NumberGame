@@ -20,12 +20,11 @@ public class MainMenuUI extends JFrame{
     private JFrame mainFrame;
     private JPanel mainPanel;
     private JButton startButton;
-    private GameView theGameView;
+    private MainTable theMainTable;
     
     MainMenuUI(){
         mainFrame = new JFrame();
         mainPanel = new JPanel();
-        startButton = new JButton("Start Game!");
         
         initCustomComponents();
     }
@@ -36,24 +35,20 @@ public class MainMenuUI extends JFrame{
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
         mainFrame.add(mainPanel);
-        mainPanel.add(startButton);
         
+        startButton = new JButton("Start Game!");
         startButton.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(ActionEvent e){
                 startButtonActionPerformed(e);
             }
         });
+        
+        mainPanel.add(startButton);
+        
         mainFrame.setVisible(true);
     }
     
-    public void switchPanels(){
-        getContentPane().removeAll();
-        add(theGameView);
-        invalidate();
-        repaint();
-    }
-    
     public void startButtonActionPerformed(ActionEvent e){
-        switchPanels();
+        
     }
 }
