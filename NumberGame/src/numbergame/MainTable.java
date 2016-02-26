@@ -14,6 +14,17 @@ public class MainTable implements ActionListener {
         JLabel fractionLable = new JLabel("0"); 
         int grid[][] = new int[8][7];
         int x0 = 0, y0 = 0, x = 0, y = 0, fristMsg = 0, secondMsg = 0, validateLV;
+        
+        private GameCntl theGameCntl;
+        
+        public MainTable(GameCntl parentGameCntl){
+            theGameCntl = parentGameCntl;
+            init();
+        
+        }
+        
+        
+        
         public void init() {
                 mainFrame = new JFrame("Game");
                 thisContainer = mainFrame.getContentPane();

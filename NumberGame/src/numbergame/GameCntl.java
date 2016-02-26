@@ -14,10 +14,12 @@ public class GameCntl {
     
     public GameModel theGameModel;
     private GameView theGameView;
+    private MainTable theMainTable;
     
     public GameCntl(){
     
-        theGameView = new GameView(this);
+        //theGameView = new GameView(this);
+        theMainTable = new MainTable(this);
         theGameModel = new GameModel();
         theGameView.setVisible(true);
         theGameModel.printMatrix();

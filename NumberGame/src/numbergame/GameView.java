@@ -30,8 +30,10 @@ public class GameView extends JFrame {
         this.setSize(900,600);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        GameUI theGamePanel = new GameUI(theGameCntl);
-        getContentPane().add(theGamePanel, "Center");
+        //GameUI theGamePanel = new GameUI(theGameCntl);
+        //MainTable theMainTable = new MainTable(theGameCntl);
+        //getContentPane().add(theGamePanel, "Center");
+        
         
         setLayout(new BorderLayout());
         setContentPane(new JLabel(new ImageIcon("images/homescreen.png")));
