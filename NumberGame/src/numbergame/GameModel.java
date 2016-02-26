@@ -23,18 +23,18 @@ public class GameModel {
     private int goalNum;
 
     private final int COLUMN = 3;
-    private final int RAW = 3;
+    private final int ROW = 3;
     private final int MIN_RANDOM_NUM = 1;
     private final int MAX_RANDOM_NUM = 5;
 
     //by creating the controller, it will create an panel
     public GameModel() {
 
-        gameMatrix = new int[RAW][COLUMN];
-        options = new int[RAW * COLUMN];
-        optionsChosen = new boolean[RAW * COLUMN];
+        gameMatrix = new int[ROW][COLUMN];
+        options = new int[ROW * COLUMN];
+        optionsChosen = new boolean[ROW * COLUMN];
         finishButtonClicked = false;
-        goalNum = getRandomNum(RAW * COLUMN * MIN_RANDOM_NUM, RAW * COLUMN * MAX_RANDOM_NUM);
+        goalNum = getRandomNum(ROW * COLUMN * MIN_RANDOM_NUM, ROW * COLUMN * MAX_RANDOM_NUM/2);
 
         //the options are not selected yet
         for (int i = 0; i < optionsChosen.length; i++) {
@@ -61,11 +61,14 @@ public class GameModel {
             //user selects the option
             numChosen = scnr.nextInt();
             printMatrix();
+            
             if (optionsChosen[numChosen] == false) {
-                optionsChosen[numChosen] = true;
+                //button is pushed and cannot pushed again: turning to true
+                numButtonPushed(numChosen);
+                //sum the number
                 sumOptionsSelected(numChosen);
             } else {
-                System.out.println("You already chose the number");
+                System.out.println(errorMessage());
             }
             System.out.println("sum: " + getSum());
             getFinishButtonClicked();
@@ -86,6 +89,7 @@ public class GameModel {
         this.finishButtonClicked = newValue;
     }
 
+    //finishing the game
     public void finishButtonClicked() {
         this.finishButtonClicked = true;
     }
@@ -97,6 +101,8 @@ public class GameModel {
             return "You Lost";
         }
     }
+    
+    
 
     //for test
     public void printMatrix() {
@@ -144,6 +150,14 @@ public class GameModel {
                 break;
 
         }
+    }
+    
+    public void numButtonPushed(int optionNum) {
+        this.optionsChosen[optionNum] = true;
+    }
+    
+    public String errorMessage(){
+        return "You already chose the number";
     }
 
     //with range 1 ~ 5
