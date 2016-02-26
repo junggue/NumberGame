@@ -21,6 +21,7 @@ public class GameView extends JFrame {
         theGameCntl = parentGameCntl;
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         initCustomComponetns();
+        
 
     }
     
