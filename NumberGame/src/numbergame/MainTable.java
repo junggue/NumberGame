@@ -103,6 +103,9 @@ public class MainTable{
         
         public void finishButtonActionPerformed(ActionEvent e){
             this.theGameCntl.theGameModel.setFinishButtonClicked(true);
+            if(this.equals(theGameCntl.theGameModel.getGoalNum())){
+                theGameCntl.theGameModel.checkResult();
+            }
         }
        
 }
