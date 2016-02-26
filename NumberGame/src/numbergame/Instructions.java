@@ -19,9 +19,9 @@ import javax.swing.WindowConstants;
  *
  * @author laurenritter
  */
-public class Instructions extends JFrame implements ActionListener{
-    private Container instructContainer;
-    private JFrame instructionsFrame;
+public class Instructions extends JPanel{
+//    private Container instructContainer;
+//    private JFrame instructionsFrame;
     private JButton exitButton;
     private JButton backButton;
     private JButton startButton;
@@ -30,15 +30,11 @@ public class Instructions extends JFrame implements ActionListener{
     private JPanel panel;
     
     public Instructions(){
-        instructionsFrame = new JFrame("Instructions");
         panel = new JPanel();
         
-        instructContainer = instructionsFrame.getContentPane();
-        instructContainer.setLayout(new BorderLayout());
-        instructContainer.add(panel);
-        
-        this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+//        instructContainer = instructionsFrame.getContentPane();
+//        instructContainer.setLayout(new BorderLayout());
+//        instructContainer.add(panel);
         
         instructions = new JLabel("Instructions");
         whatToDo = new JLabel("On the top of the screen you will see a number along with 'apples' containing numbers. Click the apples with the correct numbers to reach the goal number.");
@@ -52,15 +48,37 @@ public class Instructions extends JFrame implements ActionListener{
         panel.add(backButton, BorderLayout.SOUTH);
         panel.add(startButton, BorderLayout.SOUTH);
         
-        exitButton.addActionListener(this);
-        backButton.addActionListener(this);
-        startButton.addActionListener(this);
+        exitButton.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                exitButtonActionPerformed(e);
+            }
+        });
+        
+        backButton.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                backButtonActionPerformed(e);
+            }
+        });
+        
+        startButton.addActionListener(new java.awt.event.ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                startButtonActionPerformed(e);
+            }
+        });
         
         panel.setVisible(true);
     }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
+    
+    public void exitButtonActionPerformed(ActionEvent e){
+        System.exit(0);
     }
+    
+    public void backButtonActionPerformed(ActionEvent e){
+        
+    }
+    
+    public void startButtonActionPerformed(ActionEvent e){
+        
+    }
+
 }
