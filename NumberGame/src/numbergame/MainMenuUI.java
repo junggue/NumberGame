@@ -5,6 +5,7 @@
  */
 package numbergame;
 
+import java.awt.Container;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,17 +16,19 @@ import javax.swing.JPanel;
  * @author laurenritter
  */
 public class MainMenuUI extends JFrame{
+    private Container theContainer;
     private JFrame mainFrame;
     private JPanel mainPanel;
     private JButton startButton;
-    GameCntl theGameCntl;
-    GameView theGameView;
+    private GameView theGameView;
     
     MainMenuUI(){
+        theContainer = new Container();
         mainFrame = new JFrame();
         mainPanel = new JPanel();
         startButton = new JButton("Start Game!");
         
+        theContainer.add(mainFrame);
         mainFrame.add(mainPanel);
         mainPanel.add(startButton);
         
@@ -34,9 +37,18 @@ public class MainMenuUI extends JFrame{
                 startButtonActionPerformed(e);
             }
         });
+        
+        mainPanel.setVisible(true);
+    }
+    
+    public void switchPanels(){
+        getContentPane().removeAll();
+        add(theGameView);
+        invalidate();
+        repaint();
     }
     
     public void startButtonActionPerformed(ActionEvent e){
-        
+        switchPanels();
     }
 }
