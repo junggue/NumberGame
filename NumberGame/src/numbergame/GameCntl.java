@@ -19,11 +19,12 @@ public class GameCntl {
     public GameCntl(){
     
         //theGameView = new GameView(this);
-        theMainTable = new MainTable(this);
         theGameModel = new GameModel();
-        theGameView.setVisible(true);
-        theGameModel.printMatrix();
-        theGameModel.play();
+        theMainTable = new MainTable(this);
+        
+        //theGameView.setVisible(true);
+        //theGameModel.printMatrix();
+        //theGameModel.play();
         
         
     }
