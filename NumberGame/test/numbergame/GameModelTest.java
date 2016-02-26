@@ -59,7 +59,7 @@ public class GameModelTest {
     public void testChooseOption() {
         System.out.println("chooseOption");
         GameModel instance = new GameModel();
-        instance.chooseOption();
+        instance.play();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
