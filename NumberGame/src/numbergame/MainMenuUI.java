@@ -50,6 +50,6 @@ public class MainMenuUI extends JFrame{
     }
     
     public void startButtonActionPerformed(ActionEvent e){
-        theNavigationCntl.toMainTable();
-    }
+//        theNavigationCntl.toMainTable(GameCntl theGameCntl);
+    
 }

@@ -12,7 +12,6 @@ package numbergame;
 public class NavigationCntl {
     private MainMenuUI theMainMenu;
     private MainTable theMainTable;
-    private GameCntl parentGameCntl;
     
     public void toMainMenu(){
         theMainMenu = new MainMenuUI();
@@ -20,7 +19,7 @@ public class NavigationCntl {
         theMainMenu.setVisible(true);
     }
     
-    public void toMainTable(){
-        theMainTable = new MainTable(parentGameCntl);
+    public void toMainTable(GameCntl theGameCntl){
+        theMainTable = new MainTable(theGameCntl);
     }
 }
