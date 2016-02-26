@@ -18,6 +18,7 @@ public class MainMenuUI extends JFrame{
     private JFrame mainFrame;
     private JPanel mainPanel;
     private JButton startButton;
+    GameCntl theGameCntl;
     
     MainMenuUI(){
         mainFrame = new JFrame();
