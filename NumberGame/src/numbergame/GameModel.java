@@ -50,7 +50,7 @@ public class GameModel {
 
     }
 
-    public void chooseOption() {
+    public void play() {
 
         Scanner scnr = new Scanner(System.in);
         int numChosen;
