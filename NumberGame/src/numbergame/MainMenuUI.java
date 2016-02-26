@@ -10,25 +10,31 @@ import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 
 /**
  *
  * @author laurenritter
  */
 public class MainMenuUI extends JFrame{
-    private Container theContainer;
     private JFrame mainFrame;
     private JPanel mainPanel;
     private JButton startButton;
     private GameView theGameView;
     
     MainMenuUI(){
-        theContainer = new Container();
         mainFrame = new JFrame();
         mainPanel = new JPanel();
         startButton = new JButton("Start Game!");
         
-        theContainer.add(mainFrame);
+        initCustomComponents();
+    }
+    
+    public void initCustomComponents(){
+        this.setLocationRelativeTo(null);
+        this.setSize(350, 400);
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        
         mainFrame.add(mainPanel);
         mainPanel.add(startButton);
         
@@ -37,8 +43,7 @@ public class MainMenuUI extends JFrame{
                 startButtonActionPerformed(e);
             }
         });
-        
-        mainPanel.setVisible(true);
+        mainFrame.setVisible(true);
     }
     
     public void switchPanels(){
