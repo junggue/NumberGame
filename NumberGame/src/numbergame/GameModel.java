@@ -42,6 +42,7 @@ public class GameModel {
         }
 
         //assign random numbers in the matrix
+        //deep copy the numbers in gameMatrix[x][y] to options[x*y]
         for (int i = 0; i < gameMatrix.length; i++) {
             for (int j = 0; j < gameMatrix[i].length; j++) {
                 gameMatrix[i][j] = getRandomNum(MIN_RANDOM_NUM, MAX_RANDOM_NUM);
