@@ -42,14 +42,12 @@ public class GameUI extends JPanel implements ActionListener {
         this.add(southPanel, "South");
         this.add(northPanel, "North");
         centerPanel.setLayout(new GridLayout(rowNum, colNum));
-        southPanel.setLayout(new GridLayout(0,colNum));
-        northPanel.setLayout(new GridLayout(0,colNum));
-        
+        southPanel.setLayout(new GridLayout(0, colNum));
+        northPanel.setLayout(new GridLayout(0, colNum));
+
         northPanel.add(statusLabel = new JLabel("status"));
         northPanel.add(goalNumLabel = new JLabel("Goal: " + theGameController.getGameModel().getGoalNum()));
         northPanel.add(sumLabel = new JLabel("sum: " + theGameController.getGameModel().getSum()));
-        
-        
 
         //Buttons are initialized
         button = new JButton[rowNum][colNum];
@@ -71,10 +69,10 @@ public class GameUI extends JPanel implements ActionListener {
         Object obj = event.getSource();
         for (int i = 0; i < theGameController.getGameModel().getGameMatrix().length; i++) {
             for (int j = 0; j < theGameController.getGameModel().getGameMatrix()[i].length; j++) {
-                if (obj == button[i][j]) {      
+                if (obj == button[i][j]) {
                     //theGameController.getGameModel().numButtonPushed(i, j);
                     theGameController.getGameModel().sumSelectedNum(i, j);
-                    sumLabel.setText("sum: "+theGameController.getGameModel().getSum());
+                    sumLabel.setText("sum: " + theGameController.getGameModel().getSum());
                 }
             }
         }
