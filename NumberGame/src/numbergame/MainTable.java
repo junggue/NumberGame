@@ -16,9 +16,7 @@ public class MainTable{
 
         int[][] gameMatrix;
         
-        
-        int grid[][] = new int[3][3];
-        int x0 = 0, y0 = 0, x = 0, y = 0, fristMsg = 0, secondMsg = 0, validateLV;
+
         
         private GameController theGameCntl;
         
@@ -44,6 +42,7 @@ public class MainTable{
                 
                 gameMatrix = theGameCntl.getGameModel().getGameMatrix();
                 
+                //putting random number
                 for (int rows = 0; rows < gameMatrix.length; rows++) {
                         for (int cols = 0; cols < gameMatrix[rows].length; cols++) {
                                 diamondsButton[rows][cols] = new JButton(""+gameMatrix[rows][cols]);
@@ -86,13 +85,7 @@ public class MainTable{
                 mainFrame.setBounds(280, 100, 500, 450);
                 mainFrame.setVisible(true);
         }
-        public void randomBuild() {
-                
-        }
-        public void fraction() {
-              
-        }
-        
+
         public void exitButtonActionPerformed(ActionEvent e) {
               System.exit(0);
         }

@@ -17,11 +17,13 @@ public class GameController {
 
     public GameController() {
 
-        //theGameView = new GameView(this);
+        
         theGameModel = new GameModel();
         theMainTable = new MainTable(this);
-
+        
+        //theGameView = new GameView(this);
         //theGameView.setVisible(true);
+        
         //theGameModel.printMatrix();
         //theGameModel.play();
     }

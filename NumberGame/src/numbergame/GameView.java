@@ -14,11 +14,13 @@ import javax.swing.*;
  */
 public class GameView extends JFrame {
 
-    private GameController theGameCntl;
+    private GameController theGameCntroller;
+    private GameUI theGameUI;
 
-    public GameView(GameController parentGameCntl) {
+    public GameView(GameController parentGameController) {
         
-        theGameCntl = parentGameCntl;
+        theGameCntroller = parentGameController;
+        theGameUI = new GameUI(parentGameController);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         initCustomComponetns();
         
@@ -27,17 +29,18 @@ public class GameView extends JFrame {
     }
     
     public void initCustomComponetns(){
-        this.setSize(900,600);
+        this.setSize(700,700);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.add(theGameUI);
         //GameUI theGamePanel = new GameUI(theGameCntl);
         //MainTable theMainTable = new MainTable(theGameCntl);
         //getContentPane().add(theGamePanel, "Center");
         
         
-        setLayout(new BorderLayout());
-        setContentPane(new JLabel(new ImageIcon("images/homescreen.png")));
-        setLayout(new FlowLayout());
+        //setLayout(new BorderLayout());
+        //setContentPane(new JLabel(new ImageIcon("images/homescreen.png")));
+        //setLayout(new FlowLayout());
         
     }
 }
