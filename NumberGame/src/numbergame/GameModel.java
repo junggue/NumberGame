@@ -49,8 +49,6 @@ public class GameModel {
                 options[i] = gameMatrix[i][j];
             }
         }
-        
-        
 
     }
 
@@ -130,11 +128,11 @@ public class GameModel {
             System.out.println();
         }
     }
-    
-    public void sumSelectedNum(int numChosen){
-        if(optionsChosen[numChosen] == false){
-            this.sum+=options[numChosen];
-        } 
+
+    public void sumSelectedNum(int numChosen) {
+        if (optionsChosen[numChosen] == false) {
+            this.sum += options[numChosen];
+        }
     }
 
     public void numButtonPushed(int optionNum) {
@@ -146,7 +144,7 @@ public class GameModel {
     }
 
     //with range 1 ~ 5
-    public int getRandomNum(int start, int end) {
+    public static int getRandomNum(int start, int end) {
         Random random = new Random();
         return showRandomInteger(start, end + 1, random);
     }
