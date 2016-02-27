@@ -76,17 +76,17 @@ public class GameModelTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of sumSelectedNum method, of class GameModel.
-     */
-    @Test
-    public void testSumSelectedNum() {
-        System.out.println("sumOptionsSelected");
-        int numChosen = 0;
-        GameModel instance = new GameModel();
-        instance.sumSelectedNum(numChosen);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    /**
+//     * Test of sumSelectedNum method, of class GameModel.
+//     */
+//    @Test
+//    public void testSumSelectedNum() {
+//        System.out.println("sumOptionsSelected");
+//        int numChosen = 0;
+//        GameModel instance = new GameModel();
+//        instance.sumSelectedNum(numChosen);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
     
 }

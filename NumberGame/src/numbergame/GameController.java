@@ -16,14 +16,11 @@ public class GameController {
     private MainTable theMainTable;
 
     public GameController() {
-
-        
         theGameModel = new GameModel();
-        theMainTable = new MainTable(this);
+        theGameView = new GameView(this);
+        theGameView.setVisible(true);
         
-        //theGameView = new GameView(this);
-        //theGameView.setVisible(true);
-        
+        //theMainTable = new MainTable(this);
         //theGameModel.printMatrix();
         //theGameModel.play();
     }

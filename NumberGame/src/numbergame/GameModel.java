@@ -15,8 +15,9 @@ import java.util.Scanner;
 public class GameModel {
 
     private int[][] gameMatrix;
+    private boolean[][] optionsChosen;
     private int[] options;
-    private boolean[] optionsChosen;
+
     private boolean finishButtonClicked;
     private int sum;
     private int goalNum;
@@ -31,14 +32,16 @@ public class GameModel {
 
         gameMatrix = new int[ROW][COLUMN];
         options = new int[ROW * COLUMN];
-        optionsChosen = new boolean[ROW * COLUMN];
+        optionsChosen = new boolean[ROW][COLUMN];
         finishButtonClicked = false;
 
         setGoalNum(ROW * COLUMN * MIN_RANDOM_NUM, ROW * COLUMN * MAX_RANDOM_NUM / 2);
 
         //the options are not selected yet
         for (int i = 0; i < optionsChosen.length; i++) {
-            optionsChosen[i] = false;
+            for (int j = 0; j < optionsChosen[i].length; j++) {
+                optionsChosen[i][j] = false;
+            }
         }
 
         //assign random numbers in the matrix
@@ -52,23 +55,27 @@ public class GameModel {
 
     }
 
+    //test only
     public void play() {
 
         Scanner scnr = new Scanner(System.in);
-        int numChosen;
+        int row, col;
 
         while (!finishButtonClicked) {
             System.out.println("Goal Number: " + goalNum);
-            System.out.println("choose from 1 to 9");
-            //user selects the option
-            numChosen = scnr.nextInt();
             printMatrix();
 
-            if (optionsChosen[numChosen] == false) {
+            System.out.println("enter row:");
+            //user selects the option
+            row = scnr.nextInt();
+            System.out.println("enter column:");
+            col = scnr.nextInt();
+
+            if (optionsChosen[row][col] == false) {
                 //button is pushed and cannot pushed again: turning to true
-                numButtonPushed(numChosen);
+                numButtonPushed(row,col);
                 //sum the number
-                sumSelectedNum(numChosen);
+                sumSelectedNum(row,col);
             } else {
                 System.out.println(errorMessage());
             }
@@ -129,14 +136,14 @@ public class GameModel {
         }
     }
 
-    public void sumSelectedNum(int numChosen) {
-        if (optionsChosen[numChosen] == false) {
-            this.sum += options[numChosen];
+    public void sumSelectedNum(int r, int c) {
+        if (optionsChosen[r][c] == false) {
+            this.sum += gameMatrix[r][c];
         }
     }
 
-    public void numButtonPushed(int optionNum) {
-        this.optionsChosen[optionNum] = true;
+    public void numButtonPushed(int r, int c) {
+        this.optionsChosen[r][c] = true;
     }
 
     public String errorMessage() {
@@ -157,5 +164,19 @@ public class GameModel {
         long fraction = (long) (range * random.nextDouble());
         int randomNumber = (int) (fraction + start);
         return randomNumber;
+    }
+
+    /**
+     * @return the COLUMN
+     */
+    public int getNumOfColumn() {
+        return COLUMN;
+    }
+
+    /**
+     * @return the ROW
+     */
+    public int getNumOfRow() {
+        return ROW;
     }
 }
