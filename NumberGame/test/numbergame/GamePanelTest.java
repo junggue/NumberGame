@@ -38,28 +38,28 @@ public class GamePanelTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of initComponents method, of class GameUI.
-     */
-    @Test
-    public void testInitComponents() {
-        System.out.println("initComponents");
-        GameUI instance = new GameUI();
-        instance.initComponents();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of paint method, of class GameUI.
-     */
-    @Test
-    public void testPaint() {
-        System.out.println("paint");
-        Graphics g = null;
-        GameUI instance = new GameUI();
-        instance.paint(g);
-        // TODO review the generated test code and remove the default call to fail.
-    }
+//    /**
+//     * Test of initComponents method, of class GameUI.
+//     */
+//    @Test
+//    public void testInitComponents() {
+//        System.out.println("initComponents");
+//        GameUI instance = new GameUI();
+//        instance.initComponents();
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
+//
+//    /**
+//     * Test of paint method, of class GameUI.
+//     */
+//    @Test
+//    public void testPaint() {
+//        System.out.println("paint");
+//        Graphics g = null;
+//        GameUI instance = new GameUI();
+//        instance.paint(g);
+//        // TODO review the generated test code and remove the default call to fail.
+//    }
     
 }
