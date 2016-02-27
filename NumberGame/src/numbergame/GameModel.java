@@ -45,8 +45,11 @@ public class GameModel {
         for (int i = 0; i < gameMatrix.length; i++) {
             for (int j = 0; j < gameMatrix[i].length; j++) {
                 gameMatrix[i][j] = getRandomNum(MIN_RANDOM_NUM, MAX_RANDOM_NUM);
+                options[i] = gameMatrix[i][j];
             }
         }
+        
+        
 
     }
 
@@ -66,7 +69,7 @@ public class GameModel {
                 //button is pushed and cannot pushed again: turning to true
                 numButtonPushed(numChosen);
                 //sum the number
-                sumOptionsSelected(numChosen);
+                sumSelectedNum(numChosen);
             } else {
                 System.out.println(errorMessage());
             }
@@ -126,41 +129,11 @@ public class GameModel {
             System.out.println();
         }
     }
-
-    public void sumOptionsSelected(int numChosen) {
-        switch (numChosen) {
-            case 0:
-                this.sum += getGameMatrix()[0][0];
-                break;
-            case 1:
-                this.sum += getGameMatrix()[0][1];
-                break;
-            case 2:
-                this.sum += getGameMatrix()[0][2];
-                break;
-            case 3:
-                this.sum += getGameMatrix()[1][0];
-                break;
-            case 4:
-                this.sum += getGameMatrix()[1][1];
-                break;
-            case 5:
-                this.sum += getGameMatrix()[1][2];
-                break;
-            case 6:
-                this.sum += getGameMatrix()[2][0];
-                break;
-            case 7:
-                this.sum += getGameMatrix()[2][1];
-                break;
-            case 8:
-                this.sum += getGameMatrix()[2][2];
-                break;
-            default:
-                System.out.println("wrong number");
-                break;
-
-        }
+    
+    public void sumSelectedNum(int numChosen){
+        if(optionsChosen[numChosen] == false){
+            this.sum+=options[numChosen];
+        } 
     }
 
     public void numButtonPushed(int optionNum) {
