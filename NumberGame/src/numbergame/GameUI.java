@@ -16,14 +16,14 @@ public class GameUI extends JPanel {
 
     private Apple apple;
     private Box box;
-    private GameCntl theGameCntl;
+    private GameController theGameCntl;
     private JButton testButton;
     private int randomNum;
 
     public GameUI() {
     }
 
-    public GameUI(GameCntl parentGameCntl) {
+    public GameUI(GameController parentGameCntl) {
 
         super();
         theGameCntl = parentGameCntl;

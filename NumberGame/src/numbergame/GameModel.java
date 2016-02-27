@@ -117,7 +117,7 @@ public class GameModel {
         }
     }
 
-    //for test
+    //test use only
     public void printMatrix() {
         int num = 0;
         for (int i = 0; i < getGameMatrix().length; i++) {
@@ -158,8 +158,4 @@ public class GameModel {
         int randomNumber = (int) (fraction + start);
         return randomNumber;
     }
-
-    /**
-     * @return the gameMatrix
-     */
 }

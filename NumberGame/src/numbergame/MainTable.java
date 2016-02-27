@@ -20,9 +20,9 @@ public class MainTable{
         int grid[][] = new int[3][3];
         int x0 = 0, y0 = 0, x = 0, y = 0, fristMsg = 0, secondMsg = 0, validateLV;
         
-        private GameCntl theGameCntl;
+        private GameController theGameCntl;
         
-        public MainTable(GameCntl parentGameCntl){
+        public MainTable(GameController parentGameCntl){
             theGameCntl = parentGameCntl;
             init();
         
@@ -42,7 +42,7 @@ public class MainTable{
                 thisContainer.add(northPanel, "North");
                 centerPanel.setLayout(new GridLayout(3, 3));
                 
-                gameMatrix = theGameCntl.theGameModel.getGameMatrix();
+                gameMatrix = theGameCntl.getGameModel().getGameMatrix();
                 
                 for (int rows = 0; rows < gameMatrix.length; rows++) {
                         for (int cols = 0; cols < gameMatrix[rows].length; cols++) {
@@ -56,8 +56,8 @@ public class MainTable{
                         }
                 }
           
-                fractionLable = new JLabel(""+theGameCntl.theGameModel.getGoalNum());
-                answerLabel = new JLabel(""+theGameCntl.theGameModel.checkResult());
+                fractionLable = new JLabel(""+theGameCntl.getGameModel().getGoalNum());
+                answerLabel = new JLabel(""+theGameCntl.getGameModel().checkResult());
                 exitButton = new JButton("Exit");
                 exitButton.addActionListener(new java.awt.event.ActionListener(){
                       public void actionPerformed(ActionEvent e ){
@@ -102,9 +102,9 @@ public class MainTable{
         }
         
         public void finishButtonActionPerformed(ActionEvent e){
-            this.theGameCntl.theGameModel.setFinishButtonClicked(true);
-            if(this.equals(theGameCntl.theGameModel.getGoalNum())){
-                theGameCntl.theGameModel.checkResult();
+            this.theGameCntl.getGameModel().setFinishButtonClicked(true);
+            if(this.equals(theGameCntl.getGameModel().getGoalNum())){
+                theGameCntl.getGameModel().checkResult();
             }
         }
        

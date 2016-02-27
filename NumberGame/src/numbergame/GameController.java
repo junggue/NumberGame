@@ -11,7 +11,7 @@ package numbergame;
  */
 public class GameController {
 
-    public GameModel theGameModel;
+    private GameModel theGameModel;
     private GameView theGameView;
     private MainTable theMainTable;
 

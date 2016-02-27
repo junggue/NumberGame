@@ -19,7 +19,7 @@ public class NumberGame {
         //MainTable mt = new MainTable();
         //mt.init();
 
-        GameCntl theGameCntl = new GameCntl();
+        GameController theGameCntl = new GameController();
         
 
         //test the random number generator

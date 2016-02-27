@@ -14,9 +14,9 @@ import javax.swing.*;
  */
 public class GameView extends JFrame {
 
-    private GameCntl theGameCntl;
+    private GameController theGameCntl;
 
-    public GameView(GameCntl parentGameCntl) {
+    public GameView(GameController parentGameCntl) {
         
         theGameCntl = parentGameCntl;
         setDefaultCloseOperation(EXIT_ON_CLOSE);

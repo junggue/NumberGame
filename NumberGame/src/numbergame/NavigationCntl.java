@@ -19,7 +19,7 @@ public class NavigationCntl {
         theMainMenu.setVisible(true);
     }
     
-    public void toMainTable(GameCntl theGameCntl){
+    public void toMainTable(GameController theGameCntl){
         theMainTable = new MainTable(theGameCntl);
     }
 }
