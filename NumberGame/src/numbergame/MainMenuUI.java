@@ -16,12 +16,12 @@ import javax.swing.WindowConstants;
  *
  * @author laurenritter
  */
-public class MainMenuUI extends JFrame{
+public class MainMenuUI extends JPanel{
     private JFrame mainFrame;
     private JPanel mainPanel;
     private JButton startButton;
+    private JButton exitButton;
     private MainTable theMainTable;
-    private NavigationCntl theNavigationCntl;
     
     MainMenuUI(){
         mainFrame = new JFrame();
@@ -31,11 +31,12 @@ public class MainMenuUI extends JFrame{
     }
     
     public void initCustomComponents(){
-        this.setLocationRelativeTo(null);
-        this.setSize(350, 400);
-        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        
-        mainFrame.add(mainPanel);
+        exitButton = new JButton("Exit Game!");
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                exitButtonActionPerformed(e);
+            }
+        });
         
         startButton = new JButton("Start Game!");
         startButton.addActionListener(new java.awt.event.ActionListener(){
@@ -49,8 +50,12 @@ public class MainMenuUI extends JFrame{
         mainFrame.setVisible(true);
     }
     
+    public void exitButtonActionPerformed(ActionEvent e){
+        System.exit(0);
+    }
+    
     public void startButtonActionPerformed(ActionEvent e){
-//        theNavigationCntl.toMainTable(GameCntl theGameCntl);
+        
     }
     
 }
