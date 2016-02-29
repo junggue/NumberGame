@@ -14,7 +14,7 @@ public class MainTable{
         JLabel fractionLable;
         JLabel answerLabel;
         MainMenuUI theMainMenu;
-        Instructions theIntructions;
+        Instructions theInstructions;
 
         int[][] gameMatrix;
         
@@ -88,8 +88,16 @@ public class MainTable{
                 mainFrame.setVisible(true);
         }
         
-        public void SwitchPanels(){
+        public void SwitchPanelToInstructions(){
+            theInstructions = (Instructions) new JPanel();
             mainFrame.getContentPane().removeAll();
+            mainFrame.getContentPane().add(theInstructions);
+        }
+        
+        public void SwitchPanelToMainMenu(){
+            theMainMenu = (MainMenuUI) new JPanel();
+            mainFrame.getContentPane().removeAll();
+            mainFrame.getContentPane().add(theMainMenu);
             
         }
 
