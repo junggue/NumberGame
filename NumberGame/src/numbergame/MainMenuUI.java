@@ -45,9 +45,10 @@ public class MainMenuUI extends JPanel{
             }
         });
         
+        mainPanel.add(exitButton);
         mainPanel.add(startButton);
         
-        mainFrame.setVisible(true);
+        mainPanel.setVisible(true);
     }
     
     public void exitButtonActionPerformed(ActionEvent e){

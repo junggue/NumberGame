@@ -13,6 +13,8 @@ public class MainTable{
         JButton exitButton, resetButton, newlyButton, finishButton; 
         JLabel fractionLable;
         JLabel answerLabel;
+        MainMenuUI theMainMenu;
+        Instructions theIntructions;
 
         int[][] gameMatrix;
         
@@ -84,6 +86,11 @@ public class MainTable{
                 northPanel.add(fractionLable);
                 mainFrame.setBounds(280, 100, 500, 450);
                 mainFrame.setVisible(true);
+        }
+        
+        public void SwitchPanels(){
+            mainFrame.getContentPane().removeAll();
+            
         }
 
         public void exitButtonActionPerformed(ActionEvent e) {
