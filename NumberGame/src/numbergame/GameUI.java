@@ -33,7 +33,7 @@ public class GameUI extends JPanel implements ActionListener {
         int rowNum = theGameController.getGameModel().getNumOfRow();
         int colNum = theGameController.getGameModel().getNumOfColumn();
 
-        //All about the Layout here
+        //All about the Layout
         this.setLayout(new BorderLayout());
         centerPanel = new JPanel();
         southPanel = new JPanel();
@@ -44,7 +44,8 @@ public class GameUI extends JPanel implements ActionListener {
         centerPanel.setLayout(new GridLayout(rowNum, colNum));
         southPanel.setLayout(new GridLayout(0, colNum));
         northPanel.setLayout(new GridLayout(0, colNum));
-
+        
+        //Adding Lablels
         northPanel.add(statusLabel = new JLabel("status"));
         northPanel.add(goalNumLabel = new JLabel("Goal: " + theGameController.getGameModel().getGoalNum()));
         northPanel.add(sumLabel = new JLabel("sum: " + theGameController.getGameModel().getSum()));
@@ -61,7 +62,6 @@ public class GameUI extends JPanel implements ActionListener {
                 centerPanel.add(button[rows][cols]);
             }
         }
-
     }
 
     @Override
@@ -76,7 +76,6 @@ public class GameUI extends JPanel implements ActionListener {
                 }
             }
         }
-
     }
 
 }

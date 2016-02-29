@@ -18,29 +18,16 @@ public class GameView extends JFrame {
     private GameUI theGameUI;
 
     public GameView(GameController parentGameController) {
-        
         theGameCntroller = parentGameController;
         theGameUI = new GameUI(parentGameController);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         initCustomComponetns();
-        
-        
-
     }
-    
-    public void initCustomComponetns(){
-        this.setSize(400,400);
+
+    public void initCustomComponetns() {
+        this.setSize(400, 400);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.add(theGameUI);
-        //GameUI theGamePanel = new GameUI(theGameCntl);
-        //MainTable theMainTable = new MainTable(theGameCntl);
-        //getContentPane().add(theGamePanel, "Center");
-        
-        
-        //setLayout(new BorderLayout());
-        //setContentPane(new JLabel(new ImageIcon("images/homescreen.png")));
-        //setLayout(new FlowLayout());
-        
     }
 }

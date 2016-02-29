@@ -73,9 +73,9 @@ public class GameModel {
 
             if (optionsChosen[row][col] == false) {
                 //button is pushed and cannot pushed again: turning to true
-                numButtonPushed(row,col);
+                numButtonPushed(row, col);
                 //sum the number
-                sumSelectedNum(row,col);
+                sumSelectedNum(row, col);
             } else {
                 System.out.println(errorMessage());
             }
