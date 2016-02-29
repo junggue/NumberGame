@@ -95,6 +95,8 @@ public class MainTable{
                     }
                 });
                 
+                southPanel.add(mainMenuButton);
+                southPanel.add(instructionsButton);
                 southPanel.add(exitButton);
                 southPanel.add(finishButton);
                 southPanel.add(answerLabel);
