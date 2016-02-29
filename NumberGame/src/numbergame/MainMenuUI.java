@@ -17,14 +17,14 @@ import javax.swing.WindowConstants;
  * @author laurenritter
  */
 public class MainMenuUI extends JPanel{
-    private JFrame mainFrame;
     private JPanel mainPanel;
     private JButton startButton;
     private JButton exitButton;
     private MainTable theMainTable;
+    private JButton instructionsButton;
+    private Instructions theInstructions;
     
     MainMenuUI(){
-        mainFrame = new JFrame();
         mainPanel = new JPanel();
         
         initCustomComponents();
@@ -45,10 +45,27 @@ public class MainMenuUI extends JPanel{
             }
         });
         
+        instructionsButton = new JButton("Instructions");
+        instructionsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                instructionsButtonActionPerformed(e);
+            }
+        });
+        
         mainPanel.add(exitButton);
         mainPanel.add(startButton);
-        
         mainPanel.setVisible(true);
+    }
+    
+    public void switchToInstructions(){
+        theInstructions = (Instructions) new JPanel();
+        theMainTable.mainFrame.removeAll();
+        theMainTable.mainFrame.add(theInstructions);
+    }
+    
+    public void switchToMainTable(){
+        theMainTable.mainFrame.removeAll();
+        theMainTable.mainFrame.add(theMainTable.northPanel, theMainTable.centerPanel);
     }
     
     public void exitButtonActionPerformed(ActionEvent e){
@@ -56,7 +73,10 @@ public class MainMenuUI extends JPanel{
     }
     
     public void startButtonActionPerformed(ActionEvent e){
-        
+        switchToMainTable();
     }
     
+    public void instructionsButtonActionPerformed(ActionEvent e){
+        switchToInstructions();
+    }
 }
