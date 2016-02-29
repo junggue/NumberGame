@@ -16,9 +16,12 @@ public class GameView extends JFrame {
 
     private GameController theGameCntroller;
     private GameUI theGameUI;
+    private MainMenuUI theMainMenu;
+    private Instructions theInstructions;
 
     public GameView(GameController parentGameController) {
-        
+        theMainMenu = new MainMenuUI();
+        theInstructions = new Instructions();
         theGameCntroller = parentGameController;
         theGameUI = new GameUI(parentGameController);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
