@@ -10,7 +10,8 @@ public class MainTable{
         Container thisContainer;
         JPanel centerPanel, southPanel, northPanel; 
         JButton diamondsButton[][] = new JButton[3][3];
-        JButton exitButton, resetButton, newlyButton, finishButton; 
+        JButton exitButton, resetButton, newlyButton, finishButton;
+        JButton instructionsButton, mainMenuButton;
         JLabel fractionLable;
         JLabel answerLabel;
         MainMenuUI theMainMenu;
@@ -79,6 +80,21 @@ public class MainTable{
 //                        newlyButtonActionPerformed(e);
 //                    }
 //                });
+                
+                instructionsButton = new JButton("Instructions");
+                instructionsButton.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        instructionsButtonActionPerformed(e);
+                    }    
+                });
+                
+                mainMenuButton = new JButton("Main Menu");
+                mainMenuButton.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        mainMenuButtonActionPerformed(e);
+                    }
+                });
+                
                 southPanel.add(exitButton);
                 southPanel.add(finishButton);
                 southPanel.add(answerLabel);
@@ -99,6 +115,14 @@ public class MainTable{
             mainFrame.getContentPane().removeAll();
             mainFrame.getContentPane().add(theMainMenu);
             
+        }
+        
+        public void mainMenuButtonActionPerformed(ActionEvent e){
+            SwitchPanelToMainMenu();
+        }
+        
+        public void instructionsButtonActionPerformed(ActionEvent e){
+            SwitchPanelToInstructions();
         }
 
         public void exitButtonActionPerformed(ActionEvent e) {
