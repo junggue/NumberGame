@@ -42,7 +42,7 @@ public class GameView extends JFrame {
         
         
         //setLayout(new BorderLayout());
-        //setContentPane(new JLabel(new ImageIcon("images/homescreen.png")));
+    //setContentPane(new JLabel(new ImageIcon("images/homescreen.png")));
         //setLayout(new FlowLayout());
         
     }
