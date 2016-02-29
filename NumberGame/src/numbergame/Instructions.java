@@ -28,6 +28,8 @@ public class Instructions extends JPanel{
     private JLabel instructions;
     private JLabel whatToDo;
     private JPanel panel;
+    private MainMenuUI theMainMenu;
+    private MainTable theMainTable;
     
     public Instructions(){
         panel = new JPanel();
@@ -69,12 +71,18 @@ public class Instructions extends JPanel{
         panel.setVisible(true);
     }
     
+    public void switchToMainMenu(){
+        theMainMenu = (MainMenuUI) new JPanel();
+        theMainTable.mainFrame.getContentPane().removeAll();
+        theMainTable.mainFrame.add(theMainMenu);
+    }
+    
     public void exitButtonActionPerformed(ActionEvent e){
         System.exit(0);
     }
     
     public void backButtonActionPerformed(ActionEvent e){
-        
+        switchToMainMenu();
     }
     
     public void startButtonActionPerformed(ActionEvent e){
