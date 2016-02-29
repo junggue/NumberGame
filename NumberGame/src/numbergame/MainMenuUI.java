@@ -47,7 +47,6 @@ public class MainMenuUI extends JPanel{
         
         mainPanel.add(exitButton);
         mainPanel.add(startButton);
-        
         mainPanel.setVisible(true);
     }
     
