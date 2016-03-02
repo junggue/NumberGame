@@ -141,6 +141,10 @@ public class GameModel {
             this.sum += gameMatrix[r][c];
         }
     }
+    
+    public int getANumFromMatrix(int r, int c){
+        return this.gameMatrix[r][c];
+    }
 
     public void numButtonPushed(int r, int c) {
         this.optionsChosen[r][c] = true;
@@ -166,14 +170,14 @@ public class GameModel {
         return randomNumber;
     }
 
-    /**
+    /*
      * @return the COLUMN
      */
     public int getNumOfColumn() {
         return COLUMN;
     }
 
-    /**
+    /*
      * @return the ROW
      */
     public int getNumOfRow() {
