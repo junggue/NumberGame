@@ -61,11 +61,15 @@ public class MainMenuUI extends JPanel{
         theInstructions = (Instructions) new JPanel();
         theMainTable.mainFrame.removeAll();
         theMainTable.mainFrame.add(theInstructions);
+        repaint();
+        revalidate();
     }
     
     public void switchToMainTable(){
         theMainTable.mainFrame.removeAll();
         theMainTable.mainFrame.add(theMainTable.northPanel, theMainTable.centerPanel);
+        repaint();
+        revalidate();
     }
     
     public void exitButtonActionPerformed(ActionEvent e){

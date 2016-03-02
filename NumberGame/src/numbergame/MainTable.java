@@ -116,7 +116,6 @@ public class MainTable{
             theMainMenu = (MainMenuUI) new JPanel();
             mainFrame.getContentPane().removeAll();
             mainFrame.getContentPane().add(theMainMenu);
-            
         }
         
         public void mainMenuButtonActionPerformed(ActionEvent e){

@@ -61,5 +61,54 @@ public class MainMenuUITest {
         instance.startButtonActionPerformed(e);
         // TODO review the generated test code and remove the default call to fail.
     }
+
+    /**
+     * Test of switchToInstructions method, of class MainMenuUI.
+     */
+    @Test
+    public void testSwitchToInstructions() {
+        System.out.println("switchToInstructions");
+        MainMenuUI instance = new MainMenuUI();
+        instance.switchToInstructions();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of switchToMainTable method, of class MainMenuUI.
+     */
+    @Test
+    public void testSwitchToMainTable() {
+        System.out.println("switchToMainTable");
+        MainMenuUI instance = new MainMenuUI();
+        instance.switchToMainTable();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of exitButtonActionPerformed method, of class MainMenuUI.
+     */
+    @Test
+    public void testExitButtonActionPerformed() {
+        System.out.println("exitButtonActionPerformed");
+        ActionEvent e = null;
+        MainMenuUI instance = new MainMenuUI();
+        instance.exitButtonActionPerformed(e);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of instructionsButtonActionPerformed method, of class MainMenuUI.
+     */
+    @Test
+    public void testInstructionsButtonActionPerformed() {
+        System.out.println("instructionsButtonActionPerformed");
+        ActionEvent e = null;
+        MainMenuUI instance = new MainMenuUI();
+        instance.instructionsButtonActionPerformed(e);
+        // TODO review the generated test code and remove the default call to fail.
+    }
     
 }
