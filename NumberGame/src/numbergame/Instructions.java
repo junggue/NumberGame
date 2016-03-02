@@ -75,6 +75,8 @@ public class Instructions extends JPanel{
         theMainMenu = (MainMenuUI) new JPanel();
         theMainTable.mainFrame.getContentPane().removeAll();
         theMainTable.mainFrame.add(theMainMenu);
+        repaint();
+        revalidate();
     }
     
     public void exitButtonActionPerformed(ActionEvent e){
@@ -86,7 +88,10 @@ public class Instructions extends JPanel{
     }
     
     public void startButtonActionPerformed(ActionEvent e){
-        
+        theMainTable.mainFrame.removeAll();
+        theMainTable.mainFrame.add(theMainTable.centerPanel, theMainTable.northPanel);
+        repaint();
+        revalidate();
     }
 
 }
