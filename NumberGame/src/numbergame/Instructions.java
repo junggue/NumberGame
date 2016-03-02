@@ -88,7 +88,10 @@ public class Instructions extends JPanel{
     }
     
     public void startButtonActionPerformed(ActionEvent e){
-        
+        theMainTable.mainFrame.removeAll();
+        theMainTable.mainFrame.add(theMainTable.centerPanel, theMainTable.northPanel);
+        repaint();
+        revalidate();
     }
 
 }
