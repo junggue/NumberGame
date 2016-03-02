@@ -138,7 +138,8 @@ public class GameModel {
 
     public void sumSelectedNum(int r, int c) {
         if (optionsChosen[r][c] == false) {
-            this.sum += gameMatrix[r][c];
+            //this.sum += gameMatrix[r][c];
+            this.sum += getANumFromMatrix(r,c);
         }
     }
     
