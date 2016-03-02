@@ -71,6 +71,13 @@ public class Instructions extends JPanel{
         panel.setVisible(true);
     }
     
+    public void switchToMainTable(){
+        theMainTable.mainFrame.removeAll();
+        theMainTable.mainFrame.add(theMainTable.centerPanel, theMainTable.northPanel);
+        repaint();
+        revalidate();
+    }
+    
     public void switchToMainMenu(){
         theMainMenu = (MainMenuUI) new JPanel();
         theMainTable.mainFrame.getContentPane().removeAll();
@@ -88,10 +95,7 @@ public class Instructions extends JPanel{
     }
     
     public void startButtonActionPerformed(ActionEvent e){
-        theMainTable.mainFrame.removeAll();
-        theMainTable.mainFrame.add(theMainTable.centerPanel, theMainTable.northPanel);
-        repaint();
-        revalidate();
+        switchToMainTable();
     }
 
 }
