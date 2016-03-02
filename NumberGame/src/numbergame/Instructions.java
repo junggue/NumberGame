@@ -30,6 +30,7 @@ public class Instructions extends JPanel{
     private JPanel panel;
     private MainMenuUI theMainMenu;
     private MainTable theMainTable;
+    private GameView theGameView;
     
     public Instructions(){
         panel = new JPanel();
@@ -72,16 +73,16 @@ public class Instructions extends JPanel{
     }
     
     public void switchToMainTable(){
-        theMainTable.mainFrame.removeAll();
-        theMainTable.mainFrame.add(theMainTable.centerPanel, theMainTable.northPanel);
+        theGameView.removeAll();
+        theGameView.add(theMainTable.centerPanel, theMainTable.northPanel);
         repaint();
         revalidate();
     }
     
     public void switchToMainMenu(){
         theMainMenu = (MainMenuUI) new JPanel();
-        theMainTable.mainFrame.getContentPane().removeAll();
-        theMainTable.mainFrame.add(theMainMenu);
+        theGameView.removeAll();
+        theGameView.add(theMainMenu);
         repaint();
         revalidate();
     }
