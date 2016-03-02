@@ -15,7 +15,7 @@ import static javax.swing.SwingUtilities.paintComponent;
 
 /**
  *
- * @author Warlock
+ * @author aot5238
  */
 public class Box extends Rectangle {
     private int area;
