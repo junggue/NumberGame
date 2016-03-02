@@ -20,9 +20,10 @@ public class MainMenuUI extends JPanel{
     private JPanel mainPanel;
     private JButton startButton;
     private JButton exitButton;
-    private MainTable theMainTable;
+    private GameView theGameView;
     private JButton instructionsButton;
     private Instructions theInstructions;
+    private MainTable theMainTable;
     
     MainMenuUI(){
         mainPanel = new JPanel();
@@ -59,15 +60,15 @@ public class MainMenuUI extends JPanel{
     
     public void switchToInstructions(){
         theInstructions = (Instructions) new JPanel();
-        theMainTable.mainFrame.removeAll();
-        theMainTable.mainFrame.add(theInstructions);
+        theGameView.removeAll();
+        theGameView.add(theInstructions);
         repaint();
         revalidate();
     }
     
     public void switchToMainTable(){
-        theMainTable.mainFrame.removeAll();
-        theMainTable.mainFrame.add(theMainTable.northPanel, theMainTable.centerPanel);
+        theGameView.removeAll();
+        theGameView.add(theMainTable.northPanel, theMainTable.centerPanel);
         repaint();
         revalidate();
     }
