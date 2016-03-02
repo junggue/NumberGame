@@ -189,7 +189,7 @@ public class GameModelTest {
     public void testErrorMessage() {
         System.out.println("errorMessage");
         GameModel instance = new GameModel();
-        String expResult = "You have already clicked that.";
+        String expResult = "You already chose the number.";
         String result = instance.errorMessage();
         assertEquals(expResult, result);
     }
@@ -217,6 +217,74 @@ public class GameModelTest {
         int result = instance.getNumOfRow();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
+    }
+
+    /**
+     * Test of play method, of class GameModel.
+     */
+    @Test
+    public void testPlay() {
+        System.out.println("play");
+        GameModel instance = new GameModel();
+        instance.play();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of printMatrix method, of class GameModel.
+     */
+    @Test
+    public void testPrintMatrix() {
+        System.out.println("printMatrix");
+        GameModel instance = new GameModel();
+        instance.printMatrix();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getANumFromMatrix method, of class GameModel.
+     */
+    @Test
+    public void testGetANumFromMatrix() {
+        System.out.println("getANumFromMatrix");
+        int r = 0;
+        int c = 0;
+        GameModel instance = new GameModel();
+        int expResult = 0;
+        int result = instance.getANumFromMatrix(r, c);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getNumOfColumn method, of class GameModel.
+     */
+    @Test
+    public void testGetNumOfColumn() {
+        System.out.println("getNumOfColumn");
+        GameModel instance = new GameModel();
+        int expResult = 0;
+        int result = instance.getNumOfColumn();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getNumOfRow method, of class GameModel.
+     */
+    @Test
+    public void testGetNumOfRow() {
+        System.out.println("getNumOfRow");
+        GameModel instance = new GameModel();
+        int expResult = 0;
+        int result = instance.getNumOfRow();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
     
 }
