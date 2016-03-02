@@ -20,6 +20,7 @@ public class NumberGame {
         //mt.init();
 
         GameController theGameCntl = new GameController();
+        //GameView theGameView = nw GameView();
         
 
         //test the random number generator
