@@ -59,7 +59,7 @@ public class MainTable{
                 }
           
                 fractionLable = new JLabel(""+theGameCntl.getGameModel().getGoalNum());
-                answerLabel = new JLabel(""+theGameCntl.getGameModel().checkResult());
+                answerLabel = new JLabel(""+theGameCntl.getGameModel().statusResult());
                 exitButton = new JButton("Exit");
                 exitButton.addActionListener(new java.awt.event.ActionListener(){
                       public void actionPerformed(ActionEvent e ){
@@ -137,7 +137,7 @@ public class MainTable{
         public void finishButtonActionPerformed(ActionEvent e){
             this.theGameCntl.getGameModel().setFinishButtonClicked(true);
             if(this.equals(theGameCntl.getGameModel().getGoalNum())){
-                theGameCntl.getGameModel().checkResult();
+                theGameCntl.getGameModel().statusResult();
             }
         }
        
