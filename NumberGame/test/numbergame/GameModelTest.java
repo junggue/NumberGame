@@ -22,112 +22,15 @@ public class GameModelTest {
     }
 
     /**
-     * Test of getRandomNum method, of class GameModel.
+     * Test of play method, of class GameModel.
      */
     @Test
-    public void testGetRandomNum() {
-        System.out.println("getRandomNum");
-        int start = 0;
-        int end = 14;
+    public void testPlay() {
+        System.out.println("play");
         GameModel instance = new GameModel();
-        int expResult = 14;
-        int result = instance.getRandomNum(start, end);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-    }
-
-//    /**
-//     * Test of sumSelectedNum method, of class GameModel.
-//     */
-//    @Test
-//    public void testSumSelectedNum() {
-//        System.out.println("sumOptionsSelected");
-//        int numChosen = 0;
-//        GameModel instance = new GameModel();
-//        instance.sumSelectedNum(numChosen);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
-
-    /**
-     * Test of getGameMatrix method, of class GameModel.
-     */
-    @Test
-    public void testGetGameMatrix() {
-        System.out.println("getGameMatrix");
-        GameModel instance = new GameModel();
-        int[][] expResult = null;
-        int[][] result = instance.getGameMatrix();
-        assertArrayEquals(expResult, result);
+        instance.play();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getGoalNum method, of class GameModel.
-     */
-    @Test
-    public void testGetGoalNum() {
-        System.out.println("getGoalNum");
-        GameModel instance = new GameModel();
-        int expResult = 0;
-        int result = instance.getGoalNum();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setGoalNum method, of class GameModel.
-     */
-    @Test
-    public void testSetGoalNum() {
-        System.out.println("setGoalNum");
-        int start = 0;
-        int end = 0;
-        GameModel instance = new GameModel();
-        instance.setGoalNum(start, end);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getSum method, of class GameModel.
-     */
-    @Test
-    public void testGetSum() {
-        System.out.println("getSum");
-        GameModel instance = new GameModel();
-        int expResult = 0;
-        int result = instance.getSum();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getFinishButtonClicked method, of class GameModel.
-     */
-    @Test
-    public void testGetFinishButtonClicked() {
-        System.out.println("getFinishButtonClicked");
-        GameModel instance = new GameModel();
-        boolean expResult = false;
-        boolean result = instance.getFinishButtonClicked();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setFinishButtonClicked method, of class GameModel.
-     */
-    @Test
-    public void testSetFinishButtonClicked() {
-        System.out.println("setFinishButtonClicked");
-        boolean newValue = false;
-        GameModel instance = new GameModel();
-        instance.setFinishButtonClicked(newValue);
     }
 
     /**
@@ -143,15 +46,39 @@ public class GameModelTest {
     }
 
     /**
-     * Test of checkResult method, of class GameModel.
+     * Test of statusResult method, of class GameModel.
      */
     @Test
-    public void testCheckResult() {
-        System.out.println("checkResult");
+    public void testStatusResult() {
+        System.out.println("statusResult");
         GameModel instance = new GameModel();
         String expResult = "";
-        String result = instance.checkResult();
+        String result = instance.statusResult();
         assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of statusRestart method, of class GameModel.
+     */
+    @Test
+    public void testStatusRestartWhenYouLost() {
+        System.out.println("statusRestart");
+        GameModel instance = new GameModel();
+        String expResult = "You lost";
+        String result = instance.statusRestart();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of printMatrix method, of class GameModel.
+     */
+    @Test
+    public void testPrintMatrix() {
+        System.out.println("printMatrix");
+        GameModel instance = new GameModel();
+        instance.printMatrix();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -171,79 +98,6 @@ public class GameModelTest {
     }
 
     /**
-     * Test of numButtonPushed method, of class GameModel.
-     */
-    @Test
-    public void testNumButtonPushed() {
-        System.out.println("numButtonPushed");
-        int r = 0;
-        int c = 0;
-        GameModel instance = new GameModel();
-        instance.numButtonPushed(r, c);
-    }
-
-    /**
-     * Test of errorMessage method, of class GameModel.
-     */
-    @Test
-    public void testErrorMessage() {
-        System.out.println("errorMessage");
-        GameModel instance = new GameModel();
-        String expResult = "You already chose the number.";
-        String result = instance.errorMessage();
-        assertEquals(expResult, result);
-    }
-
-    /**
-     * Test of getNumOfColumn method, of class GameModel.
-     */
-    @Test
-    public void testGetNumOfColumnWhenInLevelOne() {
-        System.out.println("getNumOfColumn");
-        GameModel instance = new GameModel();
-        int expResult = 3;
-        int result = instance.getNumOfColumn();
-        assertEquals(expResult, result);
-    }
-
-    /**
-     * Test of getNumOfRow method, of class GameModel.
-     */
-    @Test
-    public void testGetNumOfRowWhenInLevelOne() {
-        System.out.println("getNumOfRow");
-        GameModel instance = new GameModel();
-        int expResult = 3;
-        int result = instance.getNumOfRow();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-    }
-
-    /**
-     * Test of play method, of class GameModel.
-     */
-    @Test
-    public void testPlay() {
-        System.out.println("play");
-        GameModel instance = new GameModel();
-        instance.play();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of printMatrix method, of class GameModel.
-     */
-    @Test
-    public void testPrintMatrix() {
-        System.out.println("printMatrix");
-        GameModel instance = new GameModel();
-        instance.printMatrix();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of getANumFromMatrix method, of class GameModel.
      */
     @Test
@@ -254,6 +108,49 @@ public class GameModelTest {
         GameModel instance = new GameModel();
         int expResult = 0;
         int result = instance.getANumFromMatrix(r, c);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of numButtonPushed method, of class GameModel.
+     */
+    @Test
+    public void testNumButtonPushed() {
+        System.out.println("numButtonPushed");
+        int r = 0;
+        int c = 0;
+        GameModel instance = new GameModel();
+        instance.numButtonPushed(r, c);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of errorMessage method, of class GameModel.
+     */
+    @Test
+    public void testErrorMessage() {
+        System.out.println("errorMessage");
+        GameModel instance = new GameModel();
+        String expResult = "";
+        String result = instance.errorMessage();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getRandomNum method, of class GameModel.
+     */
+    @Test
+    public void testGetRandomNum() {
+        System.out.println("getRandomNum");
+        int start = 0;
+        int end = 0;
+        int expResult = 0;
+        int result = GameModel.getRandomNum(start, end);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
