@@ -34,25 +34,15 @@ public class GameModelTest {
     }
 
     /**
-     * Test of finishButtonClicked method, of class GameModel.
-     */
-    @Test
-    public void testFinishButtonClicked() {
-        System.out.println("finishButtonClicked");
-        GameModel instance = new GameModel();
-        instance.finishButtonClicked();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of statusResult method, of class GameModel.
      */
     @Test
-    public void testStatusResult() {
+    public void testStatusResultWhenPlayerWins() {
         System.out.println("statusResult");
         GameModel instance = new GameModel();
-        String expResult = "";
+        if(instance.equals(goalNum)){
+            String expResult = "You Won!";
+        }
         String result = instance.statusResult();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
