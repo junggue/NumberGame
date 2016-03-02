@@ -22,27 +22,13 @@ public class GameModelTest {
     }
 
     /**
-     * Test of play method, of class GameModel.
-     */
-    @Test
-    public void testPlay() {
-        System.out.println("play");
-        GameModel instance = new GameModel();
-        instance.play();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of statusResult method, of class GameModel.
      */
     @Test
     public void testStatusResultWhenPlayerWins() {
         System.out.println("statusResult");
         GameModel instance = new GameModel();
-        if(instance.equals(goalNum)){
-            String expResult = "You Won!";
-        }
+        String expResult = "You Won!";
         String result = instance.statusResult();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -145,33 +131,4 @@ public class GameModelTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-
-    /**
-     * Test of getNumOfColumn method, of class GameModel.
-     */
-    @Test
-    public void testGetNumOfColumn() {
-        System.out.println("getNumOfColumn");
-        GameModel instance = new GameModel();
-        int expResult = 0;
-        int result = instance.getNumOfColumn();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getNumOfRow method, of class GameModel.
-     */
-    @Test
-    public void testGetNumOfRow() {
-        System.out.println("getNumOfRow");
-        GameModel instance = new GameModel();
-        int expResult = 0;
-        int result = instance.getNumOfRow();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
 }
