@@ -23,7 +23,7 @@ public class MainMenuUI extends JPanel{
     private GameView theGameView;
     private JButton instructionsButton;
     private Instructions theInstructions;
-    private MainTable theMainTable;
+    private GameUI theGameUI;
     
     MainMenuUI(){
         mainPanel = new JPanel();
@@ -67,8 +67,9 @@ public class MainMenuUI extends JPanel{
     }
     
     public void switchToMainTable(){
+        theGameUI = (GameUI) new JPanel();
         theGameView.removeAll();
-        theGameView.add(theMainTable.northPanel, theMainTable.centerPanel);
+        theGameView.add(theGameUI);
         repaint();
         revalidate();
     }

@@ -29,7 +29,7 @@ public class Instructions extends JPanel{
     private JLabel whatToDo;
     private JPanel panel;
     private MainMenuUI theMainMenu;
-    private MainTable theMainTable;
+    private GameUI theGameUI;
     private GameView theGameView;
     
     public Instructions(){
@@ -73,8 +73,9 @@ public class Instructions extends JPanel{
     }
     
     public void switchToMainTable(){
+        theGameUI = (GameUI) new JPanel();
         theGameView.removeAll();
-        theGameView.add(theMainTable.centerPanel, theMainTable.northPanel);
+        theGameView.add(theGameUI);
         repaint();
         revalidate();
     }
