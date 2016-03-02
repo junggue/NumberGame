@@ -60,20 +60,6 @@ public class GameModelTest {
     }
 
     /**
-     * Test of sumSelectedNum method, of class GameModel.
-     */
-    @Test
-    public void testSumSelectedNum() {
-        System.out.println("sumSelectedNum");
-        int r = 0;
-        int c = 0;
-        GameModel instance = new GameModel();
-        instance.sumSelectedNum(r, c);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of getANumFromMatrix method, of class GameModel.
      */
     @Test
