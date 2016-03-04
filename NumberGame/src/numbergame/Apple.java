@@ -10,6 +10,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.geom.Ellipse2D;
+import javax.swing.ImageIcon;
 import static javax.swing.SwingUtilities.paintComponent;
 
 /**
@@ -19,6 +20,8 @@ import static javax.swing.SwingUtilities.paintComponent;
 public class Apple {
     private int diameter;
     private Color appleColor;
+    ImageIcon apple = new ImageIcon("/images/1.png");
+
 
     Apple(int diameter) {
 //      apple = new Circle();
