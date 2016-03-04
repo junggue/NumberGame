@@ -124,8 +124,7 @@ public class GameUI extends JPanel{
     }
     
     public void switchToMainMenuUI(){
-        theGameView.removeAll();
-        theGameView.add(theMainMenu);
+        
         repaint();
         revalidate();
     }
