@@ -11,16 +11,20 @@ package numbergame;
  */
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.*;
 
-public class GameUI extends JPanel implements ActionListener {
+public class GameUI extends JPanel{
 
     private GameController theGameController;
     private Container theContainer;
     private JPanel centerPanel, southPanel, northPanel;
     private JButton button[][], exitButton, getResultButton;
     private JLabel statusLabel, goalNumLabel, sumLabel;
+    private Instructions theInstructions;
+    private MainMenuUI theMainMenu;
+    private JButton mainMenuButton;
+    private JButton instructionsButton;
+    private GameView theGameView;
 
     public GameUI(GameController parentGameController) {
         super();
@@ -48,6 +52,10 @@ public class GameUI extends JPanel implements ActionListener {
         northPanel.add(statusLabel = new JLabel("status"));
         northPanel.add(goalNumLabel = new JLabel("Goal: " + theGameController.getGameModel().getGoalNum()));
         northPanel.add(sumLabel = new JLabel("sum: " + theGameController.getGameModel().getSum()));
+        
+        southPanel.add(instructionsButton = new JButton("Instructions"));
+        southPanel.add(mainMenuButton = new JButton("Main Menu"));
+        southPanel.add(exitButton = new JButton("Exit"));
 
         //Buttons are initialized
         button = new JButton[rowNum][colNum];
@@ -57,15 +65,33 @@ public class GameUI extends JPanel implements ActionListener {
         for (int rows = 0; rows < theGameController.getGameModel().getGameMatrix().length; rows++) {
             for (int cols = 0; cols < theGameController.getGameModel().getGameMatrix()[rows].length; cols++) {
                 button[rows][cols] = new JButton("" + theGameController.getGameModel().getGameMatrix()[rows][cols]);
-                button[rows][cols].addActionListener(this);
+                button[rows][cols].addActionListener(new java.awt.event.ActionListener(){
+                    public void actionPerformed(ActionEvent e){
+                        buttonActionPerformed(e);
+                    }
+                });
                 centerPanel.add(button[rows][cols]);
             }
         }
-
+        
+        instructionsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                instructionsButtonActionPerformed(e);
+            }
+        });
+        mainMenuButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                mainMenuButtonActionPerformed(e);
+            }
+        });
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                exitButtonActionPerformed(e);
+            }
+        });
     }
 
-    @Override
-    public void actionPerformed(ActionEvent event) {
+    public void buttonActionPerformed(ActionEvent event) {
         Object obj = event.getSource();
         for (int i = 0; i < theGameController.getGameModel().getGameMatrix().length; i++) {
             for (int j = 0; j < theGameController.getGameModel().getGameMatrix()[i].length; j++) {
@@ -76,7 +102,31 @@ public class GameUI extends JPanel implements ActionListener {
                 }
             }
         }
-
     }
-
+    
+    public void instructionsButtonActionPerformed(ActionEvent e){
+        switchToInstructions();
+    }
+    
+    public void mainMenuButtonActionPerformed(ActionEvent e){
+        switchToMainMenuUI();
+    }
+    
+    public void exitButtonActionPerformed(ActionEvent e){
+        System.exit(0);
+    }
+    
+    public void switchToInstructions(){
+        theGameView.removeAll();
+        theGameView.add(theInstructions);
+        repaint();
+        revalidate();
+    }
+    
+    public void switchToMainMenuUI(){
+        theGameView.removeAll();
+        theGameView.add(theMainMenu);
+        repaint();
+        revalidate();
+    }
 }
