@@ -15,9 +15,7 @@ public class NumberGame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here 
-        //MainTable mt = new MainTable();
-        //mt.init();
+        
 
         GameController theGameCntl = new GameController();
         //GameView theGameView = nw GameView();
