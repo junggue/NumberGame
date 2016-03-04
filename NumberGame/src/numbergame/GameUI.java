@@ -59,10 +59,10 @@ public class GameUI extends JPanel{
         southPanel.add(exitButton = new JButton("Exit"));
 
         BufferedImage img1=new ImgUtils().scaleImage(75,75,"src\\images\\1.png");
-        BufferedImage img2=new ImgUtils().scaleImage(100,100,"src\\images\\2.png");
-        BufferedImage img3=new ImgUtils().scaleImage(100,100,"src\\images\\3.png");
-        BufferedImage img4=new ImgUtils().scaleImage(100,100,"src\\images\\4.png");
-        BufferedImage img5=new ImgUtils().scaleImage(100,100,"src\\images\\5.png");
+        BufferedImage img2=new ImgUtils().scaleImage(75,75,"src\\images\\2.png");
+        BufferedImage img3=new ImgUtils().scaleImage(75,75,"src\\images\\3.png");
+        BufferedImage img4=new ImgUtils().scaleImage(75,75,"src\\images\\4.png");
+        BufferedImage img5=new ImgUtils().scaleImage(75,75,"src\\images\\5.png");
         //Buttons are initialized
         
   
