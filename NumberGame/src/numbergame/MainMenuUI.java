@@ -7,6 +7,7 @@ package numbergame;
 
 import java.awt.Container;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -53,7 +54,11 @@ public class MainMenuUI extends JPanel{
             }
         });
         
+        ImageIcon exit = new ImageIcon("images/exit.png");
+        JButton exitButton = new JButton(exit);
         mainPanel.add(exitButton);
+        ImageIcon start = new ImageIcon("images/start.png");
+        JButton startButton = new JButton(start);
         mainPanel.add(startButton);
         mainPanel.add(instructionsButton);
         mainPanel.setVisible(true);
