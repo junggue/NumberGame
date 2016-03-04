@@ -83,7 +83,7 @@ public class GameModel {
             getFinishButtonClicked();
         }
 
-        System.out.println("Result Message: " + checkResult());
+        System.out.println("Result Message: " + statusResult());
     }
 
     public int[][] getGameMatrix() {
@@ -116,14 +116,22 @@ public class GameModel {
         this.finishButtonClicked = true;
     }
 
-    public String checkResult() {
+    //test
+    //return a message win or lost in a status label in GameUI
+    public String statusResult() {
         if (this.goalNum == this.sum) {
             return "You Won";
         } else {
             return "You Lost";
         }
     }
-
+    
+    //return a message to prompt user to refresh in a status label in GameUI
+    public String statusRestart(){
+        return "Click a restart button";
+    }
+    
+    
     //test use only
     public void printMatrix() {
         int num = 0;
@@ -136,6 +144,7 @@ public class GameModel {
         }
     }
 
+    //test
     public void sumSelectedNum(int r, int c) {
         if (optionsChosen[r][c] == false) {
             //this.sum += gameMatrix[r][c];
@@ -143,6 +152,7 @@ public class GameModel {
         }
     }
     
+    //test
     public int getANumFromMatrix(int r, int c){
         return this.gameMatrix[r][c];
     }
