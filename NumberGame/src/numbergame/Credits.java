@@ -7,6 +7,7 @@ package numbergame;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -40,11 +41,22 @@ public class Credits extends JPanel
                 + "Professor Rimland!");
         exitButton = new JButton("Exit");
         backButton = new JButton("Back to Main Screen");
+
+        exitButton.setIcon(new ImageIcon("images/exit.png"));
+        backButton.setIcon(new ImageIcon("images/back.png"));
         
         panel.add(credits, BorderLayout.NORTH);
         panel.add(weAre, BorderLayout.CENTER);
         panel.add(exitButton, BorderLayout.SOUTH);
         panel.add(backButton, BorderLayout.SOUTH);
+        
+        exitButton.setOpaque(false);
+        exitButton.setContentAreaFilled(false);
+        exitButton.setBorderPainted(false);
+        backButton.setOpaque(false);
+        backButton.setContentAreaFilled(false);
+        backButton.setBorderPainted(false);
+        
         
         exitButton.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(ActionEvent e){
