@@ -27,8 +27,16 @@ public class GameView extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         initCustomComponents();
         
-        
-
+        EventQueue.invokeLater(new Runnable(){
+            public void run(){
+                try{
+                    GameView MainFrame = new GameView(parentGameController);
+                    MainFrame.setVisible(true);
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
     }
     
     public void initCustomComponents(){

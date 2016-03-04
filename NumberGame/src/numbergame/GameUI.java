@@ -109,7 +109,12 @@ public class GameUI extends JPanel{
     }
     
     public void mainMenuButtonActionPerformed(ActionEvent e){
-        switchToMainMenuUI();
+        GameView MainFrame = new GameView(theGameController);
+        MainFrame.removeAll();
+        MainFrame.add(new MainMenuUI());
+        MainFrame.revalidate();
+        MainFrame.repaint();
+//        switchToMainMenuUI();
     }
     
     public void exitButtonActionPerformed(ActionEvent e){
@@ -119,12 +124,6 @@ public class GameUI extends JPanel{
     public void switchToInstructions(){
         theGameView.removeAll();
         theGameView.add(theInstructions);
-        repaint();
-        revalidate();
-    }
-    
-    public void switchToMainMenuUI(){
-        
         repaint();
         revalidate();
     }
