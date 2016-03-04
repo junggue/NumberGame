@@ -18,17 +18,17 @@ import javax.swing.WindowConstants;
  * @author laurenritter
  */
 public class MainMenuUI extends JPanel{
-    private JPanel mainPanel;
+//    private JPanel mainPanel;
     private JButton startButton;
     private JButton exitButton;
     private GameView theGameView;
     private JButton instructionsButton;
     private Instructions theInstructions;
     private GameUI theGameUI;
+    private JPanel panel;
     
     MainMenuUI(){
-        mainPanel = new JPanel();
-        
+        panel = new JPanel();
         initCustomComponents();
     }
     
@@ -56,12 +56,12 @@ public class MainMenuUI extends JPanel{
         
         ImageIcon exit = new ImageIcon("images/exit.png");
         JButton exitButton = new JButton(exit);
-        mainPanel.add(exitButton);
+        panel.add(exitButton);
         ImageIcon start = new ImageIcon("images/start.png");
         JButton startButton = new JButton(start);
-        mainPanel.add(startButton);
-        mainPanel.add(instructionsButton);
-        mainPanel.setVisible(true);
+        panel.add(startButton);
+        panel.add(instructionsButton);
+        panel.setVisible(true);
     }
     
 //    public void switchToInstructions(){

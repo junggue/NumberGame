@@ -18,6 +18,8 @@ public class GameView extends JFrame {
     private GameUI theGameUI;
     private MainMenuUI theMainMenu;
     private Instructions theInstructions;
+    private JPanel mainMenuPanel;
+    private JPanel instructionsPanel;
 
     public GameView(GameController parentGameController) {
         theMainMenu = new MainMenuUI();
@@ -33,6 +35,8 @@ public class GameView extends JFrame {
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.add(theGameUI);
+        
+        
         //GameUI theGamePanel = new GameUI(theGameCntl);
         //MainTable theMainTable = new MainTable(theGameCntl);
         //getContentPane().add(theGamePanel, "Center");
