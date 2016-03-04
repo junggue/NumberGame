@@ -60,6 +60,7 @@ public class MainMenuUI extends JPanel{
         ImageIcon start = new ImageIcon("images/start.png");
         JButton startButton = new JButton(start);
         mainPanel.add(startButton);
+        mainPanel.add(instructionsButton);
         mainPanel.setVisible(true);
     }
     

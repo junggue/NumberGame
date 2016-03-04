@@ -51,18 +51,21 @@ public class Instructions extends JPanel{
         panel.add(backButton, BorderLayout.SOUTH);
         panel.add(startButton, BorderLayout.SOUTH);
         
+        exitButton = new JButton("Exit");
         exitButton.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(ActionEvent e){
                 exitButtonActionPerformed(e);
             }
         });
         
+        backButton = new JButton("Back");
         backButton.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(ActionEvent e){
                 backButtonActionPerformed(e);
             }
         });
         
+        startButton = new JButton("Start Game!");
         startButton.addActionListener(new java.awt.event.ActionListener(){
             public void actionPerformed(ActionEvent e){
                 startButtonActionPerformed(e);
