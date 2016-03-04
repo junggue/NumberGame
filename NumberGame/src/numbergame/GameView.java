@@ -18,10 +18,8 @@ public class GameView extends JFrame {
     private GameUI theGameUI;
     private MainMenuUI theMainMenu;
     private Instructions theInstructions;
-    private JFrame frame;
 
     public GameView(GameController parentGameController) {
-        frame = new JFrame();
         theMainMenu = new MainMenuUI();
         theInstructions = new Instructions();
         theGameCntroller = parentGameController;
@@ -31,10 +29,10 @@ public class GameView extends JFrame {
     }
     
     public void initCustomComponents(){
-        frame.setSize(400,400);
-        frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.add(theGameUI);
+        this.setSize(400,400);
+        this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.add(theGameUI);
         //GameUI theGamePanel = new GameUI(theGameCntl);
         //MainTable theMainTable = new MainTable(theGameCntl);
         //getContentPane().add(theGamePanel, "Center");
@@ -46,17 +44,17 @@ public class GameView extends JFrame {
         
     }
     
-    public void switchToMainMenu(){
-        frame.removeAll();
-        frame.add(theMainMenu);
-        repaint();
-        revalidate();
-    }
-    
-    public void switchToInstructions(){
-        frame.removeAll();
-        frame.add(theInstructions);
-        repaint();
-        revalidate();
-    }
+//    public void switchToMainMenu(){
+//        frame.removeAll();
+//        frame.add(theMainMenu);
+//        repaint();
+//        revalidate();
+//    }
+//    
+//    public void switchToInstructions(){
+//        frame.removeAll();
+//        frame.add(theInstructions);
+//        repaint();
+//        revalidate();
+//    }
 }

@@ -105,21 +105,20 @@ public class GameUI extends JPanel{
     }
     
     public void instructionsButtonActionPerformed(ActionEvent e){
-        theGameView.switchToInstructions();
+        theGameView.removeAll();
+        theGameView.add(theMainMenu);
+        theGameView.repaint();
+        theGameView.revalidate();
     }
     
     public void mainMenuButtonActionPerformed(ActionEvent e){
-        theGameView.switchToMainMenu();
+        theGameView.removeAll();
+        theGameView.add(theInstructions);
+        theGameView.repaint();
+        theGameView.revalidate();
     }
     
     public void exitButtonActionPerformed(ActionEvent e){
         System.exit(0);
     }
-    
-//    public void switchToInstructions(){
-//        theGameView.removeAll();
-//        theGameView.add(theInstructions);
-//        repaint();
-//        revalidate();
-//    }
 }
