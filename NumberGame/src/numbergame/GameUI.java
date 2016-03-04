@@ -12,6 +12,7 @@ package numbergame;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import javax.swing.*;
+import java.awt.image.BufferedImage;
 
 public class GameUI extends JPanel{
 
@@ -57,14 +58,34 @@ public class GameUI extends JPanel{
         southPanel.add(mainMenuButton = new JButton("Main Menu"));
         southPanel.add(exitButton = new JButton("Exit"));
 
+        BufferedImage img1=new ImgUtils().scaleImage(75,75,"src\\images\\1.png");
+        BufferedImage img2=new ImgUtils().scaleImage(100,100,"src\\images\\2.png");
+        BufferedImage img3=new ImgUtils().scaleImage(100,100,"src\\images\\3.png");
+        BufferedImage img4=new ImgUtils().scaleImage(100,100,"src\\images\\4.png");
+        BufferedImage img5=new ImgUtils().scaleImage(100,100,"src\\images\\5.png");
         //Buttons are initialized
+        
+  
         button = new JButton[rowNum][colNum];
-
         //Store the random numbers into the buttons
         //Then, the buttons are added into the centerPanel
         for (int rows = 0; rows < theGameController.getGameModel().getGameMatrix().length; rows++) {
             for (int cols = 0; cols < theGameController.getGameModel().getGameMatrix()[rows].length; cols++) {
                 button[rows][cols] = new JButton("" + theGameController.getGameModel().getGameMatrix()[rows][cols]);
+                switch (theGameController.getGameModel().getGameMatrix()[rows][cols]){
+                    case 1: button[rows][cols].setIcon(new ImageIcon(img1));
+                        break;
+                    case 2: button[rows][cols].setIcon(new ImageIcon(img2));
+                        break;
+                    case 3: button[rows][cols].setIcon(new ImageIcon(img3));
+                        break;
+                    case 4: button[rows][cols].setIcon(new ImageIcon(img4));
+                        break;
+                    default: button[rows][cols].setIcon(new ImageIcon(img5));
+                        break;                           
+                }
+                    
+                
                 button[rows][cols].addActionListener(new java.awt.event.ActionListener(){
                     public void actionPerformed(ActionEvent e){
                         buttonActionPerformed(e);
