@@ -72,7 +72,20 @@ public class GameUI extends JPanel{
         for (int rows = 0; rows < theGameController.getGameModel().getGameMatrix().length; rows++) {
             for (int cols = 0; cols < theGameController.getGameModel().getGameMatrix()[rows].length; cols++) {
                 button[rows][cols] = new JButton("" + theGameController.getGameModel().getGameMatrix()[rows][cols]);
-                button[rows][cols].setIcon(new ImageIcon(img1));
+                switch (theGameController.getGameModel().getGameMatrix()[rows][cols]){
+                    case 1: button[rows][cols].setIcon(new ImageIcon(img1));
+                        break;
+                    case 2: button[rows][cols].setIcon(new ImageIcon(img2));
+                        break;
+                    case 3: button[rows][cols].setIcon(new ImageIcon(img3));
+                        break;
+                    case 4: button[rows][cols].setIcon(new ImageIcon(img4));
+                        break;
+                    default: button[rows][cols].setIcon(new ImageIcon(img5));
+                        break;                           
+                }
+                    
+                
                 button[rows][cols].addActionListener(new java.awt.event.ActionListener(){
                     public void actionPerformed(ActionEvent e){
                         buttonActionPerformed(e);
