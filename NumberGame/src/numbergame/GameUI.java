@@ -105,14 +105,18 @@ public class GameUI extends JPanel{
     }
     
     public void instructionsButtonActionPerformed(ActionEvent e){
-        theGameView.removeAll();
+        theGameView.remove(centerPanel);
+        theGameView.remove(northPanel);
+        theGameView.remove(southPanel);
         theGameView.add(theMainMenu);
         theGameView.repaint();
         theGameView.revalidate();
     }
     
     public void mainMenuButtonActionPerformed(ActionEvent e){
-        theGameView.removeAll();
+        theGameView.remove(centerPanel);
+        theGameView.remove(northPanel);
+        theGameView.remove(southPanel);
         theGameView.add(theInstructions);
         theGameView.repaint();
         theGameView.revalidate();

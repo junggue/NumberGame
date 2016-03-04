@@ -64,31 +64,31 @@ public class MainMenuUI extends JPanel{
         mainPanel.setVisible(true);
     }
     
-    public void switchToInstructions(){
-        theInstructions = (Instructions) new JPanel();
-        theGameView.removeAll();
-        theGameView.add(theInstructions);
-        repaint();
-        revalidate();
-    }
+//    public void switchToInstructions(){
+//        theInstructions = (Instructions) new JPanel();
+//        theGameView.removeAll();
+//        theGameView.add(theInstructions);
+//        repaint();
+//        revalidate();
+//    }
     
-    public void switchToMainTable(){
-        theGameUI = (GameUI) new JPanel();
-        theGameView.removeAll();
-        theGameView.add(theGameUI);
-        repaint();
-        revalidate();
-    }
+//    public void switchToMainTable(){
+//        theGameUI = (GameUI) new JPanel();
+//        theGameView.removeAll();
+//        theGameView.add(theGameUI);
+//        repaint();
+//        revalidate();
+//    }
     
     public void exitButtonActionPerformed(ActionEvent e){
         System.exit(0);
     }
     
     public void startButtonActionPerformed(ActionEvent e){
-        switchToMainTable();
+//        switchToMainTable();
     }
     
     public void instructionsButtonActionPerformed(ActionEvent e){
-        switchToInstructions();
+//        switchToInstructions();
     }
 }
