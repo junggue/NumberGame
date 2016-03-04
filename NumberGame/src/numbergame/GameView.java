@@ -48,14 +48,14 @@ public class GameView extends JFrame {
     
     public void switchToMainMenu(){
         frame.removeAll();
-        frame.add(new MainMenuUI());
+        frame.add(theMainMenu);
         repaint();
         revalidate();
     }
     
     public void switchToInstructions(){
         frame.removeAll();
-        frame.add(new Instructions());
+        frame.add(theInstructions);
         repaint();
         revalidate();
     }
