@@ -31,8 +31,6 @@ public class GameModelTest {
         String expResult = "You Won!";
         String result = instance.statusResult();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -48,73 +46,79 @@ public class GameModelTest {
     }
 
     /**
-     * Test of printMatrix method, of class GameModel.
-     */
-    @Test
-    public void testPrintMatrix() {
-        System.out.println("printMatrix");
-        GameModel instance = new GameModel();
-        instance.printMatrix();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getANumFromMatrix method, of class GameModel.
-     */
-    @Test
-    public void testGetANumFromMatrix() {
-        System.out.println("getANumFromMatrix");
-        int r = 0;
-        int c = 0;
-        GameModel instance = new GameModel();
-        int expResult = 0;
-        int result = instance.getANumFromMatrix(r, c);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of numButtonPushed method, of class GameModel.
-     */
-    @Test
-    public void testNumButtonPushed() {
-        System.out.println("numButtonPushed");
-        int r = 0;
-        int c = 0;
-        GameModel instance = new GameModel();
-        instance.numButtonPushed(r, c);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of errorMessage method, of class GameModel.
      */
     @Test
     public void testErrorMessage() {
         System.out.println("errorMessage");
         GameModel instance = new GameModel();
-        String expResult = "";
+        String expResult = "That number is already chosen";
         String result = instance.errorMessage();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
      * Test of getRandomNum method, of class GameModel.
      */
     @Test
-    public void testGetRandomNum() {
+    public void testGetRandomNumWhenNumIs9() {
         System.out.println("getRandomNum");
         int start = 0;
-        int end = 0;
-        int expResult = 0;
+        int end = 9;
+        int expResult = 9;
         int result = GameModel.getRandomNum(start, end);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    }
+    
+    /**
+     * Test of getRandomNum method, of class GameModel.
+     */
+    @Test
+    public void testGetRandomNumWhenNumIs3() {
+        System.out.println("getRandomNum");
+        int start = 0;
+        int end = 3;
+        int expResult = 3;
+        int result = GameModel.getRandomNum(start, end);
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of getRandomNum method, of class GameModel.
+     */
+    @Test
+    public void testGetRandomNumis4() {
+        System.out.println("getRandomNum");
+        int start = 0;
+        int end = 4;
+        int expResult = 4;
+        int result = GameModel.getRandomNum(start, end);
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of getRandomNum method, of class GameModel.
+     */
+    @Test
+    public void testGetRandomNumis5() {
+        System.out.println("getRandomNum");
+        int start = 0;
+        int end = 5;
+        int expResult = 5;
+        int result = GameModel.getRandomNum(start, end);
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of getRandomNum method, of class GameModel.
+     */
+    @Test
+    public void testGetRandomNumIs10() {
+        System.out.println("getRandomNum");
+        int start = 0;
+        int end = 10;
+        int expResult = 10;
+        int result = GameModel.getRandomNum(start, end);
+        assertEquals(expResult, result);
     }
 }
