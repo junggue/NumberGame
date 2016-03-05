@@ -54,6 +54,15 @@ public class GameModel {
         }
 
     }
+    
+    public void regenerateGameMatrix(){
+        for (int i = 0; i < gameMatrix.length; i++) {
+            for (int j = 0; j < gameMatrix[i].length; j++) {
+                gameMatrix[i][j] = getRandomNum(MIN_RANDOM_NUM, MAX_RANDOM_NUM);
+                options[i] = gameMatrix[i][j];
+            }
+        }
+    }
 
     //test only
     public void play() {
@@ -151,7 +160,7 @@ public class GameModel {
     }
 
     public String errorMessage() {
-        return "You already chose the number";
+        return "pushed already. Push another";
     }
 
     //with range 1 ~ 5

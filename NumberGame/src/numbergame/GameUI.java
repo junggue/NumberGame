@@ -23,7 +23,7 @@ public class GameUI extends JPanel implements ActionListener {
     private JPanel centerPanel, southPanel, northPanel;
     private JButton button[][], hideButton, returnButton, refreshButton;
     private JLabel statusLabel, goalNumLabel, sumLabel;
-    ImageIcon img6;
+    ImageIcon img1, img2, img3, img4, img5, img6;
 
     public GameUI(GameController parentGameController, GameView parentGameView) {
         super();
@@ -31,7 +31,7 @@ public class GameUI extends JPanel implements ActionListener {
         theGameView = parentGameView;
         initComponents();
     }
-
+    
     public void initComponents() {
 
         int rowNum = theGameController.getGameModel().getNumOfRow();
@@ -65,11 +65,12 @@ public class GameUI extends JPanel implements ActionListener {
         //Buttons are initialized
         button = new JButton[rowNum][colNum];
 
-        ImageIcon img1 = new ImageIcon("src/images/1.png");
-        ImageIcon img2 = new ImageIcon("src/images/2.png");
-        ImageIcon img3 = new ImageIcon("src/images/3.png");
-        ImageIcon img4 = new ImageIcon("src/images/4.png");
-        ImageIcon img5 = new ImageIcon("src/images/5.png");
+        //initialize image objects with images
+        img1 = new ImageIcon("src/images/1.png");
+        img2 = new ImageIcon("src/images/2.png");
+        img3 = new ImageIcon("src/images/3.png");
+        img4 = new ImageIcon("src/images/4.png");
+        img5 = new ImageIcon("src/images/5.png");
         img6 = new ImageIcon("src/images/question.png");
 
         //Store the random numbers into the buttons
@@ -131,16 +132,18 @@ public class GameUI extends JPanel implements ActionListener {
                         }
 
                         theGameController.getGameModel().numButtonPushed(i, j);
+                    } else {
+                        statusLabel.setText(theGameController.getGameModel().errorMessage());
                     }
                 }
             }
         }
-        
-        if(obj == returnButton){
+
+        if (obj == returnButton) {
             theGameView.showMainMenuUI(this);
         }
-        
-        if(obj == refreshButton){
+
+        if (obj == refreshButton) {
             theGameView.showGameUI(this);
         }
 
