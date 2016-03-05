@@ -43,8 +43,8 @@ public class GameModelTest {
     @Test
     public void testGetRandomNum() {
         System.out.println("getRandomNum");
-        int start = 0;
-        int end = 0;
+        int start = 1;
+        int end = 6;
         GameModel instance = new GameModel();
         int expResult = 0;
         int result = instance.getRandomNum(start, end);
@@ -154,7 +154,6 @@ public class GameModelTest {
         int result = instance.getSum();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -277,6 +276,22 @@ public class GameModelTest {
         int result = instance.getNumOfRow();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
+    }
+
+    /**
+     * Test of getOptionsChosen method, of class GameModel.
+     */
+    @Test
+    public void testGetOptionsChosen() {
+        System.out.println("getOptionsChosen");
+        int r = 0;
+        int c = 0;
+        GameModel instance = new GameModel();
+        boolean expResult = false;
+        boolean result = instance.getOptionsChosen(r, c);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
     
 }

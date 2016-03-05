@@ -18,15 +18,17 @@ import javax.swing.*;
 public class GameUI extends JPanel implements ActionListener {
 
     private GameController theGameController;
-    private Container theContainer;
+    private GameView theGameView;
+    //private Container theContainer;
     private JPanel centerPanel, southPanel, northPanel;
     private JButton button[][], hideButton, returnButton, refreshButton;
     private JLabel statusLabel, goalNumLabel, sumLabel;
     ImageIcon img6;
 
-    public GameUI(GameController parentGameController) {
+    public GameUI(GameController parentGameController, GameView parentGameView) {
         super();
         theGameController = parentGameController;
+        theGameView = parentGameView;
         initComponents();
     }
 
@@ -52,11 +54,13 @@ public class GameUI extends JPanel implements ActionListener {
         northPanel.add(goalNumLabel = new JLabel("Goal: " + theGameController.getGameModel().getGoalNum()));
         northPanel.add(sumLabel = new JLabel("sum: " + theGameController.getGameModel().getSum()));
 
-        //Option Buttons
+        //Option Buttons and Listners
         southPanel.add(hideButton = new JButton("Hide the apples"));
         southPanel.add(returnButton = new JButton("return"));
         southPanel.add(refreshButton = new JButton("refresh"));
         hideButton.addActionListener(this);
+        returnButton.addActionListener(this);
+        refreshButton.addActionListener(this);
 
         //Buttons are initialized
         button = new JButton[rowNum][colNum];
@@ -130,6 +134,14 @@ public class GameUI extends JPanel implements ActionListener {
                     }
                 }
             }
+        }
+        
+        if(obj == returnButton){
+            theGameView.showMainMenuUI(this);
+        }
+        
+        if(obj == refreshButton){
+            theGameView.showGameUI(this);
         }
 
     }

@@ -13,20 +13,17 @@ public class GameController {
 
     private GameModel theGameModel;
     private GameView theGameView;
-    private MainTable theMainTable;
 
     public GameController() {
-        theGameModel = new GameModel();
         theGameView = new GameView(this);
         theGameView.setVisible(true);
-        
-        //theMainTable = new MainTable(this);
-        //theGameModel.printMatrix();
-        //theGameModel.play();
     }
 
     public GameModel getGameModel() {
         return theGameModel;
     }
 
+    public void generateNewGameModel() {
+        theGameModel = new GameModel();
+    }
 }

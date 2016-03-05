@@ -7,6 +7,8 @@ package numbergame;
 
 import java.awt.Container;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -16,41 +18,42 @@ import javax.swing.WindowConstants;
  *
  * @author laurenritter
  */
-public class MainMenuUI extends JFrame{
-    private JFrame mainFrame;
-    private JPanel mainPanel;
-    private JButton startButton;
-    private MainTable theMainTable;
-    private NavigationCntl theNavigationCntl;
+public class MainMenuUI extends JPanel implements ActionListener{
+//    private JPanel mainPanel;
+
+    private JButton startButton, exitButton, instructionButton;
+    private Instructions theInstructions;
+    private JPanel panel;
+    private GameView theGameView;
     
-    MainMenuUI(){
-        mainFrame = new JFrame();
-        mainPanel = new JPanel();
-        
+
+    public MainMenuUI(GameView parentGameView) {
+        super();
+        theGameView = parentGameView;
         initCustomComponents();
     }
-    
-    public void initCustomComponents(){
-        this.setLocationRelativeTo(null);
-        this.setSize(350, 400);
-        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        
-        mainFrame.add(mainPanel);
-        
+
+    public void initCustomComponents() {
         startButton = new JButton("Start Game!");
-        startButton.addActionListener(new java.awt.event.ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                startButtonActionPerformed(e);
-            }
-        });
+        exitButton = new JButton("Exit Game!");
+        instructionButton = new JButton("Instruction");
         
-        mainPanel.add(startButton);
+        startButton.addActionListener(this);
+        exitButton.addActionListener(this);
+
+        add(startButton);
+        add(instructionButton);
+        add(exitButton);
         
-        mainFrame.setVisible(true);
     }
     
-    public void startButtonActionPerformed(ActionEvent e){
-//        theNavigationCntl.toMainTable(GameCntl theGameCntl);
+    public void actionPerformed(ActionEvent event){
+        Object obj = event.getSource();
+        if(obj == startButton){
+            theGameView.showGameUI(this);
+        }
+        if(obj == exitButton){
+            System.exit(0);
+        }
     }
-    
 }

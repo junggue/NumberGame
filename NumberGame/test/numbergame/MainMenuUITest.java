@@ -41,25 +41,6 @@ public class MainMenuUITest {
     /**
      * Test of initCustomComponents method, of class MainMenuUI.
      */
-    @Test
-    public void testInitCustomComponents() {
-        System.out.println("initCustomComponents");
-        MainMenuUI instance = new MainMenuUI();
-        instance.initCustomComponents();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
-    /**
-     * Test of startButtonActionPerformed method, of class MainMenuUI.
-     */
-    @Test
-    public void testStartButtonActionPerformed() {
-        System.out.println("startButtonActionPerformed");
-        ActionEvent e = null;
-        MainMenuUI instance = new MainMenuUI();
-        instance.startButtonActionPerformed(e);
-        // TODO review the generated test code and remove the default call to fail.
-    }
     
 }
