@@ -24,7 +24,7 @@ public class Credits extends JPanel
     private JLabel weAre;
     private JPanel panel;
     private MainMenuUI theMainMenu;
-    private MainTable theMainTable;
+    private GameView theGameView;
     
     public Credits()
     {
@@ -73,16 +73,16 @@ public class Credits extends JPanel
     }
         
     public void switchToMainTable(){
-        theMainTable.mainFrame.removeAll();
-        theMainTable.mainFrame.add(theMainTable.centerPanel, theMainTable.northPanel);
+        theGameView.removeAll();
+        //theGameView.add(theGameView.centerPanel, theGameView.northPanel);
         repaint();
         revalidate();
     }
     
     public void switchToMainMenu(){
         theMainMenu = (MainMenuUI) new JPanel();
-        theMainTable.mainFrame.getContentPane().removeAll();
-        theMainTable.mainFrame.add(theMainMenu);
+        //theGameView.mainFrame.getContentPane().removeAll();
+        //theGameView.mainFrame.add(theMainMenu);
         repaint();
         revalidate();
     }
