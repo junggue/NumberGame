@@ -7,6 +7,7 @@ package numbergame;
 
 import java.awt.Container;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -17,78 +18,42 @@ import javax.swing.WindowConstants;
  *
  * @author laurenritter
  */
-public class MainMenuUI extends JPanel{
+public class MainMenuUI extends JPanel implements ActionListener{
 //    private JPanel mainPanel;
-    private JButton startButton;
-    private JButton exitButton;
-    private GameView theGameView;
-    private JButton instructionsButton;
+
+    private JButton startButton, exitButton, instructionButton;
     private Instructions theInstructions;
-    private GameUI theGameUI;
     private JPanel panel;
+    private GameView theGameView;
     
-    MainMenuUI(){
-        panel = new JPanel();
+
+    public MainMenuUI(GameView parentGameView) {
+        super();
+        theGameView = parentGameView;
         initCustomComponents();
     }
-    
-    public void initCustomComponents(){
-        exitButton = new JButton("Exit Game!");
-        exitButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                exitButtonActionPerformed(e);
-            }
-        });
-        
+
+    public void initCustomComponents() {
         startButton = new JButton("Start Game!");
-        startButton.addActionListener(new java.awt.event.ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                startButtonActionPerformed(e);
-            }
-        });
+        exitButton = new JButton("Exit Game!");
+        instructionButton = new JButton("Instruction");
         
-        instructionsButton = new JButton("Instructions");
-        instructionsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                instructionsButtonActionPerformed(e);
-            }
-        });
+        startButton.addActionListener(this);
+        exitButton.addActionListener(this);
+
+        add(startButton);
+        add(instructionButton);
+        add(exitButton);
         
-        ImageIcon exit = new ImageIcon("images/exit.png");
-        JButton exitButton = new JButton(exit);
-        panel.add(exitButton);
-        ImageIcon start = new ImageIcon("images/start.png");
-        JButton startButton = new JButton(start);
-        panel.add(startButton);
-        panel.add(instructionsButton);
-        panel.setVisible(true);
     }
     
-//    public void switchToInstructions(){
-//        theInstructions = (Instructions) new JPanel();
-//        theGameView.removeAll();
-//        theGameView.add(theInstructions);
-//        repaint();
-//        revalidate();
-//    }
-    
-//    public void switchToMainTable(){
-//        theGameUI = (GameUI) new JPanel();
-//        theGameView.removeAll();
-//        theGameView.add(theGameUI);
-//        repaint();
-//        revalidate();
-//    }
-    
-    public void exitButtonActionPerformed(ActionEvent e){
-        System.exit(0);
-    }
-    
-    public void startButtonActionPerformed(ActionEvent e){
-//        switchToMainTable();
-    }
-    
-    public void instructionsButtonActionPerformed(ActionEvent e){
-//        switchToInstructions();
+    public void actionPerformed(ActionEvent event){
+        Object obj = event.getSource();
+        if(obj == startButton){
+            theGameView.showGameUI(this);
+        }
+        if(obj == exitButton){
+            System.exit(0);
+        }
     }
 }

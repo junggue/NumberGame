@@ -73,9 +73,9 @@ public class GameModel {
 
             if (optionsChosen[row][col] == false) {
                 //button is pushed and cannot pushed again: turning to true
-                numButtonPushed(row,col);
+                numButtonPushed(row, col);
                 //sum the number
-                sumSelectedNum(row,col);
+                sumSelectedNum(row, col);
             } else {
                 System.out.println(errorMessage());
             }
@@ -83,7 +83,7 @@ public class GameModel {
             getFinishButtonClicked();
         }
 
-        System.out.println("Result Message: " + statusResult());
+        System.out.println("Result Message: " + checkResult());
     }
 
     public int[][] getGameMatrix() {
@@ -92,6 +92,10 @@ public class GameModel {
 
     public int getGoalNum() {
         return this.goalNum;
+    }
+    
+    public boolean getOptionsChosen(int r, int c){
+        return optionsChosen[r][c];
     }
 
     //used to set a new goalNum
@@ -116,22 +120,14 @@ public class GameModel {
         this.finishButtonClicked = true;
     }
 
-    //test
-    //return a message win or lost in a status label in GameUI
-    public String statusResult() {
+    public String checkResult() {
         if (this.goalNum == this.sum) {
             return "You Won";
         } else {
             return "You Lost";
         }
     }
-    
-    //return a message to prompt user to refresh in a status label in GameUI
-    public String statusRestart(){
-        return "Click a restart button";
-    }
-    
-    
+
     //test use only
     public void printMatrix() {
         int num = 0;
@@ -144,17 +140,10 @@ public class GameModel {
         }
     }
 
-    //test
     public void sumSelectedNum(int r, int c) {
         if (optionsChosen[r][c] == false) {
-            //this.sum += gameMatrix[r][c];
-            this.sum += getANumFromMatrix(r,c);
+            this.sum += gameMatrix[r][c];
         }
-    }
-    
-    //test
-    public int getANumFromMatrix(int r, int c){
-        return this.gameMatrix[r][c];
     }
 
     public void numButtonPushed(int r, int c) {
@@ -181,14 +170,14 @@ public class GameModel {
         return randomNumber;
     }
 
-    /*
+    /**
      * @return the COLUMN
      */
     public int getNumOfColumn() {
         return COLUMN;
     }
 
-    /*
+    /**
      * @return the ROW
      */
     public int getNumOfRow() {

@@ -15,15 +15,6 @@ public class NumberGame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-
-        GameController theGameCntl = new GameController();
-        //GameView theGameView = nw GameView();
-        
-
-        //test the random number generator
-        //GameModel g = new GameModel();
-        //g.printMatrix();
-        //g.chooseOption();
+        GameController theGameCntl = new GameController();    
     }
 }

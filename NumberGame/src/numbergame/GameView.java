@@ -7,6 +7,7 @@ package numbergame;
 
 import java.awt.*;
 import javax.swing.*;
+import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 /**
  *
@@ -14,44 +15,49 @@ import javax.swing.*;
  */
 public class GameView extends JFrame {
 
-    private GameController theGameCntroller;
+    private GameController theGameController;
     private GameUI theGameUI;
-    private MainMenuUI theMainMenu;
-    private Instructions theInstructions;
-    private JPanel mainMenuPanel;
-    private JPanel instructionsPanel;
+    private MainMenuUI theMainMenuUI;
 
     public GameView(GameController parentGameController) {
-        theMainMenu = new MainMenuUI();
-        theInstructions = new Instructions();
-        theGameCntroller = parentGameController;
-        theGameUI = new GameUI(parentGameController);
+        theGameController = parentGameController;
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        initCustomComponents();
+        initCustomComponetns();
+        showMainMenuUI();
+
     }
-    
-    public void initCustomComponents(){
-        this.setSize(400,400);
+
+    public void initCustomComponetns() {
+        this.setSize(600, 600);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        this.add(theGameUI);
-        
-  
-
-        
     }
-    
-//    public void switchToMainMenu(){
-//        frame.removeAll();
-//        frame.add(theMainMenu);
-//        repaint();
-//        revalidate();
-//    }
-//    
-//    public void switchToInstructions(){
-//        frame.removeAll();
-//        frame.add(theInstructions);
-//        repaint();
-//        revalidate();
-//    }
+
+    public void showGameUI(JPanel previousUI) {
+        previousUI.revalidate();
+        previousUI.repaint();
+        remove(previousUI);
+        theGameController.generateNewGameModel();
+        theGameUI = new GameUI(theGameController, this);
+        this.add(theGameUI);
+
+    }
+
+    public void showMainMenuUI() {
+        theMainMenuUI = new MainMenuUI(this);
+        this.add(theMainMenuUI);
+    }
+
+    public void showMainMenuUI(JPanel previousUI) {
+        previousUI.revalidate();
+        previousUI.repaint();
+        theMainMenuUI = new MainMenuUI(this);
+        this.add(theMainMenuUI);
+        remove(previousUI);
+    }
+
+    public void exitTheGame() {
+        System.exit(0);
+    }
+
 }
