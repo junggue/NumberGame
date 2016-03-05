@@ -93,6 +93,10 @@ public class GameModel {
     public int getGoalNum() {
         return this.goalNum;
     }
+    
+    public boolean getOptionsChosen(int r, int c){
+        return optionsChosen[r][c];
+    }
 
     //used to set a new goalNum
     public void setGoalNum(int start, int end) {
