@@ -22,12 +22,12 @@ public class GameView extends JFrame {
     public GameView(GameController parentGameController) {
         theGameController = parentGameController;
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        initCustomComponetns();
+        initCustomComponents();
         showMainMenuUI();
 
     }
 
-    public void initCustomComponetns() {
+    public void initCustomComponents() {
         this.setSize(600, 600);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

@@ -17,8 +17,6 @@ public class GameModel {
     private int[][] gameMatrix;
     private boolean[][] optionsChosen;
     private int[] options;
-
-    private boolean finishButtonClicked;
     private int sum;
     private int goalNum;
 
@@ -33,7 +31,6 @@ public class GameModel {
         gameMatrix = new int[ROW][COLUMN];
         options = new int[ROW * COLUMN];
         optionsChosen = new boolean[ROW][COLUMN];
-        finishButtonClicked = false;
 
         setGoalNum(ROW * COLUMN * MIN_RANDOM_NUM, ROW * COLUMN * MAX_RANDOM_NUM / 2);
 
@@ -54,8 +51,8 @@ public class GameModel {
         }
 
     }
-    
-    public void regenerateGameMatrix(){
+
+    public void regenerateGameMatrix() {
         for (int i = 0; i < gameMatrix.length; i++) {
             for (int j = 0; j < gameMatrix[i].length; j++) {
                 gameMatrix[i][j] = getRandomNum(MIN_RANDOM_NUM, MAX_RANDOM_NUM);
@@ -70,27 +67,24 @@ public class GameModel {
         Scanner scnr = new Scanner(System.in);
         int row, col;
 
-        while (!finishButtonClicked) {
-            System.out.println("Goal Number: " + goalNum);
-            printMatrix();
+        System.out.println("Goal Number: " + goalNum);
+        printMatrix();
 
-            System.out.println("enter row:");
-            //user selects the option
-            row = scnr.nextInt();
-            System.out.println("enter column:");
-            col = scnr.nextInt();
+        System.out.println("enter row:");
+        //user selects the option
+        row = scnr.nextInt();
+        System.out.println("enter column:");
+        col = scnr.nextInt();
 
-            if (optionsChosen[row][col] == false) {
-                //button is pushed and cannot pushed again: turning to true
-                numButtonPushed(row, col);
-                //sum the number
-                sumSelectedNum(row, col);
-            } else {
-                System.out.println(errorMessage());
-            }
-            System.out.println("sum: " + getSum());
-            getFinishButtonClicked();
+        if (optionsChosen[row][col] == false) {
+            //button is pushed and cannot pushed again: turning to true
+            numButtonPushed(row, col);
+            //sum the number
+            sumSelectedNum(row, col);
+        } else {
+            System.out.println(errorMessage());
         }
+        System.out.println("sum: " + getSum());
 
         System.out.println("Result Message: " + checkResult());
     }
@@ -102,8 +96,8 @@ public class GameModel {
     public int getGoalNum() {
         return this.goalNum;
     }
-    
-    public boolean getOptionsChosen(int r, int c){
+
+    public boolean getOptionsChosen(int r, int c) {
         return optionsChosen[r][c];
     }
 
@@ -116,20 +110,7 @@ public class GameModel {
         return this.sum;
     }
 
-    public boolean getFinishButtonClicked() {
-        return finishButtonClicked;
-    }
-
-    public void setFinishButtonClicked(boolean newValue) {
-        this.finishButtonClicked = newValue;
-    }
-
-    //finishing the game
-    public void finishButtonClicked() {
-        this.finishButtonClicked = true;
-    }
-
-    public String checkResult() {
+    public String checkResult(){
         if (this.goalNum == this.sum) {
             return "You Won";
         } else {

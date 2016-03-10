@@ -23,7 +23,6 @@ public class MainMenuUI extends JPanel implements ActionListener{
 
     private JButton startButton, exitButton, instructionButton;
     private Instructions theInstructions;
-    private JPanel panel;
     private GameView theGameView;
     
 
