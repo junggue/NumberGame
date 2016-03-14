@@ -100,6 +100,10 @@ public class GameUI extends JPanel implements ActionListener {
             }
         }
     }
+    
+    public void initImage(){
+    
+    }
 
     @Override
     public void actionPerformed(ActionEvent event) {
