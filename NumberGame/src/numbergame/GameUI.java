@@ -38,6 +38,7 @@ public class GameUI extends JPanel implements ActionListener {
         int colNum = theGameController.getGameModel().getNumOfColumn();
 
         //All about the Layout
+        //Junggue
         this.setLayout(new BorderLayout());
         centerPanel = new JPanel();
         southPanel = new JPanel();
@@ -50,11 +51,13 @@ public class GameUI extends JPanel implements ActionListener {
         northPanel.setLayout(new GridLayout(0, colNum));
 
         //Adding Lablels
+        //Alex
         northPanel.add(statusLabel = new JLabel("status"));
         northPanel.add(goalNumLabel = new JLabel("Goal: " + theGameController.getGameModel().getGoalNum()));
         northPanel.add(sumLabel = new JLabel("sum: " + theGameController.getGameModel().getSum()));
 
         //Option Buttons and Listners
+        //Lauren
         southPanel.add(hideButton = new JButton("Hide the apples"));
         southPanel.add(returnButton = new JButton("return"));
         southPanel.add(refreshButton = new JButton("refresh"));
@@ -66,6 +69,7 @@ public class GameUI extends JPanel implements ActionListener {
         button = new JButton[rowNum][colNum];
 
         //initialize image objects with images
+        //Owen
         img1 = new ImageIcon("src/images/1.png");
         img2 = new ImageIcon("src/images/2.png");
         img3 = new ImageIcon("src/images/3.png");
@@ -101,6 +105,9 @@ public class GameUI extends JPanel implements ActionListener {
         }
     }
     
+    // 
+    //
+    //  refactored by "name"
     public void initImage(){
     
     }
