@@ -121,7 +121,7 @@ public class GameUI extends JPanel implements ActionListener {
                     //check if the button has not been clicked yet
                     if (!theGameController.getGameModel().getOptionsChosen(i, j)) {
 
-                        button[i][j].setIcon(getImage(theGameController.getGameModel().getGameMatrix()[i][j]));
+                        button[i][j].setIcon(theImage.getImage(theGameController.getGameModel().getGameMatrix()[i][j]));
 
                         //sum
                         theGameController.getGameModel().sumSelectedNum(i, j);
@@ -177,7 +177,7 @@ public class GameUI extends JPanel implements ActionListener {
                 timeLabel.setText("START!!");
                 for (int rows = 0; rows < theGameController.getGameModel().getGameMatrix().length; rows++) {
                     for (int cols = 0; cols < theGameController.getGameModel().getGameMatrix()[rows].length; cols++) {
-                        button[rows][cols].setIcon(img6);
+                        button[rows][cols].setIcon(theImage.img6);
                     }
                 }
             }
