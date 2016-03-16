@@ -19,11 +19,11 @@ public class GameUI extends JPanel implements ActionListener {
 
     private GameController theGameController;
     private GameView theGameView;
+    private Image theImage;
     //private Container theContainer;
     private JPanel centerPanel, southPanel, northPanel, addtionalPanel;
     private JButton button[][], returnButton, refreshButton;
     private JLabel timeLabel, goalNumLabel, sumLabel, statusLabel;
-    ImageIcon img1, img2, img3, img4, img5, img6;
     ImageIcon image;
 
     private Timer timer;
@@ -74,6 +74,7 @@ public class GameUI extends JPanel implements ActionListener {
         sumLabel.setFont(new Font("Serif", Font.BOLD, 30));
 
         //Created new method for south panel content
+        //Uses the extract method
         //Refactored by Lauren Ritter
         addToSouthPanel();
         returnButton.addActionListener(this);
@@ -82,34 +83,25 @@ public class GameUI extends JPanel implements ActionListener {
         //Buttons are initialized
         button = new JButton[rowNum][colNum];
 
-        //initialize image objects with images
-        //Owen
-        img1 = new ImageIcon("src/images/1.png");
-        img2 = new ImageIcon("src/images/2.png");
-        img3 = new ImageIcon("src/images/3.png");
-        img4 = new ImageIcon("src/images/4.png");
-        img5 = new ImageIcon("src/images/5.png");
-        img6 = new ImageIcon("src/images/question.png");
-
         //Store the random numbers into the buttons
         //Then, the buttons are added into the centerPanel
         for (int rows = 0; rows < theGameController.getGameModel().getGameMatrix().length; rows++) {
             for (int cols = 0; cols < theGameController.getGameModel().getGameMatrix()[rows].length; cols++) {
                 switch (theGameController.getGameModel().getGameMatrix()[rows][cols]) {
                     case 1:
-                        button[rows][cols] = new JButton(getImage(1));
+                        button[rows][cols] = new JButton(theImage.getImage(1));
                         break;
                     case 2:
-                        button[rows][cols] = new JButton(getImage(2));
+                        button[rows][cols] = new JButton(theImage.getImage(2));
                         break;
                     case 3:
-                        button[rows][cols] = new JButton(getImage(3));
+                        button[rows][cols] = new JButton(theImage.getImage(3));
                         break;
                     case 4:
-                        button[rows][cols] = new JButton(getImage(4));
+                        button[rows][cols] = new JButton(theImage.getImage(4));
                         break;
                     default:
-                        button[rows][cols] = new JButton(getImage(5));
+                        button[rows][cols] = new JButton(theImage.getImage(5));
                         break;
                 }
 
@@ -117,34 +109,6 @@ public class GameUI extends JPanel implements ActionListener {
                 centerPanel.add(button[rows][cols]);
             }
         }
-    }
-
-    // Because Image will be changed twice in a game  
-    // (1. after 5 seconds after game started)
-    // (2. to show the original apple image when the question button is clicked )
-    // Creating this method was inevitable
-    // Refactored by "Junggue Yang"
-    public ImageIcon getImage(int num) {
-
-        switch (num) {
-            case 1:
-                image = img1;
-                break;
-            case 2:
-                image = img2;
-                break;
-            case 3:
-                image = img3;
-                break;
-            case 4:
-                image = img4;
-                break;
-            default:
-                image = img5;
-                break;
-        }
-
-        return image;
     }
 
     @Override
@@ -229,8 +193,8 @@ public class GameUI extends JPanel implements ActionListener {
 
     }
     
-    //Replaces the coding in the initComponents() method
-    //allows for the initComponents() method to call this using the extract method
+    //Replaces the coding in the initComponents() method that now calls this method
+    //This uses the extract method
     //Refactored by Lauren Ritter
     public void addToSouthPanel(){
         statusLabel = new JLabel("", SwingConstants.CENTER);
