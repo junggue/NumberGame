@@ -21,8 +21,8 @@ public class GameUI extends JPanel implements ActionListener {
     private GameView theGameView;
     //private Container theContainer;
     private JPanel centerPanel, southPanel, northPanel;
-    private JButton button[][], hideButton, returnButton, refreshButton;
-    private JLabel statusLabel, goalNumLabel, sumLabel;
+    private JButton button[][], returnButton, refreshButton;
+    private JLabel timeLabel, goalNumLabel, sumLabel, resultLabel;
     ImageIcon img1, img2, img3, img4, img5, img6;
 
     private Timer timer;
@@ -58,19 +58,21 @@ public class GameUI extends JPanel implements ActionListener {
         centerPanel.setLayout(new GridLayout(rowNum, colNum));
         southPanel.setLayout(new GridLayout(0, colNum));
         northPanel.setLayout(new GridLayout(0, colNum));
+        
 
         //Adding Lablels
         //Alex
-        northPanel.add(statusLabel = new JLabel("5"));
+        //timeLabel.setFont(new Font("Serif", Font.PLAIN, 20));
+        northPanel.add(timeLabel = new JLabel("5"));
+        timeLabel.setFont(new Font("Serif", Font.PLAIN, 100));
         northPanel.add(goalNumLabel = new JLabel("Goal: " + theGameController.getGameModel().getGoalNum()));
         northPanel.add(sumLabel = new JLabel("sum: " + theGameController.getGameModel().getSum()));
 
         //Option Buttons and Listners
         //Lauren
-        southPanel.add(hideButton = new JButton("Hide the apples"));
+        southPanel.add(resultLabel = new JLabel("Result"));
         southPanel.add(returnButton = new JButton("return"));
         southPanel.add(refreshButton = new JButton("refresh"));
-        hideButton.addActionListener(this);
         returnButton.addActionListener(this);
         refreshButton.addActionListener(this);
 
@@ -124,13 +126,6 @@ public class GameUI extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent event) {
         Object obj = event.getSource();
-        if (obj == hideButton) {
-            for (int rows = 0; rows < theGameController.getGameModel().getGameMatrix().length; rows++) {
-                for (int cols = 0; cols < theGameController.getGameModel().getGameMatrix()[rows].length; cols++) {
-                    button[rows][cols].setIcon(img6);
-                }
-            }
-        }
 
         for (int i = 0; i < theGameController.getGameModel().getGameMatrix().length; i++) {
             for (int j = 0; j < theGameController.getGameModel().getGameMatrix()[i].length; j++) {
@@ -144,18 +139,18 @@ public class GameUI extends JPanel implements ActionListener {
                         //the boolean matrix changes current button to true so it cannot be used twice
                         if (theGameController.getGameModel().getGoalNum()
                                 == theGameController.getGameModel().getSum()) {
-                            statusLabel.setText("You Won");
+                            timeLabel.setText("You Won");
                         }
                         // Refactored. using empty else is not efficient way
                         // so I created two if statements rather than writing if, else if, else
                         // refactroed by "Junggue Yang"                      
                         if (theGameController.getGameModel().getGoalNum()
                                 < theGameController.getGameModel().getSum()) {
-                            statusLabel.setText("You Lost");
+                            timeLabel.setText("You Lost");
                         }
                         theGameController.getGameModel().numButtonPushed(i, j);
                     } else {
-                        statusLabel.setText(theGameController.getGameModel().errorMessage());
+                        timeLabel.setText(theGameController.getGameModel().errorMessage());
                     }
                 }
             }
@@ -173,19 +168,19 @@ public class GameUI extends JPanel implements ActionListener {
 
             time = time - 1;
             if (time == 4) {
-                statusLabel.setText("" + time);
+                timeLabel.setText("" + time);
             }
             if (time == 3) {
-                statusLabel.setText("" + time);
+                timeLabel.setText("" + time);
             }
             if (time == 2) {
-                statusLabel.setText("" + time);
+                timeLabel.setText("" + time);
             }
             if (time == 1) {
-                statusLabel.setText("" + time);
+                timeLabel.setText("" + time);
             }
             if (time == 0) {
-                statusLabel.setText("" + time);
+                timeLabel.setText("" + time);
                 for (int rows = 0; rows < theGameController.getGameModel().getGameMatrix().length; rows++) {
                     for (int cols = 0; cols < theGameController.getGameModel().getGameMatrix()[rows].length; cols++) {
                         button[rows][cols].setIcon(img6);
