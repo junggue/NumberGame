@@ -25,13 +25,22 @@ public class GameUI extends JPanel implements ActionListener {
     private JLabel statusLabel, goalNumLabel, sumLabel;
     ImageIcon img1, img2, img3, img4, img5, img6;
 
+    private Timer timer;
+    private int delay;
+    private int time;
+
     public GameUI(GameController parentGameController, GameView parentGameView) {
         super();
         theGameController = parentGameController;
         theGameView = parentGameView;
+        delay = 1000;
         initComponents();
+        timer = new Timer(delay, this);
+        time = 5;
+        timer.start();
+
     }
-    
+
     public void initComponents() {
 
         int rowNum = theGameController.getGameModel().getNumOfRow();
@@ -52,7 +61,7 @@ public class GameUI extends JPanel implements ActionListener {
 
         //Adding Lablels
         //Alex
-        northPanel.add(statusLabel = new JLabel("status"));
+        northPanel.add(statusLabel = new JLabel("5"));
         northPanel.add(goalNumLabel = new JLabel("Goal: " + theGameController.getGameModel().getGoalNum()));
         northPanel.add(sumLabel = new JLabel("sum: " + theGameController.getGameModel().getSum()));
 
@@ -104,12 +113,12 @@ public class GameUI extends JPanel implements ActionListener {
             }
         }
     }
-    
+
     // 
     //
     //  refactored by "name"
-    public void initImage(){
-    
+    public void initImage() {
+
     }
 
     @Override
@@ -136,12 +145,14 @@ public class GameUI extends JPanel implements ActionListener {
                         if (theGameController.getGameModel().getGoalNum()
                                 == theGameController.getGameModel().getSum()) {
                             statusLabel.setText("You Won");
-                        } else if (theGameController.getGameModel().getGoalNum()
+                        }
+                        // Refactored. using empty else is not efficient way
+                        // so I created two if statements rather than writing if, else if, else
+                        // refactroed by "Junggue Yang"                      
+                        if (theGameController.getGameModel().getGoalNum()
                                 < theGameController.getGameModel().getSum()) {
                             statusLabel.setText("You Lost");
-                        } else {
                         }
-
                         theGameController.getGameModel().numButtonPushed(i, j);
                     } else {
                         statusLabel.setText(theGameController.getGameModel().errorMessage());
@@ -156,6 +167,32 @@ public class GameUI extends JPanel implements ActionListener {
 
         if (obj == refreshButton) {
             theGameView.showGameUI(this);
+        }
+
+        if (obj == timer) {
+
+            time = time - 1;
+            if (time == 4) {
+                statusLabel.setText("" + time);
+            }
+            if (time == 3) {
+                statusLabel.setText("" + time);
+            }
+            if (time == 2) {
+                statusLabel.setText("" + time);
+            }
+            if (time == 1) {
+                statusLabel.setText("" + time);
+            }
+            if (time == 0) {
+                statusLabel.setText("" + time);
+                for (int rows = 0; rows < theGameController.getGameModel().getGameMatrix().length; rows++) {
+                    for (int cols = 0; cols < theGameController.getGameModel().getGameMatrix()[rows].length; cols++) {
+                        button[rows][cols].setIcon(img6);
+                    }
+                }
+            }
+
         }
 
     }
