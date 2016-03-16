@@ -26,15 +26,13 @@ public class GameUI extends JPanel implements ActionListener {
     ImageIcon img1, img2, img3, img4, img5, img6;
     ImageIcon image;
 
-    
     private Timer timer;
     private int delay;
     private int time;
-    
+
     private Timer timer2;
     private int delay2;
     private int time2;
-
 
     public GameUI(GameController parentGameController, GameView parentGameView) {
         super();
@@ -65,19 +63,20 @@ public class GameUI extends JPanel implements ActionListener {
         centerPanel.setLayout(new GridLayout(rowNum, colNum));
         southPanel.setLayout(new GridLayout(2, 1));
         northPanel.setLayout(new GridLayout(0, colNum));
-        
 
         //Adding Lablels
         //Alex
-        northPanel.add(goalNumLabel = new JLabel("Goal: " + theGameController.getGameModel().getGoalNum()));
+        northPanel.add(goalNumLabel = new JLabel("Goal: " + theGameController.getGameModel().getGoalNum(), SwingConstants.CENTER));
+        goalNumLabel.setFont(new Font("Serif", Font.BOLD, 30));
         northPanel.add(timeLabel = new JLabel("5", SwingConstants.CENTER));
         timeLabel.setFont(new Font("Serif", Font.BOLD, 40));
-        northPanel.add(sumLabel = new JLabel("sum: " + theGameController.getGameModel().getSum()));
-
+        northPanel.add(sumLabel = new JLabel("sum: " + theGameController.getGameModel().getSum(), SwingConstants.CENTER));
+        sumLabel.setFont(new Font("Serif", Font.BOLD, 30));
+        
         //Option Buttons and Listners
         //Lauren
-        southPanel.add(statusLabel = new JLabel());
-        statusLabel.setPreferredSize(new Dimension(700,60));
+        southPanel.add(statusLabel = new JLabel("", SwingConstants.CENTER));
+        statusLabel.setPreferredSize(new Dimension(700, 60));
         statusLabel.setFont(new Font("Serif", Font.BOLD, 30));
         southPanel.add(addtionalPanel = new JPanel());
         addtionalPanel.add(returnButton = new JButton("return"));
@@ -130,26 +129,26 @@ public class GameUI extends JPanel implements ActionListener {
     // (2. to show the original apple image when the question button is clicked )
     // Creating this method was inevitable
     // Refactored by "Junggue Yang"
-    public ImageIcon getImage(int num){
-        
+    public ImageIcon getImage(int num) {
+
         switch (num) {
-                    case 1:
-                        image = img1;
-                        break;
-                    case 2:
-                        image = img2;
-                        break;
-                    case 3:
-                        image = img3;
-                        break;
-                    case 4:
-                        image = img4;
-                        break;
-                    default:
-                        image = img5;
-                        break;
-                }
-        
+            case 1:
+                image = img1;
+                break;
+            case 2:
+                image = img2;
+                break;
+            case 3:
+                image = img3;
+                break;
+            case 4:
+                image = img4;
+                break;
+            default:
+                image = img5;
+                break;
+        }
+
         return image;
     }
 
@@ -162,9 +161,9 @@ public class GameUI extends JPanel implements ActionListener {
                 if (obj == button[i][j]) {
                     //check if the button has not been clicked yet
                     if (!theGameController.getGameModel().getOptionsChosen(i, j)) {
-                        
+
                         button[i][j].setIcon(getImage(theGameController.getGameModel().getGameMatrix()[i][j]));
-                        
+
                         //sum
                         theGameController.getGameModel().sumSelectedNum(i, j);
                         //show the sum in the label
@@ -202,7 +201,6 @@ public class GameUI extends JPanel implements ActionListener {
         }
 
         if (obj == timer) {
-
             time = time - 1;
             if (time == 4) {
                 timeLabel.setText("" + time);
@@ -224,12 +222,11 @@ public class GameUI extends JPanel implements ActionListener {
                     }
                 }
             }
-
         }
-        
-        if (obj == timer2){
+
+        if (obj == timer2) {
             time2 += 1;
-            if(time2==1){
+            if (time2 == 1) {
                 statusLabel.setText("Choose Another");
                 timer2.stop();
             }
