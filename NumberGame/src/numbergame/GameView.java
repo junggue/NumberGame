@@ -28,7 +28,7 @@ public class GameView extends JFrame {
     }
 
     public void initCustomComponents() {
-        this.setSize(600, 600);
+        this.setSize(700, 700);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }

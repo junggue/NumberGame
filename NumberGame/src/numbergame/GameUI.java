@@ -20,14 +20,21 @@ public class GameUI extends JPanel implements ActionListener {
     private GameController theGameController;
     private GameView theGameView;
     //private Container theContainer;
-    private JPanel centerPanel, southPanel, northPanel;
+    private JPanel centerPanel, southPanel, northPanel, addtionalPanel;
     private JButton button[][], returnButton, refreshButton;
-    private JLabel timeLabel, goalNumLabel, sumLabel, resultLabel;
+    private JLabel timeLabel, goalNumLabel, sumLabel, statusLabel;
     ImageIcon img1, img2, img3, img4, img5, img6;
+    ImageIcon image;
 
+    
     private Timer timer;
     private int delay;
     private int time;
+    
+    private Timer timer2;
+    private int delay2;
+    private int time2;
+
 
     public GameUI(GameController parentGameController, GameView parentGameView) {
         super();
@@ -47,7 +54,7 @@ public class GameUI extends JPanel implements ActionListener {
         int colNum = theGameController.getGameModel().getNumOfColumn();
 
         //All about the Layout
-        //Junggue
+        //Owen
         this.setLayout(new BorderLayout());
         centerPanel = new JPanel();
         southPanel = new JPanel();
@@ -56,23 +63,25 @@ public class GameUI extends JPanel implements ActionListener {
         this.add(southPanel, "South");
         this.add(northPanel, "North");
         centerPanel.setLayout(new GridLayout(rowNum, colNum));
-        southPanel.setLayout(new GridLayout(0, colNum));
+        southPanel.setLayout(new GridLayout(2, 1));
         northPanel.setLayout(new GridLayout(0, colNum));
         
 
         //Adding Lablels
         //Alex
-        //timeLabel.setFont(new Font("Serif", Font.PLAIN, 20));
-        northPanel.add(timeLabel = new JLabel("5"));
-        timeLabel.setFont(new Font("Serif", Font.PLAIN, 100));
         northPanel.add(goalNumLabel = new JLabel("Goal: " + theGameController.getGameModel().getGoalNum()));
+        northPanel.add(timeLabel = new JLabel("5", SwingConstants.CENTER));
+        timeLabel.setFont(new Font("Serif", Font.BOLD, 40));
         northPanel.add(sumLabel = new JLabel("sum: " + theGameController.getGameModel().getSum()));
 
         //Option Buttons and Listners
         //Lauren
-        southPanel.add(resultLabel = new JLabel("Result"));
-        southPanel.add(returnButton = new JButton("return"));
-        southPanel.add(refreshButton = new JButton("refresh"));
+        southPanel.add(statusLabel = new JLabel());
+        statusLabel.setPreferredSize(new Dimension(700,60));
+        statusLabel.setFont(new Font("Serif", Font.BOLD, 30));
+        southPanel.add(addtionalPanel = new JPanel());
+        addtionalPanel.add(returnButton = new JButton("return"));
+        addtionalPanel.add(refreshButton = new JButton("refresh"));
         returnButton.addActionListener(this);
         refreshButton.addActionListener(this);
 
@@ -94,19 +103,19 @@ public class GameUI extends JPanel implements ActionListener {
             for (int cols = 0; cols < theGameController.getGameModel().getGameMatrix()[rows].length; cols++) {
                 switch (theGameController.getGameModel().getGameMatrix()[rows][cols]) {
                     case 1:
-                        button[rows][cols] = new JButton(img1);
+                        button[rows][cols] = new JButton(getImage(1));
                         break;
                     case 2:
-                        button[rows][cols] = new JButton(img2);
+                        button[rows][cols] = new JButton(getImage(2));
                         break;
                     case 3:
-                        button[rows][cols] = new JButton(img3);
+                        button[rows][cols] = new JButton(getImage(3));
                         break;
                     case 4:
-                        button[rows][cols] = new JButton(img4);
+                        button[rows][cols] = new JButton(getImage(4));
                         break;
                     default:
-                        button[rows][cols] = new JButton(img5);
+                        button[rows][cols] = new JButton(getImage(5));
                         break;
                 }
 
@@ -116,11 +125,28 @@ public class GameUI extends JPanel implements ActionListener {
         }
     }
 
-    // 
-    //
-    //  refactored by "name"
-    public void initImage() {
-
+    
+    
+    public ImageIcon getImage(int num){
+        
+        switch (num) {
+                    case 1:
+                        image = img1;
+                        break;
+                    case 2:
+                        image = img2;
+                        break;
+                    case 3:
+                        image = img3;
+                        break;
+                    case 4:
+                        image = img4;
+                        break;
+                    default:
+                        image = img5;
+                        break;
+                }
+        return image;
     }
 
     @Override
@@ -132,6 +158,9 @@ public class GameUI extends JPanel implements ActionListener {
                 if (obj == button[i][j]) {
                     //check if the button has not been clicked yet
                     if (!theGameController.getGameModel().getOptionsChosen(i, j)) {
+                        
+                        button[i][j].setIcon(getImage(theGameController.getGameModel().getGameMatrix()[i][j]));
+                        
                         //sum
                         theGameController.getGameModel().sumSelectedNum(i, j);
                         //show the sum in the label
@@ -150,7 +179,9 @@ public class GameUI extends JPanel implements ActionListener {
                         }
                         theGameController.getGameModel().numButtonPushed(i, j);
                     } else {
-                        timeLabel.setText(theGameController.getGameModel().errorMessage());
+                        statusLabel.setText(theGameController.getGameModel().errorMessage());
+                        time2 = 0;
+                        timer2 = new Timer(delay, this);
                     }
                 }
             }
@@ -180,7 +211,7 @@ public class GameUI extends JPanel implements ActionListener {
                 timeLabel.setText("" + time);
             }
             if (time == 0) {
-                timeLabel.setText("" + time);
+                timeLabel.setText("START!!");
                 for (int rows = 0; rows < theGameController.getGameModel().getGameMatrix().length; rows++) {
                     for (int cols = 0; cols < theGameController.getGameModel().getGameMatrix()[rows].length; cols++) {
                         button[rows][cols].setIcon(img6);
@@ -188,6 +219,13 @@ public class GameUI extends JPanel implements ActionListener {
                 }
             }
 
+        }
+        
+        if (obj == timer2){
+            time2+=1;
+            if(time2>=2){
+                statusLabel.setText("Choose Another");
+            }
         }
 
     }
