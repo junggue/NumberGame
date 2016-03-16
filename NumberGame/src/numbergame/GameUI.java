@@ -111,34 +111,6 @@ public class GameUI extends JPanel implements ActionListener {
             }
         }
     }
-//
-//    // Because Image will be changed twice in a game  
-//    //      1. after 5 seconds after game started
-//    //      2. to show the original apple image when the question button is clicked
-//    // Creating this method was inevitable
-//    // Refactored by "Junggue Yang"
-//    public ImageIcon getImage(int num) {
-//
-//        switch (num) {
-//            case 1:
-//                image = img1;
-//                break;
-//            case 2:
-//                image = img2;
-//                break;
-//            case 3:
-//                image = img3;
-//                break;
-//            case 4:
-//                image = img4;
-//                break;
-//            default:
-//                image = img5;
-//                break;
-//        }
-//
-//        return image;
-//    }
 
     @Override
     public void actionPerformed(ActionEvent event) {
