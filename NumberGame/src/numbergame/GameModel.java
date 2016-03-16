@@ -141,7 +141,7 @@ public class GameModel {
     }
 
     public String errorMessage() {
-        return "pushed already. Push another";
+        return "Pushed already";
     }
 
     //with range 1 ~ 5

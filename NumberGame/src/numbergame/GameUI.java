@@ -185,7 +185,9 @@ public class GameUI extends JPanel implements ActionListener {
                     } else {
                         statusLabel.setText(theGameController.getGameModel().errorMessage());
                         time2 = 0;
+                        delay2 = 1000;
                         timer2 = new Timer(delay, this);
+                        timer2.start();
                     }
                 }
             }
@@ -226,9 +228,10 @@ public class GameUI extends JPanel implements ActionListener {
         }
         
         if (obj == timer2){
-            time2+=1;
-            if(time2>=2){
+            time2 += 1;
+            if(time2==1){
                 statusLabel.setText("Choose Another");
+                timer2.stop();
             }
         }
 
