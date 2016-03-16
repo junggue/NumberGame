@@ -54,5 +54,8 @@ public class MainMenuUI extends JPanel implements ActionListener{
         if(obj == exitButton){
             System.exit(0);
         }
+        if(obj == instructionButton){
+            
+        }
     }
 }
