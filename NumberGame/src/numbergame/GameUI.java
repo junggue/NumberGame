@@ -73,14 +73,9 @@ public class GameUI extends JPanel implements ActionListener {
         northPanel.add(sumLabel = new JLabel("sum: " + theGameController.getGameModel().getSum(), SwingConstants.CENTER));
         sumLabel.setFont(new Font("Serif", Font.BOLD, 30));
 
-        //Option Buttons and Listners
-        //Lauren
-        southPanel.add(statusLabel = new JLabel("", SwingConstants.CENTER));
-        statusLabel.setPreferredSize(new Dimension(700, 60));
-        statusLabel.setFont(new Font("Serif", Font.BOLD, 30));
-        southPanel.add(addtionalPanel = new JPanel());
-        addtionalPanel.add(returnButton = new JButton("return"));
-        addtionalPanel.add(refreshButton = new JButton("refresh"));
+        //Created new method for south panel content
+        //Refactored by Lauren Ritter
+        addToSouthPanel();
         returnButton.addActionListener(this);
         refreshButton.addActionListener(this);
 
@@ -232,6 +227,22 @@ public class GameUI extends JPanel implements ActionListener {
             }
         }
 
+    }
+    
+    //Replaces the coding in the initComponents() method
+    //allows for the initComponents() method to call this using the extract method
+    //Refactored by Lauren Ritter
+    public void addToSouthPanel(){
+        statusLabel = new JLabel("", SwingConstants.CENTER);
+        statusLabel.setPreferredSize(new Dimension(700, 60));
+        statusLabel.setFont(new Font("Serif", Font.BOLD, 30));
+        
+        addtionalPanel = new JPanel();
+        addtionalPanel.add(returnButton = new JButton("return"));
+        addtionalPanel.add(refreshButton = new JButton("refresh"));
+        
+        southPanel.add(statusLabel);
+        southPanel.add(addtionalPanel);
     }
 
 }
