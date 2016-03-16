@@ -19,9 +19,7 @@ import javax.swing.WindowConstants;
  *
  * @author laurenritter
  */
-public class Instructions extends JPanel{
-//    private Container instructContainer;
-//    private JFrame instructionsFrame;
+public class Instructions extends JPanel implements ActionListener{
     private JButton exitButton;
     private JButton backButton;
     private JButton startButton;
@@ -32,13 +30,16 @@ public class Instructions extends JPanel{
     private GameUI theGameUI;
     private GameView theGameView;
     
-    public Instructions(){
-        panel = new JPanel();
-        
-//        instructContainer = instructionsFrame.getContentPane();
-//        instructContainer.setLayout(new BorderLayout());
-//        instructContainer.add(panel);
-        
+    public Instructions(GameView parentGameView){
+        super();
+        theGameView = parentGameView;
+        initCustomComponents();
+    }
+    
+    //Took this method out of the constructor in order top clear up code
+    //Uses the extract method
+    //Refactored by Lauren Ritter
+    public void initCustomComponents(){       
         instructions = new JLabel("Instructions");
         whatToDo = new JLabel("On the top of the screen you will see a number along with 'apples' containing numbers. Click the apples with the correct numbers to reach the goal number.");
         exitButton = new JButton("Exit");
@@ -52,25 +53,13 @@ public class Instructions extends JPanel{
         panel.add(startButton, BorderLayout.SOUTH);
         
         exitButton = new JButton("Exit");
-        exitButton.addActionListener(new java.awt.event.ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                exitButtonActionPerformed(e);
-            }
-        });
+        exitButton.addActionListener(this);
         
         backButton = new JButton("Back");
-        backButton.addActionListener(new java.awt.event.ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                backButtonActionPerformed(e);
-            }
-        });
+        backButton.addActionListener(this);
         
         startButton = new JButton("Start Game!");
-        startButton.addActionListener(new java.awt.event.ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                startButtonActionPerformed(e);
-            }
-        });
+        startButton.addActionListener(this);
         
         panel.setVisible(true);
     }
@@ -101,6 +90,13 @@ public class Instructions extends JPanel{
     
     public void startButtonActionPerformed(ActionEvent e){
         switchToMainTable();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        startButtonActionPerformed(e);
+        backButtonActionPerformed(e);
+        exitButtonActionPerformed(e);
     }
 
 }

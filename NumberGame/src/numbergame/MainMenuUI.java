@@ -55,7 +55,7 @@ public class MainMenuUI extends JPanel implements ActionListener{
             System.exit(0);
         }
         if(obj == instructionButton){
-            
+            theGameView.showInstruction(this);
         }
     }
 }

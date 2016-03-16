@@ -160,16 +160,10 @@ public class GameModel {
         return randomNumber;
     }
 
-    /**
-     * @return the COLUMN
-     */
     public int getNumOfColumn() {
         return COLUMN;
     }
 
-    /**
-     * @return the ROW
-     */
     public int getNumOfRow() {
         return ROW;
     }

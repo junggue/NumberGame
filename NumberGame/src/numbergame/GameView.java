@@ -18,7 +18,7 @@ public class GameView extends JFrame {
     private GameController theGameController;
     private GameUI theGameUI;
     private MainMenuUI theMainMenuUI;
-    private Instructions instructions;
+    private Instructions theInstructions;
 
     public GameView(GameController parentGameController) {
         theGameController = parentGameController;
@@ -41,9 +41,15 @@ public class GameView extends JFrame {
         theGameController.generateNewGameModel();
         theGameUI = new GameUI(theGameController, this);
         this.add(theGameUI);
-
     }
 
+    public void showInstruction(JPanel instructPanel){
+        instructPanel.revalidate();
+        instructPanel.repaint();
+        remove(instructPanel);
+        this.add(theInstructions);
+    }
+    
     public void showMainMenuUI() {
         theMainMenuUI = new MainMenuUI(this);
         this.add(theMainMenuUI);
