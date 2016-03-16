@@ -52,7 +52,7 @@ public class GameUI extends JPanel implements ActionListener {
         int colNum = theGameController.getGameModel().getNumOfColumn();
 
         //All about the Layout
-        //Owen
+        //Junggue
         this.setLayout(new BorderLayout());
         centerPanel = new JPanel();
         southPanel = new JPanel();
@@ -72,7 +72,7 @@ public class GameUI extends JPanel implements ActionListener {
         timeLabel.setFont(new Font("Serif", Font.BOLD, 40));
         northPanel.add(sumLabel = new JLabel("sum: " + theGameController.getGameModel().getSum(), SwingConstants.CENTER));
         sumLabel.setFont(new Font("Serif", Font.BOLD, 30));
-        
+
         //Option Buttons and Listners
         //Lauren
         southPanel.add(statusLabel = new JLabel("", SwingConstants.CENTER));
@@ -175,7 +175,7 @@ public class GameUI extends JPanel implements ActionListener {
                         }
                         // Refactored. using empty else is not efficient way
                         // so I created two if statements rather than writing if, else if, else
-                        // refactroed by "Junggue Yang"                      
+                        // refactroed by "Junggue Yang"                   
                         if (theGameController.getGameModel().getGoalNum()
                                 < theGameController.getGameModel().getSum()) {
                             timeLabel.setText("You Lost");
