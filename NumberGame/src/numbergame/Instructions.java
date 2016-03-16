@@ -64,32 +64,16 @@ public class Instructions extends JPanel implements ActionListener{
         panel.setVisible(true);
     }
     
-    public void switchToMainTable(){
-        theGameUI = (GameUI) new JPanel();
-        theGameView.removeAll();
-        theGameView.add(theGameUI);
-        repaint();
-        revalidate();
-    }
-    
-    public void switchToMainMenu(){
-        theMainMenu = (MainMenuUI) new JPanel();
-        theGameView.removeAll();
-        theGameView.add(theMainMenu);
-        repaint();
-        revalidate();
-    }
-    
     public void exitButtonActionPerformed(ActionEvent e){
         System.exit(0);
     }
     
-    public void backButtonActionPerformed(ActionEvent e){
-        switchToMainMenu();
+    public void startButtonActionPerformed(ActionEvent e){
+        
     }
     
-    public void startButtonActionPerformed(ActionEvent e){
-        switchToMainTable();
+    public void backButtonActionPerformed(ActionEvent e){
+        
     }
 
     @Override
