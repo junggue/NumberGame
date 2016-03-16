@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
  * @author laurenritter
  */
 public class Image {
+    
     ImageIcon img1, img2, img3, img4, img5, img6;
     ImageIcon image;
     

@@ -38,6 +38,7 @@ public class GameUI extends JPanel implements ActionListener {
         super();
         theGameController = parentGameController;
         theGameView = parentGameView;
+        theImage = new Image();
         delay = 1000;
         initComponents();
         timer = new Timer(delay, this);
