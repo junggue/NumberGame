@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
  */
 public class Image {
     
-    ImageIcon img1, img2, img3, img4, img5, img6;
+    ImageIcon img1, img2, img3, img4, img5, questionImage;
     ImageIcon image;
     
     
@@ -26,7 +26,7 @@ public class Image {
         img3 = new ImageIcon("src/images/3.png");
         img4 = new ImageIcon("src/images/4.png");
         img5 = new ImageIcon("src/images/5.png");
-        img6 = new ImageIcon("src/images/question.png");
+        questionImage = new ImageIcon("src/images/question.png");
     }
     
     // Because Image will be changed twice in a game  
