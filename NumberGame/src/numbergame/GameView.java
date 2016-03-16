@@ -18,6 +18,7 @@ public class GameView extends JFrame {
     private GameController theGameController;
     private GameUI theGameUI;
     private MainMenuUI theMainMenuUI;
+    private Instructions instructions;
 
     public GameView(GameController parentGameController) {
         theGameController = parentGameController;

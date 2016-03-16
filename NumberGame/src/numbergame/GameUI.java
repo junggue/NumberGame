@@ -170,7 +170,7 @@ public class GameUI extends JPanel implements ActionListener {
                         }
                         // Refactored. using empty else is not efficient way
                         // so I created two if statements rather than writing if, else if, else
-                        // refactroed by "Junggue Yang"                   
+                        // refactored by "Junggue Yang"                   
                         if (theGameController.getGameModel().getGoalNum()
                                 < theGameController.getGameModel().getSum()) {
                             timeLabel.setText("You Lost");
