@@ -21,7 +21,7 @@ public class GameUI extends JPanel implements ActionListener {
     private GameView theGameView;
     private Image theImage;
     //private Container theContainer;
-    private JPanel centerPanel, southPanel, northPanel, addtionalPanel;
+    private JPanel centerPanel, southPanel, northPanel, addtionalPanel, newNorthPanel;
     private JButton button[][], returnButton, refreshButton;
     private JLabel timeLabel, goalNumLabel, sumLabel, statusLabel;
     ImageIcon image;
@@ -66,13 +66,9 @@ public class GameUI extends JPanel implements ActionListener {
         northPanel.setLayout(new GridLayout(0, colNum));
 
         //Adding Lablels
-        //Alex
-        northPanel.add(goalNumLabel = new JLabel("Goal: " + theGameController.getGameModel().getGoalNum(), SwingConstants.CENTER));
-        goalNumLabel.setFont(new Font("Serif", Font.BOLD, 30));
-        northPanel.add(timeLabel = new JLabel("5", SwingConstants.CENTER));
-        timeLabel.setFont(new Font("Serif", Font.BOLD, 40));
-        northPanel.add(sumLabel = new JLabel("sum: " + theGameController.getGameModel().getSum(), SwingConstants.CENTER));
-        sumLabel.setFont(new Font("Serif", Font.BOLD, 30));
+        //Created new method for northPanel
+        //Refactored by Alex
+        addToNorthPanel();
 
         //Created new method for south panel content
         //Uses the extract method
@@ -192,6 +188,28 @@ public class GameUI extends JPanel implements ActionListener {
             }
         }
 
+    }
+    
+    
+    //Replaces labels created in initComponents method 
+    //Now called from this method
+    //Refactored by Alex
+    public void addToNorthPanel(){        
+        goalNumLabel = new JLabel("Goal: " + theGameController.getGameModel().getGoalNum(), SwingConstants.LEFT);
+        timeLabel = new JLabel("5", SwingConstants.CENTER);
+        sumLabel = new JLabel("Sum: " + theGameController.getGameModel().getSum(), SwingConstants.RIGHT);
+        
+        newNorthPanel = new JPanel();
+        
+        goalNumLabel.setFont(new Font("Serif", Font.BOLD, 20));      
+        timeLabel.setFont(new Font("Serif", Font.BOLD, 25));
+        sumLabel.setFont(new Font("Serif", Font.BOLD, 20));
+
+        
+        newNorthPanel.add(goalNumLabel);
+        newNorthPanel.add(timeLabel);
+        newNorthPanel.add(sumLabel);
+        northPanel.add(newNorthPanel);
     }
     
     //Replaces the coding in the initComponents() method that now calls this method
