@@ -59,7 +59,6 @@ public class GameModel {
         return this.goalNum;
     }
 
-    //used to set a new goalNum
     public void setGoalNum(int start, int end) {
         goalNum = getRandomNum(start, end);
     }
@@ -71,14 +70,6 @@ public class GameModel {
     public void sumSelectedNum(int r, int c) {
         if (cells[r][c].getCellStatus() == false) {
             this.sum += cells[r][c].getNumOfApple();
-        }
-    }
-
-    public String checkResult() {
-        if (this.goalNum == this.sum) {
-            return "You Won";
-        } else {
-            return "You Lost";
         }
     }
 
