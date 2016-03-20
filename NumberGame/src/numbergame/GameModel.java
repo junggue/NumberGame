@@ -27,6 +27,14 @@ public class GameModel {
     public GameModel() {
 
         setGoalNum(ROW * COLUMN * MIN_RANDOM_NUM, ROW * COLUMN * MAX_RANDOM_NUM / 2);
+
+        //Created new class to make the game model simpler
+        //removed gameMatrix and optionsChosen attributes and all the related methods
+        //before I had to make two of 2d-arrays: one for bollean and another one for storing random numbers
+        //a Cell object can store both boolean value and random number
+        //Now, GameModel's constructor looks a lot cleaner than before
+        //Uses the extract methods and the extract class
+        //Refactored by Junggue Yang
         createCells();
 
     }
