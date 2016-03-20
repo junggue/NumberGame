@@ -23,8 +23,6 @@ public class Instructions extends JPanel implements ActionListener{
     private JButton startButton;
     private JLabel instructions;
     private JLabel whatToDo;
-    private MainMenuUI theMainMenu;
-    private GameUI theGameUI;
     private GameView theGameView;
     
     public Instructions(GameView parentGameView){

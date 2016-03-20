@@ -16,6 +16,11 @@ import static org.junit.Assert.*;
  *
  * @author junggue
  */
+
+// created unit test based on TDD process
+// the test was created first, then the Cell class was created and refactored
+// part of the extracting class process
+// Refactored by Junggue
 public class CellTest {
 
     // TDD practice 1
