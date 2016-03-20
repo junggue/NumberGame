@@ -307,28 +307,4 @@ public class GameModelTest {
 //    
 //    }
     
-    // TDD practice 1
-    // Cell object
-    // if Cell is selected, then change 'false' to 'true'
-    @Test
-    public void testGetCellStatusWhenNotSelectedYet(){
-        //Cell objects have two attributes
-        //1. boolean selected = false;
-        //2. int number
-        Cell testCell = new Cell();
-        assertEquals(false, testCell.getCellStatus());
-        
-    }
-    
-    //TDD practice 2
-    // Cell object
-    // if the cell is already selected, the status stays as 'true'
-    @Test
-    public void testGetCellStatusWhenSelectedAlready(){
-        Cell testCell = new Cell();
-        testCell.cellSelected();
-        assertEquals(true, testCell.getCellStatus());
-    
-    }
-
 }
