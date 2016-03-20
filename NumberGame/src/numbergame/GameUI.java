@@ -21,7 +21,7 @@ public class GameUI extends JPanel implements ActionListener {
     private GameView theGameView;
     private Image theImage;
     //private Container theContainer;
-    private JPanel centerPanel, southPanel, northPanel, addtionalPanel, newNorthPanel;
+    private JPanel centerPanel, southPanel, northPanel, addtionalPanel;
     private JButton button[][], returnButton, refreshButton, instructionButton;
     private JLabel timeLabel, goalNumLabel, sumLabel, statusLabel;
     ImageIcon image;
