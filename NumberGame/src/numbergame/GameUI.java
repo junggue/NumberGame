@@ -194,19 +194,20 @@ public class GameUI extends JPanel implements ActionListener {
     //Now called from this method
     //Refactored by Alex
     public void addToNorthPanel() {
-        goalNumLabel = new JLabel("Goal: " + theGameController.getGameModel().getGoalNum(), SwingConstants.LEFT);
-        timeLabel = new JLabel("5", SwingConstants.CENTER);
-        sumLabel = new JLabel("Sum: " + theGameController.getGameModel().getSum(), SwingConstants.RIGHT);
-
+        goalNumLabel = new JLabel("", SwingConstants.CENTER);        
+        timeLabel = new JLabel("", SwingConstants.CENTER);        
+        sumLabel = new JLabel("", SwingConstants.CENTER);
+        
         newNorthPanel = new JPanel();
+        newNorthPanel.setLayout(new GridLayout(1,3));
+        newNorthPanel.add(goalNumLabel = new JLabel("Goal: " + theGameController.getGameModel().getGoalNum()));
+        newNorthPanel.add(timeLabel = new JLabel("5"));
+        newNorthPanel.add(sumLabel = new JLabel("Sum: " + theGameController.getGameModel().getSum()));
 
         goalNumLabel.setFont(new Font("Serif", Font.BOLD, 20));
         timeLabel.setFont(new Font("Serif", Font.BOLD, 25));
-        sumLabel.setFont(new Font("Serif", Font.BOLD, 20));
-
-        newNorthPanel.add(goalNumLabel);
-        newNorthPanel.add(timeLabel);
-        newNorthPanel.add(sumLabel);
+        sumLabel.setFont(new Font("Serif", Font.BOLD, 20));        
+        
         northPanel.add(newNorthPanel);
     }
 
