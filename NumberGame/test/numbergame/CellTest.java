@@ -39,7 +39,7 @@ public class CellTest {
         Cell testCell = new Cell(4);
         testCell.cellSelected();
         assertEquals(true, testCell.getCellStatus());
-    
+        
     }
     
 }
