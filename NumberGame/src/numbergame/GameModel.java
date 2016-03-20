@@ -23,10 +23,15 @@ public class GameModel {
     private final int ROW = 3;
     private final int MIN_RANDOM_NUM = 1;
     private final int MAX_RANDOM_NUM = 5;
+    
+    //Made the number that is divided by in set goal num a constant
+    //Uses the replace magic number with symbolic constant
+    //Refactored by Lauren Ritter
+    private final int DIVISOR_NUM = 2;
 
     public GameModel() {
 
-        setGoalNum(ROW * COLUMN * MIN_RANDOM_NUM, ROW * COLUMN * MAX_RANDOM_NUM / 2);
+        setGoalNum(ROW * COLUMN * MIN_RANDOM_NUM, ROW * COLUMN * MAX_RANDOM_NUM / DIVISOR_NUM);
 
         //Created new class to make the game model simpler
         //removed gameMatrix and optionsChosen attributes and all the related methods
