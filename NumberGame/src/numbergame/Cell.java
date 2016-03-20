@@ -12,19 +12,19 @@ package numbergame;
 class Cell {
 
     private boolean selected;
-    private int number;
+    private int numOfApple;
 
     public Cell(int number) {
         this.selected = false;
-        this.number = number;
+        this.numOfApple = number;
     }
     
-    public void setNumber(int number){
-        this.number = number;
+    public void setNumOfApple(int number){
+        this.numOfApple = number;
     }
     
-    public int getNumber(){
-        return this.number;
+    public int getNumOfApple(){
+        return this.numOfApple;
     }
     
     public boolean getCellStatus(){

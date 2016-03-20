@@ -82,9 +82,9 @@ public class GameUI extends JPanel implements ActionListener {
 
         //Store the random numbers into the buttons
         //Then, the buttons are added into the centerPanel
-        for (int rows = 0; rows < theGameController.getGameModel().getGameMatrix().length; rows++) {
-            for (int cols = 0; cols < theGameController.getGameModel().getGameMatrix()[rows].length; cols++) {
-                switch (theGameController.getGameModel().getGameMatrix()[rows][cols]) {
+        for (int rows = 0; rows < theGameController.getGameModel().getCells().length; rows++) {
+            for (int cols = 0; cols < theGameController.getGameModel().getCells()[rows].length; cols++) {
+                switch (theGameController.getGameModel().getCells()[rows][cols].getNumOfApple()) {
                     case 1:
                         button[rows][cols] = new JButton(theImage.getImage(1));
                         break;
@@ -112,13 +112,13 @@ public class GameUI extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent event) {
         Object obj = event.getSource();
 
-        for (int i = 0; i < theGameController.getGameModel().getGameMatrix().length; i++) {
-            for (int j = 0; j < theGameController.getGameModel().getGameMatrix()[i].length; j++) {
+        for (int i = 0; i < theGameController.getGameModel().getCells().length; i++) {
+            for (int j = 0; j < theGameController.getGameModel().getCells()[i].length; j++) {
                 if (obj == button[i][j]) {
                     //check if the button has not been clicked yet
-                    if (!theGameController.getGameModel().getOptionsChosen(i, j)) {
+                    if (!theGameController.getGameModel().getCells()[i][j].getCellStatus()) {
 
-                        button[i][j].setIcon(theImage.getImage(theGameController.getGameModel().getGameMatrix()[i][j]));
+                        button[i][j].setIcon(theImage.getImage(theGameController.getGameModel().getCells()[i][j].getNumOfApple()));
 
                         //sum
                         theGameController.getGameModel().sumSelectedNum(i, j);
@@ -136,7 +136,7 @@ public class GameUI extends JPanel implements ActionListener {
                                 < theGameController.getGameModel().getSum()) {
                             timeLabel.setText("You Lost");
                         }
-                        theGameController.getGameModel().numButtonPushed(i, j);
+                        theGameController.getGameModel().getCells()[i][j].cellSelected();
                     } else {
                         statusLabel.setText(theGameController.getGameModel().errorMessage());
                         time2 = 0;
@@ -172,8 +172,8 @@ public class GameUI extends JPanel implements ActionListener {
             }
             if (time == 0) {
                 timeLabel.setText("START!!");
-                for (int rows = 0; rows < theGameController.getGameModel().getGameMatrix().length; rows++) {
-                    for (int cols = 0; cols < theGameController.getGameModel().getGameMatrix()[rows].length; cols++) {
+                for (int rows = 0; rows < theGameController.getGameModel().getCells().length; rows++) {
+                    for (int cols = 0; cols < theGameController.getGameModel().getCells()[rows].length; cols++) {
                         button[rows][cols].setIcon(theImage.questionImage);
                     }
                 }
@@ -189,41 +189,39 @@ public class GameUI extends JPanel implements ActionListener {
         }
 
     }
-    
-    
+
     //Replaces labels created in initComponents method 
     //Now called from this method
     //Refactored by Alex
-    public void addToNorthPanel(){        
+    public void addToNorthPanel() {
         goalNumLabel = new JLabel("Goal: " + theGameController.getGameModel().getGoalNum(), SwingConstants.LEFT);
         timeLabel = new JLabel("5", SwingConstants.CENTER);
         sumLabel = new JLabel("Sum: " + theGameController.getGameModel().getSum(), SwingConstants.RIGHT);
-        
+
         newNorthPanel = new JPanel();
-        
-        goalNumLabel.setFont(new Font("Serif", Font.BOLD, 20));      
+
+        goalNumLabel.setFont(new Font("Serif", Font.BOLD, 20));
         timeLabel.setFont(new Font("Serif", Font.BOLD, 25));
         sumLabel.setFont(new Font("Serif", Font.BOLD, 20));
 
-        
         newNorthPanel.add(goalNumLabel);
         newNorthPanel.add(timeLabel);
         newNorthPanel.add(sumLabel);
         northPanel.add(newNorthPanel);
     }
-    
+
     //Replaces the coding in the initComponents() method that now calls this method
     //This uses the extract method
     //Refactored by Lauren Ritter
-    public void addToSouthPanel(){
+    public void addToSouthPanel() {
         statusLabel = new JLabel("", SwingConstants.CENTER);
         statusLabel.setPreferredSize(new Dimension(700, 60));
         statusLabel.setFont(new Font("Serif", Font.BOLD, 30));
-        
+
         addtionalPanel = new JPanel();
         addtionalPanel.add(returnButton = new JButton("return"));
         addtionalPanel.add(refreshButton = new JButton("refresh"));
-        
+
         southPanel.add(statusLabel);
         southPanel.add(addtionalPanel);
     }

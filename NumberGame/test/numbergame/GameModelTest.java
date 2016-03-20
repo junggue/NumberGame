@@ -196,7 +196,7 @@ public class GameModelTest {
         instance.sumSelectedNum(0, 1);
         instance.sumSelectedNum(0, 1);
 
-        assertEquals(2 * instance.getGameMatrix()[0][1], instance.getSum());
+        assertEquals(2 * instance.getCells()[0][1], instance.getSum());
 
     }
 
@@ -208,7 +208,7 @@ public class GameModelTest {
         instance.sumSelectedNum(2, 2);
         instance.sumSelectedNum(2, 2);
 
-        assertEquals(2 * instance.getGameMatrix()[2][2], instance.getSum());
+        assertEquals(2 * instance.getCells()[2][2], instance.getSum());
 
     }
 
@@ -219,7 +219,7 @@ public class GameModelTest {
 
         int sum = 2;
 
-        int testNum1 = instance.getGameMatrix()[0][0];
+        int testNum1 = instance.getCells()[0][0];
 
         //test if the method is actually summing or not
         instance.sumSelectedNum(0, 0);
@@ -263,33 +263,33 @@ public class GameModelTest {
 
     }
 
-    @Test
-    public void testRegenerateGameMatrix() {
-        System.out.println("regenerateGameMatrix");
-        GameModel instance = new GameModel();
-        int[][] testArray1 = new int[3][3];
-        int[][] testArray2 = new int[3][3];
-
-        testArray2 = instance.getGameMatrix().clone();
-
-        instance.regenerateGameMatrix();
-        testArray2 = instance.getGameMatrix().clone();
-        
-        boolean different = false;
-        int count=0;
-        
-        for(int row=0;row<=testArray1.length-1;row++){
-            for(int col=0;col<=testArray1[row].length-1;col++){
-                if(testArray1[row][col] == testArray2[row][col]){
-                    count++;
-                }
-            }
-        }
-        
-        if(count>=9){
-            fail("the regenerateGameMatrix does not create different game matrix");
-        }
-    }
+//    @Test
+//    public void testRegenerateGameMatrix() {
+//        System.out.println("regenerateGameMatrix");
+//        GameModel instance = new GameModel();
+//        int[][] testArray1 = new int[3][3];
+//        int[][] testArray2 = new int[3][3];
+//
+//        testArray2 = instance.getCells().clone();
+//
+//        instance.regenerateGameMatrix();
+//        testArray2 = instance.getCells().clone();
+//        
+//        boolean different = false;
+//        int count=0;
+//        
+//        for(int row=0;row<=testArray1.length-1;row++){
+//            for(int col=0;col<=testArray1[row].length-1;col++){
+//                if(testArray1[row][col] == testArray2[row][col]){
+//                    count++;
+//                }
+//            }
+//        }
+//        
+//        if(count>=9){
+//            fail("the regenerateGameMatrix does not create different game matrix");
+//        }
+//    }
     
     // TDD practice 
     // Step 1. create a test
