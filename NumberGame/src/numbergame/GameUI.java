@@ -22,7 +22,7 @@ public class GameUI extends JPanel implements ActionListener {
     private Image theImage;
     //private Container theContainer;
     private JPanel centerPanel, southPanel, northPanel, addtionalPanel, newNorthPanel;
-    private JButton button[][], returnButton, refreshButton;
+    private JButton button[][], returnButton, refreshButton, instructionButton;
     private JLabel timeLabel, goalNumLabel, sumLabel, statusLabel;
     ImageIcon image;
 
@@ -74,8 +74,6 @@ public class GameUI extends JPanel implements ActionListener {
         //Uses the extract method
         //Refactored by Lauren Ritter
         addToSouthPanel();
-        returnButton.addActionListener(this);
-        refreshButton.addActionListener(this);
 
         //Buttons are initialized
         button = new JButton[rowNum][colNum];
@@ -155,6 +153,10 @@ public class GameUI extends JPanel implements ActionListener {
         if (obj == refreshButton) {
             theGameView.showGameUI(this);
         }
+        
+        if(obj == instructionButton){
+            theGameView.showInstruction(this);
+        }
 
         if (obj == timer) {
             time = time - 1;
@@ -219,8 +221,13 @@ public class GameUI extends JPanel implements ActionListener {
         statusLabel.setFont(new Font("Serif", Font.BOLD, 30));
 
         addtionalPanel = new JPanel();
-        addtionalPanel.add(returnButton = new JButton("return"));
-        addtionalPanel.add(refreshButton = new JButton("refresh"));
+        addtionalPanel.add(returnButton = new JButton("Return to Main Menu"));
+        addtionalPanel.add(refreshButton = new JButton("Refresh"));
+        addtionalPanel.add(instructionButton = new JButton("Instructions"));
+        
+        returnButton.addActionListener(this);
+        refreshButton.addActionListener(this);
+        instructionButton.addActionListener(this);
 
         southPanel.add(statusLabel);
         southPanel.add(addtionalPanel);
