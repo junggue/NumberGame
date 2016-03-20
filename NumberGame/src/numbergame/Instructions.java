@@ -5,8 +5,6 @@
  */
 package numbergame;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -25,7 +23,6 @@ public class Instructions extends JPanel implements ActionListener{
     private JButton startButton;
     private JLabel instructions;
     private JLabel whatToDo;
-    private JPanel panel;
     private MainMenuUI theMainMenu;
     private GameUI theGameUI;
     private GameView theGameView;
@@ -46,41 +43,29 @@ public class Instructions extends JPanel implements ActionListener{
         backButton = new JButton("Back to Main Screen");
         startButton = new JButton("Start Game!");
         
-        panel.add(instructions, BorderLayout.NORTH);
-        panel.add(whatToDo, BorderLayout.CENTER);
-        panel.add(exitButton, BorderLayout.SOUTH);
-        panel.add(backButton, BorderLayout.SOUTH);
-        panel.add(startButton, BorderLayout.SOUTH);
-        
-        exitButton = new JButton("Exit");
+        add(instructions);
+        add(whatToDo);
+        add(exitButton);
+        add(backButton);
+        add(startButton);
+
         exitButton.addActionListener(this);
-        
-        backButton = new JButton("Back");
         backButton.addActionListener(this);
-        
-        startButton = new JButton("Start Game!");
         startButton.addActionListener(this);
-        
-        panel.setVisible(true);
-    }
-    
-    public void exitButtonActionPerformed(ActionEvent e){
-        System.exit(0);
-    }
-    
-    public void startButtonActionPerformed(ActionEvent e){
-        
-    }
-    
-    public void backButtonActionPerformed(ActionEvent e){
-        
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        startButtonActionPerformed(e);
-        backButtonActionPerformed(e);
-        exitButtonActionPerformed(e);
+        Object buttonClicked = e.getSource();
+        if(buttonClicked == exitButton){
+            System.exit(0);
+        }
+        if(buttonClicked == startButton){
+            theGameView.showGameUI(this);
+        }
+        if(buttonClicked == backButton){
+            theGameView.showMainMenuUI(this);
+        }
     }
 
 }

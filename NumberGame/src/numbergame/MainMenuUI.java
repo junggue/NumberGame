@@ -39,6 +39,7 @@ public class MainMenuUI extends JPanel implements ActionListener{
         
         startButton.addActionListener(this);
         exitButton.addActionListener(this);
+        instructionButton.addActionListener(this);
 
         add(startButton);
         add(instructionButton);
