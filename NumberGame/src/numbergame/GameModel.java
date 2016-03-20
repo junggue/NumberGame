@@ -16,7 +16,6 @@ public class GameModel {
 
     private int[][] gameMatrix;
     private boolean[][] optionsChosen;
-    private int[] options;
     private int sum;
     private int goalNum;
 
@@ -29,7 +28,6 @@ public class GameModel {
     public GameModel() {
 
         gameMatrix = new int[ROW][COLUMN];
-        options = new int[ROW * COLUMN];
         optionsChosen = new boolean[ROW][COLUMN];
 
         setGoalNum(ROW * COLUMN * MIN_RANDOM_NUM, ROW * COLUMN * MAX_RANDOM_NUM / 2);
@@ -46,7 +44,6 @@ public class GameModel {
         for (int i = 0; i < gameMatrix.length; i++) {
             for (int j = 0; j < gameMatrix[i].length; j++) {
                 gameMatrix[i][j] = getRandomNum(MIN_RANDOM_NUM, MAX_RANDOM_NUM);
-                options[i] = gameMatrix[i][j];
             }
         }
 
@@ -56,7 +53,6 @@ public class GameModel {
         for (int i = 0; i < gameMatrix.length; i++) {
             for (int j = 0; j < gameMatrix[i].length; j++) {
                 gameMatrix[i][j] = getRandomNum(MIN_RANDOM_NUM, MAX_RANDOM_NUM);
-                options[i] = gameMatrix[i][j];
             }
         }
     }
@@ -110,7 +106,7 @@ public class GameModel {
         return this.sum;
     }
 
-    public String checkResult(){
+    public String checkResult() {
         if (this.goalNum == this.sum) {
             return "You Won";
         } else {
@@ -144,13 +140,12 @@ public class GameModel {
         return "Pushed already";
     }
 
-    //with range 1 ~ 5
-    public static int getRandomNum(int start, int end) {
+    public int getRandomNum(int start, int end) {
         Random random = new Random();
         return showRandomInteger(start, end + 1, random);
     }
 
-    private static int showRandomInteger(int start, int end, Random random) {
+    private int showRandomInteger(int start, int end, Random random) {
         if (start > end) {
             throw new IllegalArgumentException("no exceed");
         }

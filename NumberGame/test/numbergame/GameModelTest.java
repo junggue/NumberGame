@@ -41,6 +41,7 @@ public class GameModelTest {
     @Test
     public void testGetRandomNumisRandom1() {
         System.out.println("getRandomNum");
+        GameModel instance = new GameModel();
         int start = 1;
         int end = 1;
         int randomNum;
@@ -48,7 +49,7 @@ public class GameModelTest {
 
         for (int i = 0; i < 1000000; i++) {
 
-            randomNum = GameModel.getRandomNum(start, end);
+            randomNum = instance.getRandomNum(start, end);
 
             if (start <= randomNum && randomNum <= end) {
 
@@ -61,6 +62,7 @@ public class GameModelTest {
     @Test
     public void testGetRandomNumisRandom2() {
         System.out.println("getRandomNum");
+        GameModel instance = new GameModel();
         int start = 2;
         int end = 2;
         int randomNum;
@@ -68,7 +70,7 @@ public class GameModelTest {
 
         for (int i = 0; i < 1000000; i++) {
 
-            randomNum = GameModel.getRandomNum(start, end);
+            randomNum = instance.getRandomNum(start, end);
 
             if (start <= randomNum && randomNum <= end) {
 
@@ -81,6 +83,7 @@ public class GameModelTest {
     @Test
     public void testGetRandomNumisRandom0() {
         System.out.println("getRandomNum");
+        GameModel instance = new GameModel();
         int start = 0;
         int end = 0;
         int randomNum;
@@ -88,7 +91,7 @@ public class GameModelTest {
 
         for (int i = 0; i < 1000000; i++) {
 
-            randomNum = GameModel.getRandomNum(start, end);
+            randomNum = instance.getRandomNum(start, end);
 
             if (start <= randomNum && randomNum <= end) {
 
@@ -101,6 +104,7 @@ public class GameModelTest {
     @Test
     public void testGetRandomNumisRandom1to5() {
         System.out.println("getRandomNum");
+        GameModel instance = new GameModel();
         int start = 1;
         int end = 5;
         int randomNum;
@@ -108,7 +112,7 @@ public class GameModelTest {
 
         for (int i = 0; i < 1000000; i++) {
 
-            randomNum = GameModel.getRandomNum(start, end);
+            randomNum = instance.getRandomNum(start, end);
 
             if (start <= randomNum && randomNum <= end) {
 
@@ -121,6 +125,7 @@ public class GameModelTest {
     @Test
     public void testGetRandomNumisRandom1to4() {
         System.out.println("getRandomNum");
+        GameModel instance = new GameModel();
         int start = 1;
         int end = 4;
         int randomNum;
@@ -128,7 +133,7 @@ public class GameModelTest {
 
         for (int i = 0; i < 1000000; i++) {
 
-            randomNum = GameModel.getRandomNum(start, end);
+            randomNum = instance.getRandomNum(start, end);
 
             if (start <= randomNum && randomNum <= end) {
 
@@ -141,6 +146,7 @@ public class GameModelTest {
     @Test
     public void testGetRandomNumisRandom1to3() {
         System.out.println("getRandomNum");
+        GameModel instance = new GameModel();
         int start = 1;
         int end = 3;
         int randomNum;
@@ -148,7 +154,7 @@ public class GameModelTest {
 
         for (int i = 0; i < 1000000; i++) {
 
-            randomNum = GameModel.getRandomNum(start, end);
+            randomNum = instance.getRandomNum(start, end);
 
             if (start <= randomNum && randomNum <= end) {
 
@@ -161,6 +167,7 @@ public class GameModelTest {
     @Test
     public void testGetRandomNumisRandom1to2() {
         System.out.println("getRandomNum");
+        GameModel instance = new GameModel();
         int start = 1;
         int end = 2;
         int randomNum;
@@ -168,7 +175,7 @@ public class GameModelTest {
 
         for (int i = 0; i < 1000000; i++) {
 
-            randomNum = GameModel.getRandomNum(start, end);
+            randomNum = instance.getRandomNum(start, end);
 
             if (start <= randomNum && randomNum <= end) {
 
@@ -257,7 +264,6 @@ public class GameModelTest {
     }
 
     @Test
-
     public void testRegenerateGameMatrix() {
         System.out.println("regenerateGameMatrix");
         GameModel instance = new GameModel();
@@ -283,6 +289,46 @@ public class GameModelTest {
         if(count>=9){
             fail("the regenerateGameMatrix does not create different game matrix");
         }
+    }
+    
+//    // TDD practice 
+//    // Step 1. create a test
+//    // test if a method store randomNumbers in the matrix
+//    @Test
+//    public void testSumSelectedNum(){
+//    
+//        System.out.println("store the random numbers in the game matrix");
+//        GameModel instance = new GameModel();
+//        
+//        int[][] theMatrix= instance.getGameMatrix();
+//        
+//        
+//        
+//    
+//    }
+    
+    // TDD practice 1
+    // Cell object
+    // if Cell is selected, then change 'false' to 'true'
+    @Test
+    public void testGetCellStatusWhenNotSelectedYet(){
+        //Cell objects have two attributes
+        //1. boolean selected = false;
+        //2. int number
+        Cell testCell = new Cell();
+        assertEquals(false, testCell.getCellStatus());
+        
+    }
+    
+    //TDD practice 2
+    // Cell object
+    // if the cell is already selected, the status stays as 'true'
+    @Test
+    public void testGetCellStatusWhenSelectedAlready(){
+        Cell testCell = new Cell();
+        testCell.cellSelected();
+        assertEquals(true, testCell.getCellStatus());
+    
     }
 
 }
