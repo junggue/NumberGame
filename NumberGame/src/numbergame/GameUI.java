@@ -21,7 +21,7 @@ public class GameUI extends JPanel implements ActionListener {
     private GameView theGameView;
     private Image theImage;
     private JPanel centerPanel, southPanel, northPanel, addtionalPanel;
-    private JButton button[][], returnButton, refreshButton, instructionButton, creditsButton;
+    private JButton button[][], returnButton, refreshButton, instructionButton;
     private JLabel timeLabel, goalNumLabel, sumLabel, statusLabel;
 
     //Timer displaying apples for 5 seconds
@@ -143,12 +143,10 @@ public class GameUI extends JPanel implements ActionListener {
         addtionalPanel.add(returnButton = new JButton("Return to Main Menu"));
         addtionalPanel.add(refreshButton = new JButton("Refresh"));
         addtionalPanel.add(instructionButton = new JButton("Instructions"));
-        addtionalPanel.add(creditsButton = new JButton("Credits"));
 
         returnButton.addActionListener(this);
         refreshButton.addActionListener(this);
         instructionButton.addActionListener(this);
-        creditsButton.addActionListener(this);
 
         southPanel.add(statusLabel);
         southPanel.add(addtionalPanel);
@@ -204,9 +202,7 @@ public class GameUI extends JPanel implements ActionListener {
         if (obj == instructionButton) {
             theGameView.showInstruction(this);
         }
-        if (obj == creditsButton) {
-            theGameView.showCredits(this);
-        }
+
 
         if (obj == timer) {
             time = time - 1;

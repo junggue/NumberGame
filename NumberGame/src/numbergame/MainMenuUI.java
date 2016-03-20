@@ -36,7 +36,7 @@ public class MainMenuUI extends JPanel implements ActionListener{
     public void initCustomComponents() {
         startButton = new JButton("Start Game!");
         exitButton = new JButton("Exit Game!");
-        instructionButton = new JButton("Instruction");
+        instructionButton = new JButton("Instructions");
         creditsButton = new JButton("Credits");
         
         startButton.addActionListener(this);
