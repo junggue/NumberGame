@@ -174,7 +174,7 @@ public class GameUI extends JPanel implements ActionListener {
                 timeLabel.setText("START!!");
                 for (int rows = 0; rows < theGameController.getGameModel().getCells().length; rows++) {
                     for (int cols = 0; cols < theGameController.getGameModel().getCells()[rows].length; cols++) {
-                        button[rows][cols].setIcon(theImage.questionImage);
+                        button[rows][cols].setIcon(theImage.getQuestionImage());
                     }
                 }
             }
