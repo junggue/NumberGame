@@ -196,7 +196,7 @@ public class GameModelTest {
         instance.sumSelectedNum(0, 1);
         instance.sumSelectedNum(0, 1);
 
-        assertEquals(2 * instance.getCells()[0][1], instance.getSum());
+        assertEquals(2 * instance.getCells()[0][1].getNumOfApple(), instance.getSum());
 
     }
 
@@ -208,7 +208,7 @@ public class GameModelTest {
         instance.sumSelectedNum(2, 2);
         instance.sumSelectedNum(2, 2);
 
-        assertEquals(2 * instance.getCells()[2][2], instance.getSum());
+        assertEquals(2 * instance.getCells()[2][2].getNumOfApple(), instance.getSum());
 
     }
 
@@ -219,7 +219,7 @@ public class GameModelTest {
 
         int sum = 2;
 
-        int testNum1 = instance.getCells()[0][0];
+        int testNum1 = instance.getCells()[0][0].getNumOfApple();
 
         //test if the method is actually summing or not
         instance.sumSelectedNum(0, 0);
@@ -238,14 +238,14 @@ public class GameModelTest {
         int c = 1;
         GameModel instance = new GameModel();
         //boolean before pushed
-        System.out.println(instance.getOptionsChosen(r, c));
+        System.out.println(instance.getCells()[r][c].getCellStatus());
         //button pushed
-        instance.numButtonPushed(r, c);
+        instance.getCells()[r][c].cellSelected();
         //boolean after pushed
-        System.out.println(instance.getOptionsChosen(r, c));
+        System.out.println(instance.getCells()[r][c].getCellStatus());
 
         boolean expResult = true;
-        assertEquals(expResult, instance.getOptionsChosen(r, c));
+        assertEquals(expResult, instance.getCells()[r][c].getCellStatus());
 
     }
 
@@ -256,50 +256,21 @@ public class GameModelTest {
         int c = 1;
         GameModel instance = new GameModel();
         //boolean before pushed
-        System.out.println(instance.getOptionsChosen(r, c));
+        System.out.println(instance.getCells()[r][c].getCellStatus());
 
         boolean expResult = false;
-        assertEquals(expResult, instance.getOptionsChosen(r, c));
+        assertEquals(expResult, instance.getCells()[r][c].getCellStatus());
 
     }
 
-//    @Test
-//    public void testRegenerateGameMatrix() {
-//        System.out.println("regenerateGameMatrix");
-//        GameModel instance = new GameModel();
-//        int[][] testArray1 = new int[3][3];
-//        int[][] testArray2 = new int[3][3];
-//
-//        testArray2 = instance.getCells().clone();
-//
-//        instance.regenerateGameMatrix();
-//        testArray2 = instance.getCells().clone();
-//        
-//        boolean different = false;
-//        int count=0;
-//        
-//        for(int row=0;row<=testArray1.length-1;row++){
-//            for(int col=0;col<=testArray1[row].length-1;col++){
-//                if(testArray1[row][col] == testArray2[row][col]){
-//                    count++;
-//                }
-//            }
-//        }
-//        
-//        if(count>=9){
-//            fail("the regenerateGameMatrix does not create different game matrix");
-//        }
-//    }
-    
     // TDD practice 
     // Step 1. create a test
     // test if a method store randomNumbers in the matrix
     @Test
-    public void createCells(){
-    
+    public void createCells() {
+
         System.out.println("Check if each cell is stored with correct random number range");
-        
 
     }
-    
+
 }

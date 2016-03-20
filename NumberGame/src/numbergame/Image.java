@@ -13,8 +13,8 @@ import javax.swing.ImageIcon;
  */
 public class Image {
     
-    ImageIcon img1, img2, img3, img4, img5, questionImage;
-    ImageIcon image;
+    private ImageIcon img1, img2, img3, img4, img5, questionImage;
+    private ImageIcon image;
     
     
     //Class taken from the GameUI class. Allows for image code to all be in one place and easy to find.
@@ -55,6 +55,10 @@ public class Image {
         }
 
         return image;
+    }
+    
+    public ImageIcon getQuestionImage(){
+        return questionImage;
     }
     
     
