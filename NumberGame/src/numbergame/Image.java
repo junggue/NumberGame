@@ -20,7 +20,7 @@ public class Image {
     //Class taken from the GameUI class. Allows for image code to all be in one place and easy to find.
     //Uses the extract class method
     //Refactored by Lauren Ritter
-    Image(){
+    public Image(){
         img1 = new ImageIcon("src/images/1.png");
         img2 = new ImageIcon("src/images/2.png");
         img3 = new ImageIcon("src/images/3.png");

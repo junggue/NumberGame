@@ -20,50 +20,46 @@ public class GameUI extends JPanel implements ActionListener {
     private GameController theGameController;
     private GameView theGameView;
     private Image theImage;
-    //private Container theContainer;
     private JPanel centerPanel, southPanel, northPanel, addtionalPanel;
     private JButton button[][], returnButton, refreshButton, instructionButton;
     private JLabel timeLabel, goalNumLabel, sumLabel, statusLabel;
-    ImageIcon image;
 
+    //Timer displaying apples for 5 seconds
     private Timer timer;
     private int delay;
     private int time;
 
+    //Timer displaying alert when a cell is pushed again. 
     private Timer timer2;
-    private int delay2;
     private int time2;
 
+    private int rowNum;
+    private int colNum;
+
     public GameUI(GameController parentGameController, GameView parentGameView) {
-        super();
+
         theGameController = parentGameController;
         theGameView = parentGameView;
         theImage = new Image();
-        delay = 1000;
-        initComponents();
-        timer = new Timer(delay, this);
+
+        rowNum = theGameController.getGameModel().getNumOfRow();
+        colNum = theGameController.getGameModel().getNumOfColumn();
+
         time = 5;
+        delay = 1000;
+        timer = new Timer(delay, this);
         timer.start();
+
+        initComponents();
 
     }
 
     public void initComponents() {
 
-        int rowNum = theGameController.getGameModel().getNumOfRow();
-        int colNum = theGameController.getGameModel().getNumOfColumn();
-
-        //All about the Layout
+        //setting the layout
+        //extract method
         //Junggue
-        this.setLayout(new BorderLayout());
-        centerPanel = new JPanel();
-        southPanel = new JPanel();
-        northPanel = new JPanel();
-        this.add(centerPanel, "Center");
-        this.add(southPanel, "South");
-        this.add(northPanel, "North");
-        centerPanel.setLayout(new GridLayout(rowNum, colNum));
-        southPanel.setLayout(new GridLayout(2, 1));
-        northPanel.setLayout(new GridLayout(0, colNum));
+        setLayout();
 
         //Adding Lablels
         //Created new method for northPanel
@@ -106,6 +102,56 @@ public class GameUI extends JPanel implements ActionListener {
         }
     }
 
+    //setting the layout
+    //extract method
+    //Junggue
+    private void setLayout() {
+        this.setLayout(new BorderLayout());
+        centerPanel = new JPanel();
+        southPanel = new JPanel();
+        northPanel = new JPanel();
+        this.add(centerPanel, "Center");
+        this.add(southPanel, "South");
+        this.add(northPanel, "North");
+        centerPanel.setLayout(new GridLayout(rowNum, colNum));
+        southPanel.setLayout(new GridLayout(2, 1));
+        northPanel.setLayout(new GridLayout(0, colNum));
+    }
+
+    //Replaces labels created in initComponents method 
+    //Now called from this method
+    //Refactored by Alex
+    //Refactored again by Junggue Yang
+    private void addToNorthPanel() {
+        northPanel.add(goalNumLabel = new JLabel("Goal: " + theGameController.getGameModel().getGoalNum(), SwingConstants.CENTER));
+        goalNumLabel.setFont(new Font("Serif", Font.BOLD, 30));
+        northPanel.add(timeLabel = new JLabel("5", SwingConstants.CENTER));
+        timeLabel.setFont(new Font("Serif", Font.BOLD, 40));
+        northPanel.add(sumLabel = new JLabel("sum: " + theGameController.getGameModel().getSum(), SwingConstants.CENTER));
+        sumLabel.setFont(new Font("Serif", Font.BOLD, 30));
+    }
+
+    //Replaces the coding in the initComponents() method that now calls this method
+    //This uses the extract method
+    //Refactored by Lauren Ritter
+    private void addToSouthPanel() {
+        statusLabel = new JLabel("", SwingConstants.CENTER);
+        statusLabel.setPreferredSize(new Dimension(700, 60));
+        statusLabel.setFont(new Font("Serif", Font.BOLD, 30));
+
+        addtionalPanel = new JPanel();
+        addtionalPanel.add(returnButton = new JButton("Return to Main Menu"));
+        addtionalPanel.add(refreshButton = new JButton("Refresh"));
+        addtionalPanel.add(instructionButton = new JButton("Instructions"));
+
+        returnButton.addActionListener(this);
+        refreshButton.addActionListener(this);
+        instructionButton.addActionListener(this);
+
+        southPanel.add(statusLabel);
+        southPanel.add(addtionalPanel);
+    }
+
     @Override
     public void actionPerformed(ActionEvent event) {
         Object obj = event.getSource();
@@ -138,7 +184,6 @@ public class GameUI extends JPanel implements ActionListener {
                     } else {
                         statusLabel.setText(theGameController.getGameModel().errorMessage());
                         time2 = 0;
-                        delay2 = 1000;
                         timer2 = new Timer(delay, this);
                         timer2.start();
                     }
@@ -153,8 +198,8 @@ public class GameUI extends JPanel implements ActionListener {
         if (obj == refreshButton) {
             theGameView.showGameUI(this);
         }
-        
-        if(obj == instructionButton){
+
+        if (obj == instructionButton) {
             theGameView.showInstruction(this);
         }
 
@@ -190,40 +235,6 @@ public class GameUI extends JPanel implements ActionListener {
             }
         }
 
-    }
-
-    //Replaces labels created in initComponents method 
-    //Now called from this method
-    //Refactored by Alex
-    //Refactored again by Junggue Yang
-    public void addToNorthPanel() {
-        northPanel.add(goalNumLabel = new JLabel("Goal: " + theGameController.getGameModel().getGoalNum(), SwingConstants.CENTER));
-        goalNumLabel.setFont(new Font("Serif", Font.BOLD, 30));
-        northPanel.add(timeLabel = new JLabel("5", SwingConstants.CENTER));
-        timeLabel.setFont(new Font("Serif", Font.BOLD, 40));
-        northPanel.add(sumLabel = new JLabel("sum: " + theGameController.getGameModel().getSum(), SwingConstants.CENTER));
-        sumLabel.setFont(new Font("Serif", Font.BOLD, 30));
-    }
-    
-    //Replaces the coding in the initComponents() method that now calls this method
-    //This uses the extract method
-    //Refactored by Lauren Ritter
-    public void addToSouthPanel() {
-        statusLabel = new JLabel("", SwingConstants.CENTER);
-        statusLabel.setPreferredSize(new Dimension(700, 60));
-        statusLabel.setFont(new Font("Serif", Font.BOLD, 30));
-
-        addtionalPanel = new JPanel();
-        addtionalPanel.add(returnButton = new JButton("Return to Main Menu"));
-        addtionalPanel.add(refreshButton = new JButton("Refresh"));
-        addtionalPanel.add(instructionButton = new JButton("Instructions"));
-        
-        returnButton.addActionListener(this);
-        refreshButton.addActionListener(this);
-        instructionButton.addActionListener(this);
-
-        southPanel.add(statusLabel);
-        southPanel.add(addtionalPanel);
     }
 
 }
