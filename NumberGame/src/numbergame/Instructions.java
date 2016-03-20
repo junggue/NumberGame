@@ -48,34 +48,24 @@ public class Instructions extends JPanel implements ActionListener{
         add(exitButton);
         add(backButton);
         add(startButton);
-        
-        exitButton = new JButton("Exit");
+
         exitButton.addActionListener(this);
-        
-        backButton = new JButton("Back");
         backButton.addActionListener(this);
-        
-        startButton = new JButton("Start Game!");
         startButton.addActionListener(this);
-    }
-    
-    public void exitButtonActionPerformed(ActionEvent e){
-        System.exit(0);
-    }
-    
-    public void startButtonActionPerformed(ActionEvent e){
-        
-    }
-    
-    public void backButtonActionPerformed(ActionEvent e){
-        
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        startButtonActionPerformed(e);
-        backButtonActionPerformed(e);
-        exitButtonActionPerformed(e);
+        Object buttonClicked = e.getSource();
+        if(buttonClicked == exitButton){
+            System.exit(0);
+        }
+        if(buttonClicked == startButton){
+            theGameView.showGameUI(this);
+        }
+        if(buttonClicked == backButton){
+            theGameView.showMainMenuUI(this);
+        }
     }
 
 }

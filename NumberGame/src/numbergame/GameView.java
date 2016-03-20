@@ -42,12 +42,18 @@ public class GameView extends JFrame {
         theGameUI = new GameUI(theGameController, this);
         this.add(theGameUI);
     }
+    
+    public void showInstructions(){
+        theInstructions = new Instructions(this);
+        this.add(theInstructions);
+    }
 
     public void showInstruction(JPanel instructPanel){
         instructPanel.revalidate();
         instructPanel.repaint();
-        remove(instructPanel);
+        theInstructions = new Instructions(this);
         this.add(theInstructions);
+        remove(instructPanel);
     }
     
     public void showMainMenuUI() {
