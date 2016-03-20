@@ -6,6 +6,7 @@
 package numbergame;
 
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
@@ -43,6 +44,29 @@ public class MainMenuUI extends JPanel implements ActionListener{
         exitButton.addActionListener(this);
         instructionButton.addActionListener(this);
         creditsButton.addActionListener(this);
+        
+        exitButton.setPreferredSize(new Dimension(100,50));
+        instructionButton.setPreferredSize(new Dimension(100,50));
+        startButton.setPreferredSize(new Dimension(100,50));
+        creditsButton.setPreferredSize(new Dimension(100,50));
+
+        exitButton.setIcon(new ImageIcon("images/rsz_exit.png"));
+        instructionButton.setIcon(new ImageIcon("images/rsz_back.png"));
+        startButton.setIcon(new ImageIcon("images/rsz_start.png"));    
+        creditsButton.setIcon(new ImageIcon("images/rsz_credits.png"));
+        
+        exitButton.setOpaque(false);
+        exitButton.setContentAreaFilled(false);
+        exitButton.setBorderPainted(false);
+        instructionButton.setOpaque(false);
+        instructionButton.setContentAreaFilled(false);
+        instructionButton.setBorderPainted(false);
+        startButton.setOpaque(false);
+        startButton.setContentAreaFilled(false);
+        startButton.setBorderPainted(false);
+        creditsButton.setOpaque(false);
+        creditsButton.setContentAreaFilled(false);
+        creditsButton.setBorderPainted(false);
 
         add(startButton);
         add(instructionButton);
