@@ -201,14 +201,14 @@ public class GameUI extends JPanel implements ActionListener {
         sumLabel = new JLabel("", SwingConstants.CENTER);
         
         newNorthPanel = new JPanel();
-        newNorthPanel.setLayout(new GridLayout(1,3));
+        newNorthPanel.setLayout(new GridLayout(1,2));
         newNorthPanel.add(goalNumLabel = new JLabel("Goal: " + theGameController.getGameModel().getGoalNum()));
         newNorthPanel.add(timeLabel = new JLabel("5"));
         newNorthPanel.add(sumLabel = new JLabel("Sum: " + theGameController.getGameModel().getSum()));
 
-        goalNumLabel.setFont(new Font("Serif", Font.BOLD, 20));
-        timeLabel.setFont(new Font("Serif", Font.BOLD, 25));
-        sumLabel.setFont(new Font("Serif", Font.BOLD, 20));        
+        goalNumLabel.setFont(new Font("Serif", Font.BOLD, 15));
+        timeLabel.setFont(new Font("Serif", Font.BOLD, 20));
+        sumLabel.setFont(new Font("Serif", Font.BOLD, 15));        
         
         northPanel.add(newNorthPanel);
     }
