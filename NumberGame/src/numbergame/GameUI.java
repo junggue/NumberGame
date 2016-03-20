@@ -195,24 +195,16 @@ public class GameUI extends JPanel implements ActionListener {
     //Replaces labels created in initComponents method 
     //Now called from this method
     //Refactored by Alex
+    //Refactored again by Junggue Yang
     public void addToNorthPanel() {
-        goalNumLabel = new JLabel("Goal: " + theGameController.getGameModel().getGoalNum(), SwingConstants.CENTER);        
-        timeLabel = new JLabel("5", SwingConstants.CENTER);        
-        sumLabel = new JLabel("Sum: " + theGameController.getGameModel().getSum(), SwingConstants.CENTER);
-        
-        newNorthPanel = new JPanel();
-        newNorthPanel.setLayout(new GridLayout(1,1));
-        newNorthPanel.add(goalNumLabel);
-        newNorthPanel.add(timeLabel);
-        newNorthPanel.add(sumLabel);
-
-        goalNumLabel.setFont(new Font("Serif", Font.BOLD, 15));
-        timeLabel.setFont(new Font("Serif", Font.BOLD, 20));
-        sumLabel.setFont(new Font("Serif", Font.BOLD, 15));        
-        
-        northPanel.add(newNorthPanel);
+        northPanel.add(goalNumLabel = new JLabel("Goal: " + theGameController.getGameModel().getGoalNum(), SwingConstants.CENTER));
+        goalNumLabel.setFont(new Font("Serif", Font.BOLD, 30));
+        northPanel.add(timeLabel = new JLabel("5", SwingConstants.CENTER));
+        timeLabel.setFont(new Font("Serif", Font.BOLD, 40));
+        northPanel.add(sumLabel = new JLabel("sum: " + theGameController.getGameModel().getSum(), SwingConstants.CENTER));
+        sumLabel.setFont(new Font("Serif", Font.BOLD, 30));
     }
-
+    
     //Replaces the coding in the initComponents() method that now calls this method
     //This uses the extract method
     //Refactored by Lauren Ritter
