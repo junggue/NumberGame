@@ -7,6 +7,7 @@ package numbergame;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -16,7 +17,7 @@ import javax.swing.JPanel;
  *
  * @author aot5238
  */
-public class Credits extends JPanel
+public class Credits extends JPanel implements ActionListener
 {
     private JButton exitButton;
     private JButton backButton;
@@ -98,5 +99,17 @@ public class Credits extends JPanel
     public void startButtonActionPerformed(ActionEvent e){
         switchToMainTable();
     }
-    
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Object buttonClicked = e.getSource();
+        
+        if(buttonClicked == exitButton){
+            System.exit(0);
+            
+        if(buttonClicked == backButton){
+            theGameView.showMainMenuUI(this);
+        }
+        }
+    }
 }
