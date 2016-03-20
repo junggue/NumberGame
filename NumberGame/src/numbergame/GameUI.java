@@ -121,7 +121,7 @@ public class GameUI extends JPanel implements ActionListener {
                         //sum
                         theGameController.getGameModel().sumSelectedNum(i, j);
                         //show the sum in the label
-                        sumLabel.setText("sum: " + theGameController.getGameModel().getSum());
+                        sumLabel.setText("Sum: " + theGameController.getGameModel().getSum());
                         //the boolean matrix changes current button to true so it cannot be used twice
                         if (theGameController.getGameModel().getGoalNum()
                                 == theGameController.getGameModel().getSum()) {
@@ -173,7 +173,7 @@ public class GameUI extends JPanel implements ActionListener {
                 timeLabel.setText("" + time);
             }
             if (time == 0) {
-                timeLabel.setText("START!!");
+                timeLabel.setText("Start!!");
                 for (int rows = 0; rows < theGameController.getGameModel().getCells().length; rows++) {
                     for (int cols = 0; cols < theGameController.getGameModel().getCells()[rows].length; cols++) {
                         button[rows][cols].setIcon(theImage.getQuestionImage());
@@ -196,15 +196,15 @@ public class GameUI extends JPanel implements ActionListener {
     //Now called from this method
     //Refactored by Alex
     public void addToNorthPanel() {
-        goalNumLabel = new JLabel("", SwingConstants.CENTER);        
-        timeLabel = new JLabel("", SwingConstants.CENTER);        
-        sumLabel = new JLabel("", SwingConstants.CENTER);
+        goalNumLabel = new JLabel("Goal: " + theGameController.getGameModel().getGoalNum(), SwingConstants.CENTER);        
+        timeLabel = new JLabel("5", SwingConstants.CENTER);        
+        sumLabel = new JLabel("Sum: " + theGameController.getGameModel().getSum(), SwingConstants.CENTER);
         
         newNorthPanel = new JPanel();
-        newNorthPanel.setLayout(new GridLayout(1,2));
-        newNorthPanel.add(goalNumLabel = new JLabel("Goal: " + theGameController.getGameModel().getGoalNum()));
-        newNorthPanel.add(timeLabel = new JLabel("5"));
-        newNorthPanel.add(sumLabel = new JLabel("Sum: " + theGameController.getGameModel().getSum()));
+        newNorthPanel.setLayout(new GridLayout(1,1));
+        newNorthPanel.add(goalNumLabel);
+        newNorthPanel.add(timeLabel);
+        newNorthPanel.add(sumLabel);
 
         goalNumLabel.setFont(new Font("Serif", Font.BOLD, 15));
         timeLabel.setFont(new Font("Serif", Font.BOLD, 20));
