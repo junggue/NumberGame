@@ -54,10 +54,10 @@ public class Credits extends JPanel implements ActionListener
         backButton.setIcon(new ImageIcon("images/rsz_back.png"));
         
         
-        add(credits, BorderLayout.NORTH);
-        add(weAre, BorderLayout.CENTER);
-        add(exitButton, BorderLayout.SOUTH);
-        add(backButton, BorderLayout.SOUTH);
+        add(credits);
+        add(weAre);
+        add(exitButton);
+        add(backButton);
         
         exitButton.addActionListener(this);
         backButton.addActionListener(this);
@@ -74,13 +74,11 @@ public class Credits extends JPanel implements ActionListener
     @Override
     public void actionPerformed(ActionEvent e) {
         Object buttonClicked = e.getSource();
-        
         if(buttonClicked == exitButton){
             System.exit(0);
-            
+        }
         if(buttonClicked == backButton){
             theGameView.showMainMenuUI(this);
-        }
         }
     }
 }
