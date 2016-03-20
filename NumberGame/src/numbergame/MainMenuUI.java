@@ -21,8 +21,9 @@ import javax.swing.WindowConstants;
 public class MainMenuUI extends JPanel implements ActionListener{
 //    private JPanel mainPanel;
 
-    private JButton startButton, exitButton, instructionButton;
+    private JButton startButton, exitButton, instructionButton, creditsButton;
     private Instructions theInstructions;
+    private Credits theCredits;
     private GameView theGameView;
     
 
@@ -36,13 +37,16 @@ public class MainMenuUI extends JPanel implements ActionListener{
         startButton = new JButton("Start Game!");
         exitButton = new JButton("Exit Game!");
         instructionButton = new JButton("Instruction");
+        creditsButton = new JButton("Credits");
         
         startButton.addActionListener(this);
         exitButton.addActionListener(this);
         instructionButton.addActionListener(this);
+        creditsButton.addActionListener(this);
 
         add(startButton);
         add(instructionButton);
+        add(creditsButton);
         add(exitButton);
         
     }
@@ -57,6 +61,9 @@ public class MainMenuUI extends JPanel implements ActionListener{
         }
         if(obj == instructionButton){
             theGameView.showInstruction(this);
+        }
+        if(obj == creditsButton){
+            theGameView.showCredits(this);
         }
     }
 }

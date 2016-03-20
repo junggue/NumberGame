@@ -21,7 +21,7 @@ public class GameUI extends JPanel implements ActionListener {
     private GameView theGameView;
     private Image theImage;
     private JPanel centerPanel, southPanel, northPanel, addtionalPanel;
-    private JButton button[][], returnButton, refreshButton, instructionButton;
+    private JButton button[][], returnButton, refreshButton, instructionButton, creditsButton;
     private JLabel timeLabel, goalNumLabel, sumLabel, statusLabel;
 
     //Timer displaying apples for 5 seconds
@@ -127,7 +127,7 @@ public class GameUI extends JPanel implements ActionListener {
         goalNumLabel.setFont(new Font("Serif", Font.BOLD, 30));
         northPanel.add(timeLabel = new JLabel("5", SwingConstants.CENTER));
         timeLabel.setFont(new Font("Serif", Font.BOLD, 40));
-        northPanel.add(sumLabel = new JLabel("sum: " + theGameController.getGameModel().getSum(), SwingConstants.CENTER));
+        northPanel.add(sumLabel = new JLabel("Sum: " + theGameController.getGameModel().getSum(), SwingConstants.CENTER));
         sumLabel.setFont(new Font("Serif", Font.BOLD, 30));
     }
 
@@ -143,10 +143,12 @@ public class GameUI extends JPanel implements ActionListener {
         addtionalPanel.add(returnButton = new JButton("Return to Main Menu"));
         addtionalPanel.add(refreshButton = new JButton("Refresh"));
         addtionalPanel.add(instructionButton = new JButton("Instructions"));
+        addtionalPanel.add(creditsButton = new JButton("Credits"));
 
         returnButton.addActionListener(this);
         refreshButton.addActionListener(this);
         instructionButton.addActionListener(this);
+        creditsButton.addActionListener(this);
 
         southPanel.add(statusLabel);
         southPanel.add(addtionalPanel);
@@ -201,6 +203,9 @@ public class GameUI extends JPanel implements ActionListener {
 
         if (obj == instructionButton) {
             theGameView.showInstruction(this);
+        }
+        if (obj == creditsButton) {
+            theGameView.showCredits(this);
         }
 
         if (obj == timer) {

@@ -19,6 +19,7 @@ public class GameView extends JFrame {
     private GameUI theGameUI;
     private MainMenuUI theMainMenuUI;
     private Instructions theInstructions;
+    private Credits theCredits;
 
     public GameView(GameController parentGameController) {
         theGameController = parentGameController;
@@ -54,6 +55,21 @@ public class GameView extends JFrame {
         theInstructions = new Instructions(this);
         this.add(theInstructions);
         remove(instructPanel);
+    }
+    
+    public void showCredits()
+    {
+        theCredits = new Credits(this);
+        this.add(theCredits);
+    }
+    
+    public void showCredits(JPanel creditsPanel)
+    {
+        creditsPanel.revalidate();
+        creditsPanel.repaint();
+        theCredits = new Credits(this);
+        this.add(theCredits);
+        remove(creditsPanel);
     }
     
     public void showMainMenuUI() {

@@ -6,6 +6,7 @@
 package numbergame;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
@@ -23,33 +24,43 @@ public class Credits extends JPanel implements ActionListener
     private JButton backButton;
     private JLabel credits;
     private JLabel weAre;
-    private JPanel panel;
-    private MainMenuUI theMainMenu;
     private GameView theGameView;
     
-    public Credits()
+    public Credits(GameView parentGameView)
     {
-        
-        panel = new JPanel();
-        
+        super();
+        theGameView = parentGameView;
+        initCustomComponents();
+    }
+    
+    
+    public void initCustomComponents()
+    {
         credits = new JLabel("Credits");
-        weAre = new JLabel("Here Is Who Made The Game!"
-                + "Lauren Ritter"
-                + "Junggue Chang"
-                + "Tianyue Ma"
-                + "Alex Taing"
-                + "With Special Guest:"
+        weAre = new JLabel("Here Is Who Made The Game!" + " "
+                + "Lauren Ritter" + " "
+                + "Junggue Chang" + " "
+                + "Tianyue Ma" + " "
+                + "Alex Taing" + " "
+                + "With Special Guest: "
                 + "Professor Rimland!");
-        exitButton = new JButton("Exit");
-        backButton = new JButton("Back to Main Screen");
-
-        exitButton.setIcon(new ImageIcon("images/exit.png"));
-        backButton.setIcon(new ImageIcon("images/back.png"));
+        exitButton = new JButton();
+        backButton = new JButton();
         
-        panel.add(credits, BorderLayout.NORTH);
-        panel.add(weAre, BorderLayout.CENTER);
-        panel.add(exitButton, BorderLayout.SOUTH);
-        panel.add(backButton, BorderLayout.SOUTH);
+        exitButton.setPreferredSize(new Dimension(100,50));
+        backButton.setPreferredSize(new Dimension(100,50));
+
+        exitButton.setIcon(new ImageIcon("images/rsz_exit.png"));
+        backButton.setIcon(new ImageIcon("images/rsz_back.png"));
+        
+        
+        add(credits, BorderLayout.NORTH);
+        add(weAre, BorderLayout.CENTER);
+        add(exitButton, BorderLayout.SOUTH);
+        add(backButton, BorderLayout.SOUTH);
+        
+        exitButton.addActionListener(this);
+        backButton.addActionListener(this);
         
         exitButton.setOpaque(false);
         exitButton.setContentAreaFilled(false);
@@ -58,46 +69,6 @@ public class Credits extends JPanel implements ActionListener
         backButton.setContentAreaFilled(false);
         backButton.setBorderPainted(false);
         
-        
-        exitButton.addActionListener(new java.awt.event.ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                exitButtonActionPerformed(e);
-            }
-        });
-        
-        backButton.addActionListener(new java.awt.event.ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                backButtonActionPerformed(e);
-            }
-        });
-        
-    }
-        
-    public void switchToMainTable(){
-        theGameView.removeAll();
-        //theGameView.add(theGameView.centerPanel, theGameView.northPanel);
-        repaint();
-        revalidate();
-    }
-    
-    public void switchToMainMenu(){
-        theMainMenu = (MainMenuUI) new JPanel();
-        //theGameView.mainFrame.getContentPane().removeAll();
-        //theGameView.mainFrame.add(theMainMenu);
-        repaint();
-        revalidate();
-    }
-        
-    public void exitButtonActionPerformed(ActionEvent e){
-        System.exit(0);
-    }
-    
-    public void backButtonActionPerformed(ActionEvent e){
-        switchToMainMenu();
-    }
-    
-    public void startButtonActionPerformed(ActionEvent e){
-        switchToMainTable();
     }
 
     @Override
