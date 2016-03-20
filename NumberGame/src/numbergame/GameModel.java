@@ -15,9 +15,11 @@ import java.util.Scanner;
 public class GameModel {
 
     private int[][] gameMatrix;
-    private boolean[][] optionsChosen;
+    private boolean[][] cellsSelected;
     private int sum;
     private int goalNum;
+
+    private Cell[][] cells;
 
     private final int COLUMN = 3;
     private final int ROW = 3;
@@ -28,14 +30,14 @@ public class GameModel {
     public GameModel() {
 
         gameMatrix = new int[ROW][COLUMN];
-        optionsChosen = new boolean[ROW][COLUMN];
+        cellsSelected = new boolean[ROW][COLUMN];
 
         setGoalNum(ROW * COLUMN * MIN_RANDOM_NUM, ROW * COLUMN * MAX_RANDOM_NUM / 2);
 
         //the options are not selected yet
-        for (int i = 0; i < optionsChosen.length; i++) {
-            for (int j = 0; j < optionsChosen[i].length; j++) {
-                optionsChosen[i][j] = false;
+        for (int i = 0; i < cellsSelected.length; i++) {
+            for (int j = 0; j < cellsSelected[i].length; j++) {
+                cellsSelected[i][j] = false;
             }
         }
 
@@ -46,55 +48,32 @@ public class GameModel {
                 gameMatrix[i][j] = getRandomNum(MIN_RANDOM_NUM, MAX_RANDOM_NUM);
             }
         }
+        
 
     }
 
-    public void regenerateGameMatrix() {
-        for (int i = 0; i < gameMatrix.length; i++) {
-            for (int j = 0; j < gameMatrix[i].length; j++) {
-                gameMatrix[i][j] = getRandomNum(MIN_RANDOM_NUM, MAX_RANDOM_NUM);
+    public Cell[][] createCells() {
+        cells = new Cell[COLUMN][ROW];
+
+        for (int i = 0; i < cells.length; i++) {
+            for (int j = 0; j < cells[i].length; j++) {
+                cells[i][j] = new Cell(getRandomNum(MIN_RANDOM_NUM, MAX_RANDOM_NUM));
             }
         }
+
+        return cells;
     }
 
-    //test only
-    public void play() {
-
-        Scanner scnr = new Scanner(System.in);
-        int row, col;
-
-        System.out.println("Goal Number: " + goalNum);
-        printMatrix();
-
-        System.out.println("enter row:");
-        //user selects the option
-        row = scnr.nextInt();
-        System.out.println("enter column:");
-        col = scnr.nextInt();
-
-        if (optionsChosen[row][col] == false) {
-            //button is pushed and cannot pushed again: turning to true
-            numButtonPushed(row, col);
-            //sum the number
-            sumSelectedNum(row, col);
-        } else {
-            System.out.println(errorMessage());
-        }
-        System.out.println("sum: " + getSum());
-
-        System.out.println("Result Message: " + checkResult());
+    public int getNumOfColumn() {
+        return COLUMN;
     }
 
-    public int[][] getGameMatrix() {
-        return gameMatrix;
+    public int getNumOfRow() {
+        return ROW;
     }
 
     public int getGoalNum() {
         return this.goalNum;
-    }
-
-    public boolean getOptionsChosen(int r, int c) {
-        return optionsChosen[r][c];
     }
 
     //used to set a new goalNum
@@ -106,34 +85,40 @@ public class GameModel {
         return this.sum;
     }
 
+    public void sumSelectedNum(int r, int c) {
+        if (cellsSelected[r][c] == false) {
+            this.sum += gameMatrix[r][c];
+        }
+    }
+
+    //-----------------needs to be refactored-----------------------------------
+    public void regenerateGameMatrix() {
+        for (int i = 0; i < gameMatrix.length; i++) {
+            for (int j = 0; j < gameMatrix[i].length; j++) {
+                gameMatrix[i][j] = getRandomNum(MIN_RANDOM_NUM, MAX_RANDOM_NUM);
+            }
+        }
+    }
+
+    public int[][] getGameMatrix() {
+        return gameMatrix;
+    }
+
+    public boolean getOptionsChosen(int r, int c) {
+        return cellsSelected[r][c];
+    }
+
+    public void numButtonPushed(int r, int c) {
+        this.cellsSelected[r][c] = true;
+    }
+
+//------------------------------------------------------------------------------
     public String checkResult() {
         if (this.goalNum == this.sum) {
             return "You Won";
         } else {
             return "You Lost";
         }
-    }
-
-    //test use only
-    public void printMatrix() {
-        int num = 0;
-        for (int i = 0; i < getGameMatrix().length; i++) {
-            for (int j = 0; j < getGameMatrix()[i].length; j++) {
-                System.out.print("[" + (num++) + "]");
-                System.out.print(getGameMatrix()[i][j]);
-            }
-            System.out.println();
-        }
-    }
-
-    public void sumSelectedNum(int r, int c) {
-        if (optionsChosen[r][c] == false) {
-            this.sum += gameMatrix[r][c];
-        }
-    }
-
-    public void numButtonPushed(int r, int c) {
-        this.optionsChosen[r][c] = true;
     }
 
     public String errorMessage() {
@@ -155,11 +140,42 @@ public class GameModel {
         return randomNumber;
     }
 
-    public int getNumOfColumn() {
-        return COLUMN;
-    }
-
-    public int getNumOfRow() {
-        return ROW;
-    }
+//    //test only
+//    public void play() {
+//
+//        Scanner scnr = new Scanner(System.in);
+//        int row, col;
+//
+//        System.out.println("Goal Number: " + goalNum);
+//        printMatrix();
+//
+//        System.out.println("enter row:");
+//        //user selects the option
+//        row = scnr.nextInt();
+//        System.out.println("enter column:");
+//        col = scnr.nextInt();
+//
+//        if (cellsSelected[row][col] == false) {
+//            //button is pushed and cannot pushed again: turning to true
+//            numButtonPushed(row, col);
+//            //sum the number
+//            sumSelectedNum(row, col);
+//        } else {
+//            System.out.println(errorMessage());
+//        }
+//        System.out.println("sum: " + getSum());
+//
+//        System.out.println("Result Message: " + checkResult());
+//    }
+//    //test use only
+//    public void printMatrix() {
+//        int num = 0;
+//        for (int i = 0; i < getGameMatrix().length; i++) {
+//            for (int j = 0; j < getGameMatrix()[i].length; j++) {
+//                System.out.print("[" + (num++) + "]");
+//                System.out.print(getGameMatrix()[i][j]);
+//            }
+//            System.out.println();
+//        }
+//    }
 }

@@ -291,20 +291,15 @@ public class GameModelTest {
         }
     }
     
-//    // TDD practice 
-//    // Step 1. create a test
-//    // test if a method store randomNumbers in the matrix
-//    @Test
-//    public void testSumSelectedNum(){
-//    
-//        System.out.println("store the random numbers in the game matrix");
-//        GameModel instance = new GameModel();
-//        
-//        int[][] theMatrix= instance.getGameMatrix();
-//        
-//        
-//        
-//    
-//    }
+    // TDD practice 
+    // Step 1. create a test
+    // test if a method store randomNumbers in the matrix
+    @Test
+    public void createCells(){
+    
+        System.out.println("Check if each cell is stored with correct random number range");
+        
+
+    }
     
 }
