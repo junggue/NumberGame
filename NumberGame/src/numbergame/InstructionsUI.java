@@ -20,7 +20,7 @@ import javax.swing.WindowConstants;
  *
  * @author laurenritter
  */
-public class Instructions extends JPanel implements ActionListener{
+public class InstructionsUI extends JPanel implements ActionListener{
     private JButton exitButton;
     private JButton backButton;
     private JButton startButton;
@@ -28,7 +28,7 @@ public class Instructions extends JPanel implements ActionListener{
     private JLabel whatToDo;
     private GameView theGameView;
     
-    public Instructions(GameView parentGameView){
+    public InstructionsUI(GameView parentGameView){
         super();
         theGameView = parentGameView;
         initCustomComponents();

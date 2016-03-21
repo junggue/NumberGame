@@ -18,7 +18,7 @@ import javax.swing.JPanel;
  *
  * @author aot5238
  */
-public class Credits extends JPanel implements ActionListener
+public class CreditsUI extends JPanel implements ActionListener
 {
     private JButton exitButton;
     private JButton backButton;
@@ -26,7 +26,7 @@ public class Credits extends JPanel implements ActionListener
     private JLabel weAre;
     private GameView theGameView;
     
-    public Credits(GameView parentGameView)
+    public CreditsUI(GameView parentGameView)
     {
         super();
         theGameView = parentGameView;

@@ -23,8 +23,8 @@ public class MainMenuUI extends JPanel implements ActionListener{
 //    private JPanel mainPanel;
 
     private JButton startButton, exitButton, instructionButton, creditsButton;
-    private Instructions theInstructions;
-    private Credits theCredits;
+    private InstructionsUI theInstructions;
+    private CreditsUI theCredits;
     private GameView theGameView;
     
 
