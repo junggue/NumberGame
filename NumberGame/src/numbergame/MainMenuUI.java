@@ -51,7 +51,7 @@ public class MainMenuUI extends JPanel implements ActionListener{
         creditsButton.setPreferredSize(new Dimension(100,50));
 
         exitButton.setIcon(new ImageIcon("images/rsz_exit.png"));
-        instructionButton.setIcon(new ImageIcon("images/rsz_back.png"));
+        instructionButton.setIcon(new ImageIcon("images/rsz_instructions.png"));
         startButton.setIcon(new ImageIcon("images/rsz_start.png"));    
         creditsButton.setIcon(new ImageIcon("images/rsz_credits.png"));
         

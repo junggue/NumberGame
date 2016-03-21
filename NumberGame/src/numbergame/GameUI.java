@@ -140,13 +140,27 @@ public class GameUI extends JPanel implements ActionListener {
         statusLabel.setFont(new Font("Serif", Font.BOLD, 30));
 
         addtionalPanel = new JPanel();
-        addtionalPanel.add(returnButton = new JButton("Return to Main Menu"));
-        addtionalPanel.add(refreshButton = new JButton("Refresh"));
-        addtionalPanel.add(instructionButton = new JButton("Instructions"));
+        addtionalPanel.add(returnButton = new JButton(new ImageIcon("images/rsz_return.png")));
+        addtionalPanel.add(refreshButton = new JButton(new ImageIcon("images/rsz_refresh.png")));
+        addtionalPanel.add(instructionButton = new JButton(new ImageIcon("images/rsz_instructions.png")));
+        
+        returnButton.setPreferredSize(new Dimension(100,50));
+        refreshButton.setPreferredSize(new Dimension(100,50));
+        instructionButton.setPreferredSize(new Dimension(100,50));
 
         returnButton.addActionListener(this);
         refreshButton.addActionListener(this);
         instructionButton.addActionListener(this);
+        
+        returnButton.setOpaque(false);
+        returnButton.setContentAreaFilled(false);
+        returnButton.setBorderPainted(false);
+        refreshButton.setOpaque(false);
+        refreshButton.setContentAreaFilled(false);
+        refreshButton.setBorderPainted(false);
+        instructionButton.setOpaque(false);
+        instructionButton.setContentAreaFilled(false);
+        instructionButton.setBorderPainted(false);
 
         southPanel.add(statusLabel);
         southPanel.add(addtionalPanel);
